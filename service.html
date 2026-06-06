@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details — HameemBhai er Dokan</title>
+  <meta name="description" content="View pricing tiers, details, and reviews for creative services by HameemBhai er Dokan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=1.1.3">
+  <link rel="stylesheet" href="css/components.css?v=1.1.3">
+  <link rel="stylesheet" href="css/layout.css?v=1.1.3">
+  <link rel="stylesheet" href="css/pages/service.css?v=1.1.3">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+<body>
+
+  <header id="hbd-header"></header>
+
+  <main id="main-content">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb container" aria-label="Breadcrumb" id="service-breadcrumb">
+      <a href="index.html" class="breadcrumb__link">Home</a>
+      <span class="breadcrumb__sep">›</span>
+      <a href="services.html" class="breadcrumb__link">Services</a>
+      <span class="breadcrumb__sep">›</span>
+      <span class="breadcrumb__current" id="breadcrumb-service-name">Service Name</span>
+    </nav>
+
+    <!-- ═══ SERVICE DETAILS ═══ -->
+    <section class="service-hero section">
+      <div class="container">
+        <div class="service-hero__layout">
+
+          <!-- Left: Image Gallery, Title, Description & Reviews -->
+          <div class="service-hero__main" data-animate="fade-up">
+            <div class="service-gallery" id="service-gallery" style="margin-bottom: var(--sp-8);">
+              <!-- Main Image showcase with aspect ratio 16:9 -->
+              <div class="service-gallery__main" id="service-main-image" style="display: flex; align-items: center; justify-content: center; min-height: 380px;">
+                <span class="service-detail__main-emoji" id="service-main-emoji" style="font-size: 5rem;">📦</span>
+              </div>
+            </div>
+
+            <!-- Title & Meta Info -->
+            <div class="service-info" style="margin-bottom: var(--sp-8);">
+              <span class="service-category-badge" id="service-cat-badge" style="display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; margin-bottom: var(--sp-3);">Category</span>
+              <h1 class="service-info__title" id="service-name" style="font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: var(--sp-3); line-height: 1.2;">Service Name</h1>
+              <div class="service-info__meta" id="service-rating-summary" style="display: none; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--clr-text-secondary);">
+                <span id="service-stars"></span>
+                <span class="service-rating-text" id="service-rating-text"></span>
+              </div>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="service-tabs">
+              <div class="service-tabs__header">
+                <button class="service-tabs__btn is-active" data-tab="desc">Description</button>
+                <button class="service-tabs__btn" data-tab="specs">What's Included</button>
+                <button class="service-tabs__btn" data-tab="reviews" id="tab-reviews-count">Reviews (0)</button>
+              </div>
+              <div class="service-tabs__content">
+                <!-- Tab: Description -->
+                <div class="service-tabs__pane is-active" id="tab-desc">
+                  <p id="service-long-desc">Detailed service description will go here...</p>
+                </div>
+                <!-- Tab: Specs -->
+                <div class="service-tabs__pane" id="tab-specs">
+                  <ul class="specs-list" id="service-specs-list">
+                    <!-- Dynamic -->
+                  </ul>
+                </div>
+                <!-- Tab: Reviews -->
+                <div class="service-tabs__pane" id="tab-reviews">
+                  <div class="reviews-summary">
+                    <div class="reviews-summary__score">
+                      <span class="reviews-summary__num" id="reviews-avg-score">0.0</span>
+                      <div class="reviews-summary__stars" id="reviews-summary-stars"></div>
+                      <span class="reviews-summary__label" id="reviews-summary-count">Based on 0 reviews</span>
+                    </div>
+                  </div>
+                  <div class="reviews-list" id="service-reviews-list">
+                    <!-- Rendered by service.js -->
+                  </div>
+
+                  <!-- Write a Review Form -->
+                  <div class="review-form-container">
+                    <h3 class="review-form__title">Write a Review</h3>
+                    <form id="hbd-review-form" class="review-form">
+
+                      <div class="hbd-form-group">
+                        <label>Rating *</label>
+                        <div class="rating-input" id="rating-input-stars">
+                          <button type="button" class="rating-input__star" data-value="1">★</button>
+                          <button type="button" class="rating-input__star" data-value="2">★</button>
+                          <button type="button" class="rating-input__star" data-value="3">★</button>
+                          <button type="button" class="rating-input__star" data-value="4">★</button>
+                          <button type="button" class="rating-input__star" data-value="5">★</button>
+                        </div>
+                        <input type="hidden" id="rev-rating" name="rating" value="5" />
+                      </div>
+                      <div class="hbd-form-group">
+                        <label for="rev-text">Review Content *</label>
+                        <textarea id="rev-text" name="text" rows="4" required placeholder="Tell us about your experience..." class="hbd-input"></textarea>
+                      </div>
+                      <button type="submit" class="hbd-btn hbd-btn--primary">Submit Review</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Pricing Sidebar (Stripe-Style Single Product Action Box) -->
+          <div class="service-pricing" data-animate="fade-up">
+            <div class="service-pricing__panel" style="background: rgba(22, 19, 25, 0.45); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: var(--sp-6); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+              
+              <div class="service-pricing__price" style="display: flex; align-items: baseline; gap: 8px; margin-bottom: var(--sp-4);">
+                <span class="service-pricing__currency" id="service-price-currency" style="font-size: var(--fs-lg); font-weight: 600; color: var(--clr-text-secondary);">BDT</span>
+                <span class="service-pricing__amount" id="service-price-amount" style="font-family: var(--font-heading); font-size: 2.25rem; font-weight: 800; color: var(--clr-text-primary); line-height: 1;">৳0</span>
+                <span id="service-price-original" style="color: rgba(255,255,255,0.4); text-decoration: line-through; font-size: 1.1rem; margin-left: 8px; display: none;">৳0</span>
+              </div>
+              
+              <p class="service-pricing__desc" id="service-short-desc" style="font-size: var(--fs-sm); color: var(--clr-text-secondary); margin-bottom: var(--sp-5); line-height: 1.5;"></p>
+
+              <!-- Stock & Delivery details -->
+              <div style="margin-bottom: var(--sp-6); display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--clr-text-secondary);">
+                  <span id="service-stock-indicator" class="hbd-badge" style="background: rgba(0, 200, 150, 0.1); color: #00c9a7; font-size: 0.72rem; font-weight: 600; border: 1px solid rgba(0, 200, 150, 0.25);">In Stock</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--clr-text-secondary);">
+                  <span>🚚 Estimated delivery:</span>
+                  <strong id="service-delivery-time" style="color: var(--clr-text-primary);">1–2 weeks</strong>
+                </div>
+              </div>
+
+              <!-- Quantity Selector -->
+              <div class="hbd-form-group" id="qty-selector-wrapper" style="margin-bottom: var(--sp-6);">
+                <label style="margin-bottom: 6px; display: block; font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">Quantity</label>
+                <div class="qty-selector" style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; height: 38px;">
+                  <button type="button" id="qty-minus" class="qty-selector__btn" style="width: 36px; height: 100%; border: none; background: none; color: #fff; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">−</button>
+                  <input type="text" id="qty-input" value="1" style="width: 36px; border: none; background: none; color: #fff; text-align: center; font-weight: 600; font-size: 0.9rem; outline: none; border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); height: 100%;" readonly />
+                  <button type="button" id="qty-plus" class="qty-selector__btn" style="width: 36px; height: 100%; border: none; background: none; color: #fff; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">+</button>
+                </div>
+              </div>
+
+              <!-- Direct Actions -->
+              <div class="service-pricing__actions" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                <button class="hbd-btn hbd-btn--primary hbd-btn--block" id="service-add-to-cart-btn" style="width: 100%;">Add to Cart 🛒</button>
+                <button class="hbd-btn hbd-btn--outline hbd-btn--block" id="service-buy-now-btn" style="width: 100%;">Buy It Now 🚀</button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ORDER TIMELINE ═══ -->
+    <section class="service-timeline section">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <span class="section__label">Simple Steps</span>
+          <h2 class="section__title">Our Working Process</h2>
+          <p class="section__subtitle">Here is what happens when you place an order with HameemBhai er Dokan.</p>
+        </div>
+        <div class="service-timeline__container" id="service-process-timeline" data-animate="fade-up">
+          <!-- Rendered by components.renderProcessTimeline -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RELATED SERVICES ═══ -->
+    <section class="related section" id="related-services-section">
+      <div class="container">
+        <div class="section__header" data-animate="fade-up">
+          <h2 class="section__title">Related Services</h2>
+          <p class="section__subtitle">Other premium services you might be interested in.</p>
+        </div>
+        <div class="related__grid" id="related-services-grid">
+          <!-- Rendered by service.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="hbd-footer"></footer>
+
+  <script src="js/content-store.js?v=1.1.3"></script>
+  <script src="js/utils.js?v=1.1.3"></script>
+  <script src="js/data.js?v=1.1.3"></script>
+  <script src="js/store.js?v=1.1.3"></script>
+  <script src="js/components.js?v=1.1.3"></script>
+  <script src="js/email-service.js?v=1.1.3"></script>
+
+  <script src="js/pages/service.js?v=1.1.3"></script>
+  <script src="js/premium-effects.js?v=1.1.3"></script>
+</body>
+</html>

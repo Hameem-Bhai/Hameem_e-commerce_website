@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Register — HameemBhai er Dokan</title>
+  <meta name="description" content="Access your account, track creative service orders, and unlock customer benefits at HameemBhai er Dokan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=1.1.3">
+  <link rel="stylesheet" href="css/components.css?v=1.1.3">
+  <link rel="stylesheet" href="css/layout.css?v=1.1.3">
+  <link rel="stylesheet" href="css/pages/login.css?v=1.1.3">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+<body>
+
+  <header id="hbd-header"></header>
+
+  <main id="main-content">
+
+    <section class="auth-section section">
+      <div class="auth-shapes">
+        <div class="auth-shape auth-shape--1"></div>
+        <div class="auth-shape auth-shape--2"></div>
+      </div>
+
+      <div class="container">
+        <div class="auth-container" data-animate="fade-up">
+
+          <!-- Tabs -->
+          <div class="auth-tabs">
+            <button class="auth-tabs__btn is-active" id="tab-btn-login" data-tab="login">Login</button>
+            <button class="auth-tabs__btn" id="tab-btn-register" data-tab="register">Register</button>
+          </div>
+
+          <div class="auth-panes">
+            <!-- ─── PANE: LOGIN ─── -->
+            <div class="auth-pane is-active" id="pane-login">
+              <h2 class="auth-pane__title">Welcome Back</h2>
+              <p class="auth-pane__subtitle">Log in to track orders and claim your customer rewards.</p>
+
+              <form id="form-login" class="auth-form">
+                <div class="hbd-form-group">
+                  <label for="login-email">Email Address / Phone *</label>
+                  <input type="text" id="login-email" required placeholder="e.g. you@example.com" class="hbd-input" />
+                </div>
+                <div class="hbd-form-group">
+                  <label for="login-password">Password *</label>
+                  <input type="password" id="login-password" required placeholder="••••••••" class="hbd-input" />
+                </div>
+                <div class="auth-form__helpers">
+                  <label class="filter-checkbox">
+                    <input type="checkbox" id="login-remember"> Remember me
+                  </label>
+                  <a href="#" class="auth-form__forgot-link" id="login-forgot-pass">Forgot Password?</a>
+                </div>
+                <button type="submit" class="hbd-btn hbd-btn--primary auth-submit-btn">Login</button>
+              </form>
+            </div>
+
+            <!-- ─── PANE: REGISTER ─── -->
+            <div class="auth-pane" id="pane-register">
+              <h2 class="auth-pane__title">Create Account</h2>
+              <p class="auth-pane__subtitle">Get a lifetime <strong>10% off</strong> discount as a returning customer!</p>
+
+              <form id="form-register" class="auth-form">
+                <div class="hbd-form-group">
+                  <label for="reg-name">Full Name *</label>
+                  <input type="text" id="reg-name" required placeholder="e.g. Nusrat Jahan" class="hbd-input" />
+                </div>
+                <div class="hbd-form-group">
+                  <label for="reg-email">Email Address *</label>
+                  <input type="email" id="reg-email" required placeholder="you@example.com" class="hbd-input" />
+                </div>
+                <div class="hbd-form-group">
+                  <label for="reg-phone">Phone Number *</label>
+                  <input type="tel" id="reg-phone" required placeholder="e.g. +880 1XXXXXXXXX" class="hbd-input" />
+                </div>
+                <div class="hbd-form-group">
+                  <label for="reg-address">Delivery / Shipping Address (Optional)</label>
+                  <input type="text" id="reg-address" placeholder="e.g. House 12, Road 4, Dhanmondi, Dhaka" class="hbd-input" />
+                </div>
+                <div class="form-row">
+                  <div class="hbd-form-group">
+                    <label for="reg-password">Password *</label>
+                    <input type="password" id="reg-password" required placeholder="••••••••" class="hbd-input" />
+                  </div>
+                  <div class="hbd-form-group">
+                    <label for="reg-confirm">Confirm Password *</label>
+                    <input type="password" id="reg-confirm" required placeholder="••••••••" class="hbd-input" />
+                  </div>
+                </div>
+                <button type="submit" class="hbd-btn hbd-btn--primary auth-submit-btn">Register</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="hbd-footer"></footer>
+
+  <script src="js/content-store.js?v=1.1.3"></script>
+  <script src="js/utils.js?v=1.1.3"></script>
+  <script src="js/data.js?v=1.1.3"></script>
+  <script src="js/store.js?v=1.1.3"></script>
+  <script src="js/components.js?v=1.1.3"></script>
+  <script src="js/email-service.js?v=1.1.3"></script>
+
+  <script src="js/pages/login.js?v=1.1.3"></script>
+  <script src="js/premium-effects.js?v=1.1.3"></script>
+</body>
+</html>

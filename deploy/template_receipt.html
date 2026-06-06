@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="utf-8">
+  <title>Order Receipt</title>
+  <style>
+    body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #050505; color: #ffffff; }
+    .container { max-width: 600px; margin: 0 auto; background-color: #121212; border: 1px solid #333333; border-radius: 12px; overflow: hidden; margin-top: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); text-align: center; padding: 40px 20px; border-bottom: 1px solid #333; }
+    .logo { height: 60px; max-height: 60px; display: inline-block; vertical-align: middle; }
+    .title { font-size: 24px; font-weight: 700; margin: 20px 0 5px; color: #ffffff; letter-spacing: -0.5px; }
+    .subtitle { font-size: 15px; color: #888888; margin: 0; }
+    .content { padding: 40px; }
+    .greeting { font-size: 18px; margin-bottom: 25px; line-height: 1.5; color: #dddddd; }
+    .order-meta { background-color: #1a1a1a; border-radius: 8px; padding: 20px; margin-bottom: 30px; border: 1px solid #2a2a2a; }
+    .meta-row { display: table; width: 100%; margin-bottom: 10px; }
+    .meta-row:last-child { margin-bottom: 0; }
+    .meta-label { display: table-cell; width: 40%; color: #888888; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    .meta-value { display: table-cell; width: 60%; color: #ffffff; font-size: 14px; font-weight: 500; text-align: right; }
+    .table-title { font-size: 14px; font-weight: 600; text-transform: uppercase; color: #f4a8c7; letter-spacing: 1px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    .item-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+    .item-table th, .item-table td { padding: 12px 0; border-bottom: 1px solid #2a2a2a; text-align: left; }
+    .item-table th { color: #888888; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .item-table td { color: #dddddd; font-size: 14px; }
+    .text-right { text-align: right !important; }
+    .totals { border-top: 1px solid #333; padding-top: 20px; }
+    .totals-row { display: table; width: 100%; margin-bottom: 12px; }
+    .totals-label { display: table-cell; text-align: right; color: #888888; font-size: 14px; padding-right: 20px; }
+    .totals-value { display: table-cell; text-align: right; color: #ffffff; font-size: 15px; width: 100px; font-weight: 500; }
+    .grand-total { font-size: 18px; font-weight: 700; color: #f4a8c7; }
+    .btn-container { text-align: center; margin-top: 40px; }
+    .btn { background-color: #f4a8c7; color: #050505; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-size: 15px; font-weight: 600; display: inline-block; transition: all 0.3s; }
+    .footer { text-align: center; padding: 30px 40px; background-color: #0d0d0d; border-top: 1px solid #222; }
+    .footer-logo { height: 40px; max-height: 40px; display: inline-block; vertical-align: middle; margin-bottom: 10px; }
+    .footer p { margin: 0 0 10px; color: #666666; font-size: 12px; line-height: 1.5; }
+    .footer a { color: #888888; text-decoration: none; }
+  </style>
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img class="logo" src="https://i.postimg.cc/x8RYN8Q3/logo.png" alt="HBD">
+      <h1 class="title">Order Confirmed</h1>
+      <p class="subtitle">Thank you for choosing HameemBhai er Dokan</p>
+    </div>
+    <div class="content">
+      <div class="greeting">
+        Hello {{customer_name}},<br>
+        We've received your creative brief and are reviewing your order. Here is your receipt.
+      </div>
+
+      <div class="order-meta">
+        <div class="meta-row">
+          <div class="meta-label">Order ID</div>
+          <div class="meta-value" style="color: #f4a8c7;">{{order_number}}</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">Date</div>
+          <div class="meta-value">{{order_date}}</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">Payment Method</div>
+          <div class="meta-value">{{payment_method}}</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-label">Transaction ID</div>
+          <div class="meta-value">{{transaction_id}}</div>
+        </div>
+      </div>
+
+      <div class="table-title">Order Details</div>
+      <table class="item-table">
+        <thead>
+          <tr>
+            <th>Service Details</th>
+            <th class="text-right">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- We will inject items formatted into HTML directly into this variable -->
+          {{{order_items_html}}}
+        </tbody>
+      </table>
+
+      <div class="totals">
+        <div class="totals-row">
+          <div class="totals-label">Subtotal</div>
+          <div class="totals-value">BDT {{order_subtotal}}</div>
+        </div>
+        <div class="totals-row">
+          <div class="totals-label">Discounts</div>
+          <div class="totals-value" style="color: #6ecf94;">-BDT {{order_discount}}</div>
+        </div>
+        <div class="totals-row">
+          <div class="totals-label">Delivery Charge</div>
+          <div class="totals-value">+BDT {{deliveryFee}}</div>
+        </div>
+        <div class="totals-row">
+          <div class="totals-label grand-total">Total Amount</div>
+          <div class="totals-value grand-total">BDT {{order_total}}</div>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <a href="https://wa.me/8801785501873" class="btn" style="margin-bottom: 10px;">Message on WhatsApp</a>
+        <a href="{{website_url}}" class="btn" style="background-color: transparent; border: 1px solid #f4a8c7; color: #f4a8c7;">Explore Website</a>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <img class="footer-logo" src="https://i.postimg.cc/x8RYN8Q3/logo.png" alt="HBD">
+      <p>Need help? Reply to this email or reach out on <a href="https://wa.me/8801785501873">WhatsApp</a>.</p>
+      <p>&copy; 2026 HameemBhai er Dokan.<br>All rights reserved. Dhaka, Bangladesh.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard — HameemBhai er Dokan</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/base.css?v=1.1.3"/>
+  <link rel="stylesheet" href="css/pages/admin.css?v=1.1.3"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+<body class="admin-page">
+
+  <!-- ── Modal Overlay ── -->
+  <div class="admin-modal-overlay" id="admin-modal-overlay">
+    <div class="admin-modal" id="admin-modal">
+      <div class="admin-modal__header">
+        <h2 class="admin-modal__title" id="admin-modal-title">Edit</h2>
+        <button class="admin-modal__close" id="admin-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="admin-modal__body" id="admin-modal-body"></div>
+      <div class="admin-modal__footer" id="admin-modal-footer">
+        <button class="admin-btn admin-btn--outline" id="admin-modal-cancel">Cancel</button>
+        <button class="admin-btn admin-btn--primary" id="admin-modal-save">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="admin-sidebar">
+      <a href="index.html" class="admin-sidebar__logo">
+        <div id="admin-logo-slot"></div>
+        <div>
+          <div class="admin-sidebar__title">HameemBhai er Dokan</div>
+          <div class="admin-sidebar__sub">Admin Panel</div>
+        </div>
+      </a>
+
+      <nav class="admin-nav" id="admin-nav">
+        <div class="admin-nav__section">Commerce</div>
+        <button class="admin-nav__item" data-section="orders">
+          <span class="admin-nav__icon">📦</span> Orders
+        </button>
+        <button class="admin-nav__item" data-section="customers">
+          <span class="admin-nav__icon">👥</span> Customers
+        </button>
+
+        <div class="admin-nav__section">Content</div>
+        <button class="admin-nav__item is-active" data-section="services">
+          <span class="admin-nav__icon">🛍️</span> Services
+        </button>
+        <button class="admin-nav__item" data-section="categories">
+          <span class="admin-nav__icon">📂</span> Categories
+        </button>
+        <button class="admin-nav__item" data-section="reviews">
+          <span class="admin-nav__icon">⭐</span> Reviews
+        </button>
+        <button class="admin-nav__item" data-section="recommended">
+          <span class="admin-nav__icon">🏆</span> Recommended
+        </button>
+
+        <div class="admin-nav__section">Site Editing</div>
+        <button class="admin-nav__item" data-section="site-content">
+          <span class="admin-nav__icon">✏️</span> Site Content
+        </button>
+        <button class="admin-nav__item" data-section="availability">
+          <span class="admin-nav__icon">🟢</span> Availability
+        </button>
+
+        <div class="admin-nav__section">Store</div>
+        <button class="admin-nav__item" data-section="codes">
+          <span class="admin-nav__icon">🎟️</span> Promo Codes
+        </button>
+
+        <div class="admin-nav__section">System</div>
+        <button class="admin-nav__item" data-section="settings">
+          <span class="admin-nav__icon">⚙️</span> Settings
+        </button>
+      </nav>
+
+      <div class="admin-sidebar__footer">
+        <a href="index.html" class="admin-sidebar__logout" style="color:rgba(255,255,255,0.4);margin-bottom:0.6rem;text-decoration:none;font-size:0.8rem;display:flex;align-items:center;gap:0.5rem;">
+          ← View Site
+        </a>
+        <a href="#" id="admin-logout-link" class="admin-sidebar__logout">
+          🚪 Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="admin-main">
+
+      <!-- ORDERS -->
+      <section class="admin-section" id="section-orders">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">📦 Orders</h1>
+            <p class="admin-section__desc">Manage customer orders and workflow</p>
+          </div>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="admin-table-orders">
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CUSTOMERS -->
+      <section class="admin-section" id="section-customers">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">👥 Customers</h1>
+            <p class="admin-section__desc">Manage registered customers</p>
+          </div>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="admin-table-customers">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Location</th>
+                <th>Joined Date</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="admin-section is-active" id="section-services">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">🛍️ Services</h1>
+            <p class="admin-section__desc">Add, edit, or remove services and their pricing</p>
+          </div>
+          <div class="admin-section__actions">
+            <div class="admin-search">
+              <span class="admin-search__icon">🔍</span>
+              <input class="admin-input" id="services-search" placeholder="Search services…" type="text"/>
+            </div>
+            <button class="admin-btn admin-btn--primary" id="add-service-btn">+ Add Service</button>
+          </div>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Category</th>
+                <th>Tier</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="services-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="admin-section" id="section-categories">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">📂 Categories</h1>
+            <p class="admin-section__desc">Manage service categories</p>
+          </div>
+          <button class="admin-btn admin-btn--primary" id="add-category-btn">+ Add Category</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Icon</th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Colour</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="categories-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section class="admin-section" id="section-reviews">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">⭐ Reviews</h1>
+            <p class="admin-section__desc">Hide or delete customer reviews</p>
+          </div>
+          <div class="admin-section__actions" style="display: flex; gap: 12px; align-items: center;">
+            <button class="admin-btn admin-btn--primary" id="add-review-btn" style="white-space: nowrap;">+ Add Review</button>
+            <div class="admin-search">
+              <span class="admin-search__icon">🔍</span>
+              <input class="admin-input" id="reviews-search" placeholder="Search reviews…" type="text"/>
+            </div>
+          </div>
+        </div>
+        <div class="admin-review-grid" id="reviews-grid"></div>
+      </section>
+
+      <!-- RECOMMENDED -->
+      <section class="admin-section" id="section-recommended">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">🏆 Recommended</h1>
+            <p class="admin-section__desc">Choose which services show in the home page "Recommended" section (pick up to 6)</p>
+          </div>
+          <button class="admin-btn admin-btn--primary" id="save-recommended-btn">💾 Save</button>
+        </div>
+        <div class="admin-recommended-list" id="recommended-list"></div>
+      </section>
+
+      <!-- PROMO CODES -->
+      <section class="admin-section" id="section-codes">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">🎟️ Promo Codes</h1>
+            <p class="admin-section__desc">Add or remove discount codes</p>
+          </div>
+          <button class="admin-btn admin-btn--primary" id="add-code-btn">+ Add Code</button>
+        </div>
+        <div class="admin-codes-grid" id="codes-grid"></div>
+      </section>
+
+      <!-- SITE CONTENT EDITOR -->
+      <section class="admin-section" id="section-site-content">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">✏️ Site Content Editor</h1>
+            <p class="admin-section__desc">Edit every piece of text and info on your website. Changes apply instantly.</p>
+          </div>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div class="admin-content-group">
+          <div class="admin-content-group__header">
+            <span>🏠 Home Page</span>
+            <div>
+              <button class="admin-btn admin-btn--outline admin-btn--sm" onclick="resetContentSection('home')">Reset</button>
+              <button class="admin-btn admin-btn--primary admin-btn--sm" onclick="saveContentSection('home')">💾 Save</button>
+            </div>
+          </div>
+          <div class="admin-content-group__body">
+            <div class="admin-content-field"><label>Hero Badge Text</label><input class="admin-input" id="cnt-home-heroBadge" /></div>
+            <div class="admin-content-field"><label>Hero Main Title</label><input class="admin-input" id="cnt-home-heroTitle" /></div>
+            <div class="admin-content-field"><label>Hero Subtitle</label><textarea class="admin-input" id="cnt-home-heroSubtitle" rows="2"></textarea></div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>CTA Button 1</label><input class="admin-input" id="cnt-home-heroCTA1" /></div>
+              <div class="admin-content-field"><label>CTA Button 2</label><input class="admin-input" id="cnt-home-heroCTA2" /></div>
+            </div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>Stat Pill 1</label><input class="admin-input" id="cnt-home-heroStat1" /></div>
+              <div class="admin-content-field"><label>Stat Pill 2</label><input class="admin-input" id="cnt-home-heroStat2" /></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div class="admin-content-group">
+          <div class="admin-content-group__header">
+            <span>👤 About Page</span>
+            <div>
+              <button class="admin-btn admin-btn--outline admin-btn--sm" onclick="resetContentSection('about')">Reset</button>
+              <button class="admin-btn admin-btn--primary admin-btn--sm" onclick="saveContentSection('about')">💾 Save</button>
+            </div>
+          </div>
+          <div class="admin-content-group__body">
+            <div class="admin-content-field"><label>Page Badge</label><input class="admin-input" id="cnt-about-heroBadge" /></div>
+            <div class="admin-content-field"><label>Page Title</label><input class="admin-input" id="cnt-about-heroTitle" /></div>
+            <div class="admin-content-field"><label>Page Subtitle</label><input class="admin-input" id="cnt-about-heroSubtitle" /></div>
+            <div class="admin-content-field"><label>Story Title</label><input class="admin-input" id="cnt-about-storyTitle" /></div>
+            <div class="admin-content-field"><label>Story Paragraph 1</label><textarea class="admin-input" id="cnt-about-storyP1" rows="3"></textarea></div>
+            <div class="admin-content-field"><label>Story Paragraph 2</label><textarea class="admin-input" id="cnt-about-storyP2" rows="3"></textarea></div>
+            <div class="admin-content-field"><label>Story Paragraph 3</label><textarea class="admin-input" id="cnt-about-storyP3" rows="2"></textarea></div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>Stat: Projects</label><input class="admin-input" id="cnt-about-statProjects" type="number" /></div>
+              <div class="admin-content-field"><label>Stat: Clients</label><input class="admin-input" id="cnt-about-statClients" type="number" /></div>
+              <div class="admin-content-field"><label>Stat: Years</label><input class="admin-input" id="cnt-about-statYears" type="number" /></div>
+              <div class="admin-content-field"><label>Stat: Satisfaction %</label><input class="admin-input" id="cnt-about-statSatisfaction" type="number" /></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div class="admin-content-group">
+          <div class="admin-content-group__header">
+            <span>📞 Contact Page</span>
+            <div>
+              <button class="admin-btn admin-btn--outline admin-btn--sm" onclick="resetContentSection('contact')">Reset</button>
+              <button class="admin-btn admin-btn--primary admin-btn--sm" onclick="saveContentSection('contact')">💾 Save</button>
+            </div>
+          </div>
+          <div class="admin-content-group__body">
+            <div class="admin-content-field"><label>Page Title</label><input class="admin-input" id="cnt-contact-title" /></div>
+            <div class="admin-content-field"><label>Page Subtitle</label><input class="admin-input" id="cnt-contact-subtitle" /></div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>Email Address</label><input class="admin-input" id="cnt-contact-email" type="email" /></div>
+              <div class="admin-content-field"><label>Phone / WhatsApp Number</label><input class="admin-input" id="cnt-contact-phone" /></div>
+            </div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>WhatsApp Link (wa.me/...)</label><input class="admin-input" id="cnt-contact-whatsappLink" /></div>
+              <div class="admin-content-field"><label>Instagram Handle</label><input class="admin-input" id="cnt-contact-instagramHandle" placeholder="hameem_bhai" /></div>
+            </div>
+            <div class="admin-content-field"><label>Location</label><input class="admin-input" id="cnt-contact-location" /></div>
+          </div>
+        </div>
+
+        <!-- GLOBAL / FOOTER -->
+        <div class="admin-content-group">
+          <div class="admin-content-group__header">
+            <span>🌐 Footer & Global</span>
+            <div>
+              <button class="admin-btn admin-btn--outline admin-btn--sm" onclick="resetContentSection('global')">Reset</button>
+              <button class="admin-btn admin-btn--primary admin-btn--sm" onclick="saveContentSection('global')">💾 Save</button>
+            </div>
+          </div>
+          <div class="admin-content-group__body">
+            <div class="admin-content-field"><label>Footer Tagline</label><input class="admin-input" id="cnt-global-tagline" /></div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>Footer Email</label><input class="admin-input" id="cnt-global-footerEmail" /></div>
+              <div class="admin-content-field"><label>Footer Phone</label><input class="admin-input" id="cnt-global-footerPhone" /></div>
+            </div>
+            <div class="admin-content-row">
+              <div class="admin-content-field"><label>Instagram URL</label><input class="admin-input" id="cnt-global-footerInstagram" /></div>
+              <div class="admin-content-field"><label>WhatsApp URL</label><input class="admin-input" id="cnt-global-footerWhatsapp" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AVAILABILITY -->
+      <section class="admin-section" id="section-availability">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">🟢 Availability Status</h1>
+            <p class="admin-section__desc">Control the live status badge visible to all visitors on your site.</p>
+          </div>
+        </div>
+        <div class="admin-content-group">
+          <div class="admin-content-group__body">
+            <p style="color:var(--clr-text-secondary);margin-bottom:1.5rem;font-size:0.92rem;">Visitors see this badge floating on every page of your site. Update it to manage expectations.</p>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <button class="admin-avail-btn" id="avail-available" onclick="setAvailability('available')">
+                <span class="avail-dot avail-dot--green"></span>
+                <div><strong>Currently Available</strong><span>Actively taking new orders. Full speed!</span></div>
+              </button>
+              <button class="admin-avail-btn" id="avail-busy" onclick="setAvailability('busy')">
+                <span class="avail-dot avail-dot--yellow"></span>
+                <div><strong>Busy — Limited Orders</strong><span>Taking orders but delivery may be slower.</span></div>
+              </button>
+              <button class="admin-avail-btn" id="avail-closed" onclick="setAvailability('closed')">
+                <span class="avail-dot avail-dot--red"></span>
+                <div><strong>Closed for Now</strong><span>Not accepting new orders. Will be back soon!</span></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-section" id="section-settings">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">⚙️ Settings</h1>
+            <p class="admin-section__desc">Backup, restore, and reset your store data</p>
+          </div>
+        </div>
+
+        <div class="admin-stats-grid" id="admin-stats-grid"></div>
+
+        <div class="admin-settings-card">
+          <div class="admin-settings-card__title">📤 Export Data</div>
+          <div class="admin-settings-card__desc">Download all your custom services, reviews, and codes as a JSON file. Use this to back up your data.</div>
+          <div class="admin-settings-card__actions">
+            <button class="admin-btn admin-btn--outline" id="export-btn">Export JSON</button>
+          </div>
+        </div>
+
+        <div class="admin-settings-card">
+          <div class="admin-settings-card__title">📥 Import Data</div>
+          <div class="admin-settings-card__desc">Paste a previously exported JSON to restore your data. This will overwrite your current store settings.</div>
+          <textarea class="admin-json-area" id="import-textarea" placeholder='Paste your exported JSON here…'></textarea>
+          <div class="admin-settings-card__actions">
+            <button class="admin-btn admin-btn--primary" id="import-btn">Import JSON</button>
+          </div>
+        </div>
+
+        <div class="admin-settings-card">
+          <div class="admin-settings-card__title">🔄 Reset to Defaults</div>
+          <div class="admin-settings-card__desc">Wipe all your custom edits and restore the original default services, categories, and reviews. <strong style="color:#ff8080">This cannot be undone.</strong></div>
+          <div class="admin-settings-card__actions">
+            <button class="admin-btn admin-btn--danger" id="reset-btn">Reset Everything</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/content-store.js?v=1.1.3"></script>
+  <script src="js/utils.js?v=1.1.3"></script>
+  <script src="js/data.js?v=1.1.3"></script>
+  <script src="js/store.js?v=1.1.3"></script>
+  <script src="js/components.js?v=1.1.3"></script>
+  <script src="js/email-service.js?v=1.1.3"></script>
+
+  <script src="js/pages/admin.js?v=1.1.3"></script>
+  <script src="js/admin-content-editor.js?v=1.1.3"></script>
+  <script src="js/premium-effects.js?v=1.1.3"></script>
+</body>
+</html>
