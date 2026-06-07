@@ -59,12 +59,14 @@
 
 /* Column widths */
 .cart-table colgroup { display: none; }
-.cart-table th:nth-child(1), .cart-table td:nth-child(1) { width: 38%; }
-.cart-table th:nth-child(2), .cart-table td:nth-child(2) { width: 14%; }
-.cart-table th:nth-child(3), .cart-table td:nth-child(3) { width: 13%; }
-.cart-table th:nth-child(4), .cart-table td:nth-child(4) { width: 17%; }
-.cart-table th:nth-child(5), .cart-table td:nth-child(5) { width: 11%; }
-.cart-table th:nth-child(6), .cart-table td:nth-child(6) { width: 7%;  }
+@media (min-width: 641px) {
+  .cart-table th:nth-child(1), .cart-table td:nth-child(1) { width: 38%; }
+  .cart-table th:nth-child(2), .cart-table td:nth-child(2) { width: 14%; }
+  .cart-table th:nth-child(3), .cart-table td:nth-child(3) { width: 13%; }
+  .cart-table th:nth-child(4), .cart-table td:nth-child(4) { width: 17%; }
+  .cart-table th:nth-child(5), .cart-table td:nth-child(5) { width: 11%; }
+  .cart-table th:nth-child(6), .cart-table td:nth-child(6) { width: 7%;  }
+}
 
 /* ── Table header ─────────────────────────────────────────── */
 .cart-table thead tr {
@@ -251,7 +253,23 @@
 }
 
 /* ── Mobile table ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cart-table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cart-table {
+    min-width: 600px;
+    table-layout: auto !important;
+  }
+}
+
 @media (max-width: 640px) {
+  .cart-table {
+    min-width: 0 !important;
+    table-layout: auto !important;
+  }
+
   .cart-table thead { display: none; }
 
   .cart-item-row,
