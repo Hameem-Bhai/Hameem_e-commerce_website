@@ -346,6 +346,8 @@ body:has(.hbd-admin-bar) .header {
 .admin-main {
   padding: 2rem;
   overflow-y: auto;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .admin-section {
