@@ -265,38 +265,109 @@
 }
 
 @media (max-width: 640px) {
-  .cart-table {
-    min-width: 0 !important;
-    table-layout: auto !important;
+  .cart-table-container {
+    background: transparent !important;
+    border: none !important;
+    overflow: visible !important;
   }
 
-  .cart-table thead { display: none; }
+  .cart-table {
+    display: block !important;
+    width: 100% !important;
+  }
 
-  .cart-item-row,
-  .cart-item-row td {
-    display: block;
-    width: 100%;
-    padding: 0.75rem 1rem;
-    box-sizing: border-box;
+  .cart-table tbody {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
   }
 
   .cart-item-row {
-    border-bottom: 1px solid var(--border-subtle);
-    padding: 1rem 0;
+    display: grid !important;
+    grid-template-columns: 1fr auto auto !important;
+    gap: 0.75rem !important;
+    align-items: center !important;
+    background: var(--clr-bg-surface) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--border-radius-xl) !important;
+    padding: 1.25rem !important;
+    box-sizing: border-box !important;
   }
 
-  .cart-item-row td::before {
-    content: attr(data-label);
-    display: block;
-    font-size: 0.68rem;
-    color: var(--clr-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  /* Hide the headers and default labels */
+  .cart-table thead { display: none !important; }
+  .cart-item-row td::before { display: none !important; }
+
+  /* Reset default td paddings & block styles */
+  .cart-item-row td {
+    display: block !important;
+    width: auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Service Info Cell */
+  .cart-item-row td:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+
+  /* Remove Button Cell */
+  .cart-item-row td:nth-child(6) {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  /* Tier Cell */
+  .cart-item-row td:nth-child(2) {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    font-size: 0.8rem;
+    color: var(--clr-text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem !important;
     margin-bottom: 0.25rem;
   }
+  
+  .cart-item-row td:nth-child(2)::before {
+    content: "Tier: ";
+    color: var(--clr-text-muted);
+    font-weight: 500;
+  }
 
-  .cart-item-info { display: flex !important; }
-  .cart-item-remove { text-align: left; }
+  /* Price Cell */
+  .cart-item-row td:nth-child(3) {
+    display: none !important; /* Hide unit price to keep it clean */
+  }
+
+  /* Quantity Stepper Cell */
+  .cart-item-row td:nth-child(4) {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    justify-self: start;
+  }
+
+  /* Total Price Cell */
+  .cart-item-row td:nth-child(5) {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: end;
+    font-size: 1.15rem !important;
+    font-weight: 700;
+  }
+
+  /* Cart actions block */
+  .cart-actions {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .cart-actions .hbd-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
 }
 
 
