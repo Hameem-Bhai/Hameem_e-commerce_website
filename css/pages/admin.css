@@ -110,6 +110,7 @@ body:has(.hbd-admin-bar) .header {
 @media (max-width: 900px) {
   .admin-layout {
     grid-template-columns: 1fr;
+    overflow-x: clip;          /* clip without breaking sticky sidebar */
   }
 
   .admin-sidebar {
@@ -125,6 +126,9 @@ body:has(.hbd-admin-bar) .header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     background: #111 !important;
     overflow-y: visible !important;
+    max-width: 100% !important;    /* prevent sidebar from exceeding viewport */
+    box-sizing: border-box !important;
+    overflow-x: hidden !important; /* clip nav-overflow at sidebar boundary */
   }
 
   .admin-sidebar__logo {

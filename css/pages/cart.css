@@ -7,6 +7,7 @@
 .cart-section {
   padding-top: calc(var(--header-h) + 3rem);
   padding-bottom: 5rem;
+  overflow-x: hidden;          /* guard against any child overflow */
 }
 
 .cart-section__header {
@@ -252,8 +253,22 @@
   margin-top: 1.25rem;
 }
 
-/* ── Mobile table ─────────────────────────────────────────── */
+/* ── Mobile / Tablet layout ──────────────────────────────── */
+
+/* ── 1024px: single-column; summary moves ABOVE items ────── */
 @media (max-width: 1024px) {
+  .cart-layout {
+    grid-template-columns: 1fr !important;
+    align-items: stretch !important;
+  }
+
+  /* Summary sidebar: no sticky, moves above the items list */
+  .cart-layout__right {
+    position: static !important;
+    order: -1 !important;          /* renders before .cart-layout__left */
+  }
+
+  /* Table scrolls horizontally on tablet */
   .cart-table-container {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
@@ -264,105 +279,169 @@
   }
 }
 
+/* ── 640px: convert table rows to stacked cards ─────────── */
 @media (max-width: 640px) {
+  .cart-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  /* ── Table container: transparent, clips children ── */
   .cart-table-container {
     background: transparent !important;
     border: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;   /* FIXED: was 'visible' — clips overflow */
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
+  /* Table becomes a block with no forced minimum width */
   .cart-table {
     display: block !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
     width: 100% !important;
+    box-sizing: border-box !important;
   }
 
+  /* tbody: vertical stack of cards */
   .cart-table tbody {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.25rem !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
+  /* Hide desktop header row */
+  .cart-table thead { display: none !important; }
+
+  /* ── Each <tr> becomes a card ── */
   .cart-item-row {
     display: grid !important;
-    grid-template-columns: 1fr auto !important;
-    gap: 0.75rem !important;
-    align-items: center !important;
+    /* minmax(0,1fr) is critical — prevents the text column from overflowing */
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-rows: auto auto auto !important;
+    column-gap: 0.625rem !important;
+    row-gap: 0 !important;
     background: var(--clr-bg-surface) !important;
     border: 1px solid var(--border-subtle) !important;
     border-radius: var(--border-radius-xl) !important;
-    padding: 1.25rem !important;
+    padding: 1rem !important;
     box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
 
-  /* Hide the headers and default labels */
-  .cart-table thead { display: none !important; }
-  .cart-item-row td::before { display: none !important; }
+  /* Remove bottom border override for last child */
+  .cart-item-row:last-child { border-bottom: 1px solid var(--border-subtle) !important; }
+  .cart-item-row:hover { background: var(--clr-bg-surface) !important; }
 
-  /* Reset default td paddings & block styles */
+  /* ── All <td> elements reset to block ── */
   .cart-item-row td {
     display: block !important;
-    width: auto !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
   }
 
-  /* Service Info Cell */
+  .cart-item-row td::before { display: none !important; }
+
+  /* td 1 — Service info · column 1, row 1 */
   .cart-item-row td:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Force the flex info container and text to stay within bounds */
+  .cart-item-info {
+    align-items: flex-start !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
 
   .cart-item-info > div:last-child {
-    min-width: 0;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    flex: 1 !important;
   }
 
-  /* Remove Button Cell */
+  .cart-item-title {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  .cart-item-cat {
+    display: block !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  /* td 6 — Remove button · column 2, row 1 */
   .cart-item-row td:nth-child(6) {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: start !important;
   }
 
-  /* Tier Cell */
+  /* td 2 — Tier · spans both columns, row 2 */
   .cart-item-row td:nth-child(2) {
-    grid-column: 1 / span 2;
-    grid-row: 2;
-    font-size: 0.8rem;
-    color: var(--clr-text-secondary);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 0.5rem !important;
-    margin-bottom: 0.25rem;
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    font-size: 0.78rem !important;
+    color: var(--clr-text-muted) !important;
+    padding: 0.5rem 0 !important;
+    margin-top: 0.375rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
   }
-  
+
   .cart-item-row td:nth-child(2)::before {
-    content: "Tier: ";
-    color: var(--clr-text-muted);
-    font-weight: 500;
+    content: "Tier: " !important;
+    display: inline !important;
+    color: var(--clr-text-muted) !important;
+    font-weight: 500 !important;
   }
 
-  /* Price Cell */
-  .cart-item-row td:nth-child(3) {
-    display: none !important; /* Hide unit price to keep it clean */
-  }
+  /* td 3 — Unit price · hidden on mobile */
+  .cart-item-row td:nth-child(3) { display: none !important; }
 
-  /* Quantity Stepper Cell */
+  /* td 4 — Quantity stepper · column 1, row 3 */
   .cart-item-row td:nth-child(4) {
-    grid-column: 1;
-    grid-row: 3;
-    justify-self: start;
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    padding-top: 0.75rem !important;
+    justify-self: start !important;
+    align-self: center !important;
   }
 
-  /* Total Price Cell */
+  /* td 5 — Line total · column 2, row 3 */
   .cart-item-row td:nth-child(5) {
-    grid-column: 2;
-    grid-row: 3;
-    justify-self: end;
-    font-size: 1.15rem !important;
-    font-weight: 700;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    padding-top: 0.75rem !important;
+    text-align: right !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: var(--clr-accent) !important;
+    align-self: center !important;
+    justify-self: end !important;
+    white-space: nowrap !important;
   }
 
-  /* Cart actions block */
+  /* ── Cart action buttons stack vertically ── */
   .cart-actions {
     flex-direction: column !important;
     gap: 0.75rem !important;
