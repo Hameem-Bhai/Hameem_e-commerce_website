@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HameemBhai er Dokan — Business Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 30% 20%, #180215 0%, #08080f 55%, #000 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 4rem 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(244,168,199,0.35);
+    }
+
+    /* ── Print Wrapper for layout boundary ── */
+    .print-wrapper {
+      display: contents;
+    }
+
+    /* ════════════════════════════
+       THE CARD
+     ════════════════════════════ */
+    .card {
+      width: 980px;
+      height: 540px;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #160a12 0%, #0c0c0c 50%, #0e0816 100%);
+      border: 1px solid rgba(244,168,199,0.18);
+      box-shadow:
+        0 0 0 1px rgba(244,168,199,0.04),
+        0 60px 120px rgba(0,0,0,0.95),
+        inset 0 0 180px rgba(244,168,199,0.02);
+      display: flex;
+      align-items: stretch;
+    }
+
+    /* Top accent line */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #ff3d7f 20%, #f4a8c7 50%, #c084fc 80%, transparent 100%);
+      z-index: 10;
+    }
+
+    /* Grid texture */
+    .card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(244,168,199,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244,168,199,0.02) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LEFT — Logo half ── */
+    .logo-half {
+      width: 420px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 36px 32px 44px;
+      z-index: 1;
+    }
+
+    /* Big glow behind logo */
+    .logo-half::before {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle,
+        rgba(244,168,199,0.12) 0%,
+        rgba(192,132,252,0.07) 35%,
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Secondary smaller glow */
+    .logo-half::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle,
+        rgba(255,61,127,0.1) 0%,
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    .logo-img {
+      width: 100%;
+      max-width: 340px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter:
+        drop-shadow(0 0 20px rgba(244,168,199,0.45))
+        drop-shadow(0 0 50px rgba(244,168,199,0.18))
+        drop-shadow(0 4px 24px rgba(0,0,0,0.6));
+    }
+
+    .logo-tagline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.56rem;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(244,168,199,0.45);
+      text-align: center;
+      margin-top: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Vertical Divider ── */
+    .vdiv {
+      width: 1px;
+      align-self: stretch;
+      flex-shrink: 0;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(244,168,199,0.2) 20%,
+        rgba(244,168,199,0.2) 80%,
+        transparent 100%);
+      z-index: 1;
+    }
+
+    /* ── RIGHT — Info half ── */
+    .info-half {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;   /* pushes QR to bottom */
+      padding: 34px 44px 32px 40px;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Subtle right-side glow */
+    .info-half::before {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      top: -60px; right: -60px;
+      background: radial-gradient(circle,
+        rgba(192,132,252,0.08) 0%,
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Services row — minimal */
+    .services-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .svc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 600;
+      color: rgba(244,168,199,0.65);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .svc-dot {
+      font-size: 0.45rem;
+      color: rgba(244,168,199,0.25);
+      margin: 0 7px;
+    }
+
+    /* Contact grid */
+    .contacts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 14px;
+      margin-top: 16px;
+    }
+
+    .ci {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.48);
+      min-width: 0;
+    }
+    .ci-icon {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: rgba(244,168,199,0.07);
+      border: 1px solid rgba(244,168,199,0.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ci-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .ci-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.4rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244,168,199,0.35);
+    }
+    .ci-value {
+      font-size: 0.75rem;             /* bigger handles */
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* QR centered at bottom */
+    .bottom-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;            /* horizontally centered */
+      justify-content: flex-end;
+      gap: 8px;
+      padding-bottom: 2px;
+    }
+
+    .scan-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.44rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244,168,199,0.3);
+    }
+
+    .qr-wrap {
+      position: relative;
+      padding: 8px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow:
+        0 0 0 1px rgba(244,168,199,0.28),
+        0 0 28px rgba(244,168,199,0.22),
+        0 0 60px rgba(244,168,199,0.06);
+    }
+    .qr-wrap::before, .qr-wrap::after,
+    .qr-bl, .qr-br {
+      position: absolute;
+      width: 12px; height: 12px;
+    }
+    .qr-wrap::before {
+      content: '';
+      top: -3px; left: -3px;
+      border-top: 2px solid #f4a8c7;
+      border-left: 2px solid #f4a8c7;
+      border-radius: 4px 0 0 0;
+    }
+    .qr-wrap::after {
+      content: '';
+      top: -3px; right: -3px;
+      border-top: 2px solid #c084fc;
+      border-right: 2px solid #c084fc;
+      border-radius: 0 4px 0 0;
+    }
+    .qr-bl {
+      content: '';
+      bottom: -3px; left: -3px;
+      border-bottom: 2px solid #ff3d7f;
+      border-left: 2px solid #ff3d7f;
+      border-radius: 0 0 0 4px;
+    }
+    .qr-br {
+      content: '';
+      bottom: -3px; right: -3px;
+      border-bottom: 2px solid #c084fc;
+      border-right: 2px solid #c084fc;
+      border-radius: 0 0 4px 0;
+    }
+    #qrcode { display: block; border-radius: 5px; }
+
+    /* print hint */
+    .print-note {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.58rem;
+      color: rgba(244,168,199,0.22);
+      text-align: center;
+      letter-spacing: 0.05em;
+      line-height: 1.9;
+    }
+
+    @page {
+      size: 3.5in 2in;
+      margin: 0;
+    }
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body {
+        width: 3.5in !important;
+        height: 2in !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #0c0c0c !important;
+        display: block !important;
+      }
+      .label, .print-note { display: none !important; }
+      .print-wrapper {
+        display: block !important;
+        width: 3.5in !important;
+        height: 2in !important;
+        overflow: hidden !important;
+        position: relative !important;
+        background: #0c0c0c !important;
+      }
+      .card {
+        position: absolute !important;
+        top: 0 !important; left: 0 !important;
+        width: 980px !important;
+        height: 540px !important;
+        transform: scale(0.342857, 0.355556) !important;
+        transform-origin: top left !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+
+    /* ── Screenshot mode overrides ── */
+    body.screenshot-mode {
+      min-height: unset !important;
+      width: 980px !important;
+      height: 540px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+      overflow: hidden !important;
+      background: #0c0c0c !important;
+    }
+    body.screenshot-mode .label,
+    body.screenshot-mode .print-note {
+      display: none !important;
+    }
+    body.screenshot-mode .print-wrapper {
+      display: block !important;
+      width: 980px !important;
+      height: 540px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+    body.screenshot-mode .card {
+      position: absolute !important;
+      top: 0 !important; left: 0 !important;
+      width: 980px !important;
+      height: 540px !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="label">✦ HameemBhai er Dokan · Business Card ✦</p>
+
+  <div class="print-wrapper">
+    <div class="card">
+      <!-- LEFT: Logo -->
+      <div class="logo-half">
+        <img src="logo_transparent.png" alt="HameemBhai er Dokan" class="logo-img">
+        <p class="logo-tagline">"Your Vision, Our Craft" &nbsp;·&nbsp; Dhaka, Bangladesh 🇧🇩</p>
+      </div>
+
+      <div class="vdiv"></div>
+
+      <!-- RIGHT: Info -->
+      <div class="info-half">
+
+        <!-- Services — minimal row -->
+        <div class="services-row">
+          <span class="svc">🔥 Lighter Cases</span>
+          <span class="svc-dot">◆</span>
+          <span class="svc">🎨 Graphics Design</span>
+          <span class="svc-dot">◆</span>
+          <span class="svc">🖼️ Poster Design</span>
+          <span class="svc-dot">◆</span>
+          <span class="svc">🌐 Web Building</span>
+          <span class="svc-dot">◆</span>
+          <span class="svc">🎭 Digital Art</span>
+        </div>
+
+        <div class="contacts">
+
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f4a8c7" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">Website</span>
+              <span class="ci-value">hameembhaierdokan.studio</span>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f4a8c7" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">Email</span>
+              <span class="ci-value">basithameem@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f4a8c7" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.33a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">Phone & bKash</span>
+              <span class="ci-value">01785-501873</span>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">WhatsApp</span>
+              <span class="ci-value">01785-501873</span>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">Instagram</span>
+              <span class="ci-value">@hameem_bhai</span>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f4a8c7" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">Location</span>
+              <span class="ci-value">Dhaka, Bangladesh 🇧🇩</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- QR Code — centered at bottom -->
+        <div class="bottom-row">
+          <div class="qr-wrap">
+            <div class="qr-bl"></div>
+            <div class="qr-br"></div>
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fwww.hameembhaierdokan.studio&format=png&bgcolor=ffffff&color=000000&margin=2"
+              alt="QR Code — hameembhaierdokan.studio"
+              width="100" height="100"
+              style="display:block;border-radius:5px;"
+            >
+          </div>
+          <span class="scan-text">Scan to visit</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <p class="print-note">
+    To print: Ctrl+P → Custom size 3.5" × 2" → Margins: None → ☑ Background graphics → 300gsm cardstock
+  </p>
+
+  <script>
+    if (window.location.search.includes('screenshot') || window.location.hash.includes('screenshot')) {
+      document.body.classList.add('screenshot-mode');
+    }
+  </script>
+</body>
+</html>

@@ -110,6 +110,7 @@ body:has(.hbd-admin-bar) .header {
 @media (max-width: 900px) {
   .admin-layout {
     grid-template-columns: 1fr;
+    overflow-x: clip;          /* clip without breaking sticky sidebar */
   }
 
   .admin-sidebar {
@@ -125,6 +126,9 @@ body:has(.hbd-admin-bar) .header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     background: #111 !important;
     overflow-y: visible !important;
+    max-width: 100% !important;    /* prevent sidebar from exceeding viewport */
+    box-sizing: border-box !important;
+    overflow-x: hidden !important; /* clip nav-overflow at sidebar boundary */
   }
 
   .admin-sidebar__logo {
@@ -184,9 +188,29 @@ body:has(.hbd-admin-bar) .header {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
   }
+  
+  .admin-table {
+    min-width: 650px !important;
+  }
 }
 
 @media (max-width: 600px) {
+  .admin-sidebar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .admin-sidebar__footer {
+    justify-content: space-between !important;
+    padding: 0.5rem 1.25rem 0.25rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .admin-nav {
+    width: 100% !important;
+    padding-bottom: 0.25rem !important;
+  }
+
   .admin-modal {
     max-height: 100vh !important;
     border-radius: 12px !important;
@@ -326,6 +350,8 @@ body:has(.hbd-admin-bar) .header {
 .admin-main {
   padding: 2rem;
   overflow-y: auto;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .admin-section {

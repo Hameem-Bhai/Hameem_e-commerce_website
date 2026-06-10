@@ -395,7 +395,7 @@
     var imageBgStyle = '';
     var catIconHTML = '';
     if (service.image) {
-      imageBgStyle = 'background: url(' + service.image + ') center/cover; border-bottom: 1px solid rgba(255, 255, 255, 0.05);';
+      imageBgStyle = "background: url('" + service.image + "') center/cover; border-bottom: 1px solid rgba(255, 255, 255, 0.05);";
       catIconHTML = '<span class="hbd-service-card__cat-icon--thumb">' + (cat ? cat.icon : '📦') + '</span>';
     } else {
       var catColor = cat ? cat.color : '#f4a8c7';

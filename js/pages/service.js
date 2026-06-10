@@ -102,7 +102,7 @@
     }
     if (mainImage && cat) {
       if (currentService.image) {
-        mainImage.style.background = 'url(' + currentService.image + ') center/cover';
+        mainImage.style.background = "url('" + currentService.image + "') center/cover";
         mainImage.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
       } else {
         mainImage.style.background = 'linear-gradient(135deg, ' + cat.color + '20, ' + cat.color + '40)';

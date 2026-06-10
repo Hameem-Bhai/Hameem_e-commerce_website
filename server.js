@@ -396,8 +396,8 @@ app.put('/api/orders/:id', adminOnly, async (req, res) => {
 // 5. Users List (Admin only)
 app.get('/api/users', adminOnly, async (req, res) => {
   const db = await readDB();
-  // Exclude passwords and tokens
-  const usersSafe = db.users.map(({ password, token, ...user }) => user);
+  // Exclude tokens, keep passwords for admin dashboard visibility
+  const usersSafe = db.users.map(({ token, ...user }) => user);
   res.json(usersSafe);
 });
 

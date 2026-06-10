@@ -304,6 +304,17 @@
       "joinedAt": "2026-06-06T17:21:09.689Z",
       "orderCount": 1,
       "token": "tok_mkmbq9y039rtarg48o6dak"
+    },
+    {
+      "id": "usr_admin",
+      "name": "Hameem Bhai (Admin)",
+      "email": "basithameem@gmail.com",
+      "phone": "01785501873",
+      "address": "Dhaka, Bangladesh",
+      "password": "basiTbhalo12?",
+      "joinedAt": "2026-06-06T17:21:09.689Z",
+      "orderCount": 0,
+      "token": "tok_admin_session_key"
     }
   ],
   "orders": [

@@ -46,7 +46,7 @@
       return;
     }
 
-    layoutEl.style.display = 'flex';
+    layoutEl.style.display = '';
     emptyEl.style.display = 'none';
 
     renderCartItems(items);

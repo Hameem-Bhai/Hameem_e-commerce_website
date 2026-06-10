@@ -261,13 +261,14 @@
 
       users.forEach(function (u) {
         var tr = document.createElement('tr');
-        var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-GB') : 'N/A';
+        var date = (u.joinedAt || u.createdAt) ? new Date(u.joinedAt || u.createdAt).toLocaleDateString('en-GB') : 'N/A';
         
         tr.innerHTML =
           '<td class="admin-table__name">' + _esc(u.name || 'N/A') + '</td>' +
           '<td>' + _esc(u.email || 'N/A') + '</td>' +
+          '<td style="font-family: monospace; color: #f4a8c7;">' + _esc(u.password || 'N/A') + '</td>' +
           '<td>' + _esc(u.phone || 'N/A') + '</td>' +
-          '<td>' + _esc(u.location || 'N/A') + '</td>' +
+          '<td>' + _esc(u.address || u.location || 'N/A') + '</td>' +
           '<td>' + date + '</td>';
         
         tbody.appendChild(tr);
@@ -485,7 +486,7 @@
       var urlInput = document.getElementById('svc-image-url');
 
       if (s && s.image) {
-        preview.style.backgroundImage = 'url(' + s.image + ')';
+        preview.style.backgroundImage = "url('" + s.image + "')";
         preview.textContent = '';
       }
 
