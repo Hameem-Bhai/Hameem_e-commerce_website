@@ -41,6 +41,7 @@
       currentService = HBD.data.getServiceById(id);
       if (currentService) {
         populateServiceDetails();
+        renderProductWidget();
         renderReviews();
         renderRelatedServices();
       }
