@@ -776,10 +776,17 @@
 }
 .faq-item__header:hover { color: var(--clr-accent) !important; }
 .faq-item__body {
-  padding: 0 1.5rem 1.2rem !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 1.5rem 0 !important;
   font-size: 0.92rem !important;
   line-height: 1.8 !important;
   color: var(--clr-text-secondary) !important;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease !important;
+}
+.faq-item.is-open .faq-item__body {
+  max-height: 500px !important;
+  padding: 0 1.5rem 1.2rem !important;
 }
 .faq-item__arrow {
   font-size: 1.1rem !important;
