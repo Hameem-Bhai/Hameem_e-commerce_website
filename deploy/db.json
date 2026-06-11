@@ -104,19 +104,20 @@
       "categoryId": "graphics-design",
       "name": "Full Brand Identity",
       "tier": "Premium",
-      "price": 6999,
-      "priceDisplay": "৳6,999",
+      "price": 14999,
+      "priceDisplay": "৳14,999",
       "description": "Complete brand identity package — logo, colour palette, social media kit & business card design.",
       "features": [
         "Custom logo (all variations)",
         "Colour palette & typography guide",
         "Social media profile & cover designs",
         "Business card design",
-        "All files in PNG + SVG"
+        "Full-Stack modern aesthetic website!",
+        "Other marketing tips if needed."
       ],
       "popular": true,
       "image": "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png",
-      "originalPrice": 12000,
+      "originalPrice": 25000,
       "stock": 0,
       "badge": "Premium Edition"
     },
@@ -125,8 +126,8 @@
       "categoryId": "poster-design",
       "name": "Basic Poster",
       "tier": "Basic",
-      "price": 999,
-      "priceDisplay": "৳999",
+      "price": 799,
+      "priceDisplay": "৳799",
       "description": "A clean, straightforward poster for events, announcements or promotions.",
       "features": [
         "Single poster design",
@@ -165,17 +166,18 @@
       "categoryId": "poster-design",
       "name": "Album Cover Design",
       "tier": "Premium",
-      "price": 2999,
-      "priceDisplay": "৳2,999",
+      "price": 2399,
+      "priceDisplay": "৳2,399",
       "description": "An original hand-drawn digital artwork created on iPad, blending abstract expressionism, industrial aesthetics, and psychological symbolism. The composition explores themes of chaos, isolation, ambition, destruction, and rebirth through layered imagery, fragmented structures, and a dominant red-black palette. Designed to evoke intensity and emotional depth, this piece is suitable for album covers in genres such as hip-hop, alternative, metal, industrial, dark electronic, and experimental music.\n\nMedium: Digital Painting (iPad)\nStyle: Abstract / Industrial / Expressionist\nResolution: High Resolution\nRights: Commercial Use Available\n\n\n*THE MARKS ARE FOR COPYRIGHT ISSUES*",
       "features": [
         "Custom Cover Art",
         "Single & Album Designs",
         "Streaming Platform Ready",
         "Unique Creative Direction",
-        "High-Resolution Delivery"
+        "High-Resolution Delivery",
+        "Fully Hand-Made"
       ],
-      "popular": false,
+      "popular": true,
       "image": "https://i.postimg.cc/pdVcmKz5/albumcover.jpg",
       "originalPrice": null,
       "stock": 0,
@@ -186,15 +188,16 @@
       "categoryId": "website-building",
       "name": "Multi-Page Website",
       "tier": "Standard",
-      "price": 9999,
-      "priceDisplay": "৳9,999",
+      "price": 5999,
+      "priceDisplay": "৳5,999",
       "description": "Get a sleek, high-performance website tailored to your brand. Includes 3–5 professionally crafted pages such as Home, About, Services, Contact, and more. Designed with a modern aesthetic, fast loading speeds, mobile responsiveness, and seamless navigation to help you attract visitors and convert them into customers.",
       "features": [
         "3–5 custom pages",
         "Responsive on all devices",
         "Contact form",
         "Basic SEO setup",
-        "Aesthetic"
+        "Aesthetic and modern",
+        "you can make it like portfolio, experience, blog, community type etc."
       ],
       "popular": true,
       "image": "https://i.postimg.cc/LX9S6q6c/Screenshot-2026-06-06-152317.png",
@@ -207,8 +210,8 @@
       "categoryId": "website-building",
       "name": "Full Custom Website",
       "tier": "Premium",
-      "price": 12000,
-      "priceDisplay": "৳12,000",
+      "price": 9500,
+      "priceDisplay": "৳9,500",
       "description": "1. The Storefront & Customer Experience\nDynamic Product Catalog: Clean grids, category filters, and tags (like ⭐ Popular or Limited Item).\nActive Review & Rating System: Customers can rate products, write testimonials, and see average star ratings updated in real-time.\nWishlist System: Let customers save their favorite items to a custom list that persists across visits.\nSmart Shopping Cart & Checkout:\nAuto-calculates totals and delivery fees (digital vs. physical items).\nAuto-applies promo codes (e.g., HBFRIEND10).\nAuto-recognizes returning customers to apply special customer loyalty discounts.\nDirect cash-out integration showing bKash payment details.\n\n2. The Powerhouse: Admin Control Center\nLive Order Manager: View new orders, customer contact info, check transition IDs, and change order status (Pending ➡️ Completed).\nDirect WhatsApp Integration: Tap a button next to any order to immediately open a chat window with that specific customer on WhatsApp.\nInteractive Inventory Controller: Add new services, edit pricing, change badges, edit features, and upload photos directly from the dashboard.\nCustomer List: Search and view registered customer profiles and emails.\nDatabase Backup Utility: Export the entire store database as a JSON backup or import it to move databases instantly.",
       "features": [
         "Fully custom design & code",
@@ -314,7 +317,7 @@
       "password": "basiTbhalo12?",
       "joinedAt": "2026-06-06T17:21:09.689Z",
       "orderCount": 0,
-      "token": "tok_admin_session_key"
+      "token": "tok_ty7kpvs3x8odoi9r1ce3m7"
     }
   ],
   "orders": [
@@ -382,12 +385,12 @@
       "heroSubtitle": "Discover the passion, values, and craftsmanship that drive HameemBhai er Dokan.",
       "storyTitle": "Your Vision, Our Craft",
       "storyP1": "HameemBhai er Dokan wasn't built in a boardroom — it was born from the streets of Dhaka out of a simple necessity: people need a place to show their artistic drip without paying astronomical agency fees.",
-      "storyP2": "I'm just a simple Hameem Bhai from Dhaka, investing my time and late nights so you can flex your creative vision. Whether it's hand-painting custom 3D lighter cases that catch eyes, coding glassmorphism websites that feel like the future, or dropping corporate posters with unmatched aesthetic — we bring that raw, unfiltered passion to everything we touch.",
+      "storyP2": "I'm just a simple Hameem Bhai from Dhaka, investing my time and late nights so you can flex your creative vision. Whether it's hand-crafted custom 3D lighter cases that catch eyes, coding glassmorphism websites that feel like the future, or dropping corporate posters with unmatched aesthetic — we bring that raw, unfiltered passion to everything we touch.",
       "storyP3": "This isn't just a transaction; it's a creative partnership. We iterate, we vibe, and we don't stop until the final product is absolute typeshit.",
-      "statProjects": "500",
-      "statClients": "300",
-      "statYears": "3",
-      "statSatisfaction": "99"
+      "statProjects": "30",
+      "statClients": "20",
+      "statYears": "0.5",
+      "statSatisfaction": "102"
     },
     "contact": {
       "title": "Get in Touch",
@@ -407,5 +410,13 @@
       "availabilityStatus": "available"
     }
   },
-  "availabilityStatus": "available"
+  "availabilityStatus": "available",
+  "recommendedIds": [
+    "lc-custom-3d",
+    "gd-brand",
+    "pd-campaign",
+    "wb-multi",
+    "wb-full",
+    "dp-portrait"
+  ]
 }
