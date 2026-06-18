@@ -85,7 +85,7 @@
               '</div>' +
               '<h1 class="blog-post__title">' + HBD.utils.sanitize(post.title) + '</h1>' +
               '<div class="blog-post__author">' +
-                '<img src="hameem_photo.png" alt="Hameem Bhai" class="blog-post__author-avatar" style="object-fit: cover;">' +
+                '<img src="hameem_photo.png" alt="" class="blog-post__author-avatar" style="object-fit: cover;">' +
                 '<div>' +
                   '<div class="blog-post__author-name">' + HBD.utils.sanitize(post.author) + '</div>' +
                   '<div class="blog-post__author-title">Founder & Creative Lead</div>' +
@@ -131,7 +131,7 @@
             '<p class="blog-card__summary">' + HBD.utils.sanitize(post.summary) + '</p>' +
             '<div class="blog-card__footer">' +
               '<div class="blog-card__author">' +
-                '<img src="hameem_photo.png" alt="Hameem Bhai" class="blog-card__author-avatar" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;">' +
+                '<img src="hameem_photo.png" alt="" class="blog-card__author-avatar" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;">' +
                 '<span class="blog-card__author-name">' + HBD.utils.sanitize(post.author) + '</span>' +
               '</div>' +
               '<a href="blog.html?id=' + post.id + '" class="blog-card__link">Read Article →</a>' +
