@@ -70,6 +70,9 @@
         <button class="admin-nav__item" data-section="recommended">
           <span class="admin-nav__icon">🏆</span> Recommended
         </button>
+        <button class="admin-nav__item" data-section="blog">
+          <span class="admin-nav__icon">📝</span> Blog Posts
+        </button>
 
         <div class="admin-nav__section">Site Editing</div>
         <button class="admin-nav__item" data-section="site-content">
@@ -385,6 +388,31 @@
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- BLOG POSTS -->
+      <section class="admin-section" id="section-blog">
+        <div class="admin-section__header">
+          <div>
+            <h1 class="admin-section__title">📝 Blog Posts</h1>
+            <p class="admin-section__desc">Manage your Dokan's journal articles and guides</p>
+          </div>
+          <button class="admin-btn admin-btn--primary" id="admin-add-blog-btn">+ Add Post</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="admin-table-blog">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Read Time</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
       </section>
 

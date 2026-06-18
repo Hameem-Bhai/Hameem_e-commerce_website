@@ -139,6 +139,7 @@
     _renderReviews();
     _renderRecommended();
     _renderCodes();
+    _renderBlog();
     _renderSettings();
   }
 
@@ -1016,7 +1017,8 @@
         { label: 'Services',    value: HBD.data.services.length },
         { label: 'Categories',  value: HBD.data.categories.length },
         { label: 'Reviews',     value: HBD.data.reviews.length },
-        { label: 'Promo Codes', value: Object.keys(HBD.data.referralCodes).length }
+        { label: 'Promo Codes', value: Object.keys(HBD.data.referralCodes).length },
+        { label: 'Blog Posts',  value: (HBD.data.blogPosts || []).length }
       ].map(function (s) {
         return '<div class="admin-stat-card">' +
           '<div class="admin-stat-card__label">' + s.label + '</div>' +
@@ -1074,6 +1076,152 @@
         });
       });
     }
+  }
+
+
+  // ════════════════════════════════════════════════════════════
+  //  BLOG POSTS
+  // ════════════════════════════════════════════════════════════
+  function _renderBlog() {
+    var tbody = document.querySelector('#admin-table-blog tbody');
+    if (!tbody) return;
+
+    var posts = HBD.data.blogPosts || [];
+
+    if (posts.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" class="admin-empty">No blog posts found</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = posts.map(function (post) {
+      return '<tr>' +
+        '<td><div class="admin-table__name">' + _esc(post.title) + '</div>' +
+             '<div class="admin-table__sub">' + _esc(post.id) + '</div></td>' +
+        '<td>' + _esc(post.category) + '</td>' +
+        '<td>' + _esc(post.date) + '</td>' +
+        '<td>' + _esc(post.readTime) + '</td>' +
+        '<td class="admin-table__actions">' +
+          '<button class="admin-btn admin-btn--sm admin-btn--outline" data-action="edit-blog" data-id="' + post.id + '">✏️ Edit</button>' +
+          '<button class="admin-btn admin-btn--sm admin-btn--danger" data-action="delete-blog" data-id="' + post.id + '">🗑️</button>' +
+        '</td>' +
+      '</tr>';
+    }).join('');
+
+    // Wire actions
+    if (!tbody._wired) {
+      tbody._wired = true;
+      tbody.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-action]');
+        if (!btn) return;
+        var action = btn.getAttribute('data-action');
+        var id = btn.getAttribute('data-id');
+        if (action === 'edit-blog') _openBlogModal(id);
+        if (action === 'delete-blog') _deleteBlog(id);
+      });
+    }
+
+    // Add blog button
+    var addBtn = document.getElementById('admin-add-blog-btn');
+    if (addBtn && !addBtn._wired) {
+      addBtn._wired = true;
+      addBtn.addEventListener('click', function () { _openBlogModal(null); });
+    }
+  }
+
+  function _openBlogModal(id) {
+    var posts = HBD.data.blogPosts || [];
+    var post = id ? posts.find(function (p) { return p.id === id; }) : null;
+
+    var body =
+      '<div class="admin-form-grid">' +
+        '<div class="admin-form-group">' +
+          '<label class="admin-label">Article Title *</label>' +
+          '<input class="admin-input" id="blog-title" type="text" value="' + (post ? _esc(post.title) : '') + '" placeholder="e.g. Graphic Design Trends"/>' +
+        '</div>' +
+        '<div class="admin-form-group">' +
+          '<label class="admin-label">Category *</label>' +
+          '<input class="admin-input" id="blog-cat" type="text" value="' + (post ? _esc(post.category) : '') + '" placeholder="e.g. Design / Guides"/>' +
+        '</div>' +
+        '<div class="admin-form-group">' +
+          '<label class="admin-label">Date *</label>' +
+          '<input class="admin-input" id="blog-date" type="text" value="' + (post ? _esc(post.date) : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })) + '" placeholder="e.g. June 18, 2026"/>' +
+        '</div>' +
+        '<div class="admin-form-group">' +
+          '<label class="admin-label">Read Time *</label>' +
+          '<input class="admin-input" id="blog-readtime" type="text" value="' + (post ? _esc(post.readTime) : '3 min read') + '" placeholder="e.g. 3 min read"/>' +
+        '</div>' +
+        '<div class="admin-form-group admin-form-group--full">' +
+          '<label class="admin-label">Keywords (comma separated) *</label>' +
+          '<input class="admin-input" id="blog-keywords" type="text" value="' + (post && post.keywords ? _esc(post.keywords.join(', ')) : '') + '" placeholder="e.g. custom lighter cases, Hameem Bhai"/>' +
+        '</div>' +
+        '<div class="admin-form-group admin-form-group--full">' +
+          '<label class="admin-label">Summary / Meta Description *</label>' +
+          '<input class="admin-input" id="blog-summary" type="text" value="' + (post ? _esc(post.summary) : '') + '" placeholder="Short summary for preview and SEO..."/>' +
+        '</div>' +
+        '<div class="admin-form-group admin-form-group--full">' +
+          '<label class="admin-label">Content (HTML allowed) *</label>' +
+          '<textarea class="admin-textarea" id="blog-content" style="height:220px;" placeholder="HTML article body…">' + (post ? _esc(post.content) : '') + '</textarea>' +
+        '</div>' +
+      '</div>';
+
+    _openModal(post ? 'Edit Blog Post' : 'Add New Blog Post', body, function () {
+      var title = document.getElementById('blog-title').value.trim();
+      var cat = document.getElementById('blog-cat').value.trim();
+      var date = document.getElementById('blog-date').value.trim();
+      var readTime = document.getElementById('blog-readtime').value.trim();
+      var keywords = document.getElementById('blog-keywords').value.split(',').map(function (k) { return k.trim(); }).filter(Boolean);
+      var summary = document.getElementById('blog-summary').value.trim();
+      var content = document.getElementById('blog-content').value.trim();
+
+      if (!title || !cat || !date || !readTime || !summary || !content) {
+        _showFeedback('admin-modal-body', 'Please fill in all required fields.', 'error');
+        return false;
+      }
+
+      var posts = (HBD.data.blogPosts || []).slice();
+      var newPost = {
+        id: post ? post.id : title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        title: title,
+        author: post ? post.author : 'Hameem Bhai',
+        date: date,
+        readTime: readTime,
+        category: cat,
+        keywords: keywords,
+        summary: summary,
+        content: content
+      };
+
+      if (id) {
+        var idx = posts.findIndex(function (p) { return p.id === id; });
+        if (idx !== -1) posts[idx] = newPost;
+      } else {
+        posts.push(newPost);
+      }
+
+      HBD.store.AdminStore.saveBlogPosts(posts).then(function (res) {
+        if (res && res.success) {
+          _renderBlog();
+          HBD.components.showToast((id ? 'Post updated!' : 'Post added!') + ' 🎉', 'success');
+          document.getElementById('admin-modal-close').click();
+        } else {
+          HBD.components.showToast('Failed to save blog post: ' + (res ? res.message : 'Unknown error'), 'error');
+        }
+      });
+      return false;
+    });
+  }
+
+  function _deleteBlog(id) {
+    if (!confirm('Are you sure you want to delete this blog post?')) return;
+    var posts = (HBD.data.blogPosts || []).filter(function (p) { return p.id !== id; });
+    HBD.store.AdminStore.saveBlogPosts(posts).then(function (res) {
+      if (res && res.success) {
+        _renderBlog();
+        HBD.components.showToast('Blog post deleted successfully.', 'info');
+      } else {
+        HBD.components.showToast('Failed to delete blog post: ' + (res ? res.message : 'Unknown error'), 'error');
+      }
+    });
   }
 
 

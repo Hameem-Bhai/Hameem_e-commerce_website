@@ -271,17 +271,7 @@
       "badge": null
     }
   ],
-  "reviews": [
-    {
-      "id": "r-1780753525582",
-      "serviceId": "lc-custom-3d",
-      "userName": "Kala Mia",
-      "rating": 5,
-      "text": "It's cool asf istg omg TT",
-      "date": "2026-06-06",
-      "hidden": false
-    }
-  ],
+  "reviews": [],
   "referralCodes": {
     "HAMEEMBHAI10": {
       "discount": 10,
@@ -305,7 +295,7 @@
       "address": "House - 36/1, 36/2, boshundhora goli, beside priyangon shopping center, opposite of dhaka college.",
       "password": "basiTbhalo12?",
       "joinedAt": "2026-06-06T17:21:09.689Z",
-      "orderCount": 1,
+      "orderCount": 0,
       "token": "tok_mkmbq9y039rtarg48o6dak"
     },
     {
@@ -320,55 +310,7 @@
       "token": "tok_ty7kpvs3x8odoi9r1ce3m7"
     }
   ],
-  "orders": [
-    {
-      "name": "Hameem Bhai",
-      "email": "basithameem007@gmail.com",
-      "phone": "01357070423",
-      "address": "House - 36/1, 36/2, boshundhora goli, beside priyangon shopping center, opposite of dhaka college.",
-      "orderId": "HB-11134",
-      "items": [
-        {
-          "itemId": "hb_mq2mernf1phr0",
-          "serviceId": "lc-custom-3d",
-          "tier": "Collector edition",
-          "qty": 1,
-          "addedAt": "2026-06-06T17:22:03.771Z",
-          "service": {
-            "id": "lc-custom-3d",
-            "categoryId": "lighter-cases",
-            "name": "3D Lighter Case - Hello  Kitty version",
-            "tier": "Collector edition",
-            "price": 1350,
-            "priceDisplay": "৳1,350",
-            "description": "Buy 2 for only ৳2000.\nOnly for true HK fans!",
-            "features": [
-              "Buy 2 for ৳2000 (save ৳700)",
-              "Delivered asap",
-              "Nice glossy finishing",
-              "CLICK IT!"
-            ],
-            "popular": true,
-            "image": "img_lc_custom_3d.jpg",
-            "originalPrice": 1500,
-            "stock": 2,
-            "badge": "FAN FAV!"
-          },
-          "lineTotal": 1350
-        }
-      ],
-      "subtotal": 1350,
-      "discount": 135,
-      "deliveryFee": 150,
-      "total": 1365,
-      "paymentMethod": "Cash on Delivery",
-      "txId": "COD",
-      "brief": "ho",
-      "userId": "usr_644624",
-      "createdAt": "2026-06-06T17:22:39.840Z",
-      "status": "Pending"
-    }
-  ],
+  "orders": [],
   "content": {
     "home": {
       "heroBadge": "🇧🇩 Made in Bangladesh",
@@ -376,8 +318,8 @@
       "heroSubtitle": "From custom lighter cases to full websites — we bring your creative ideas to life with passion, precision, and prices that won't break your wallet.",
       "heroCTA1": "Explore Services →",
       "heroCTA2": "Learn More",
-      "heroStat1": "🔥 500+ Orders Completed",
-      "heroStat2": "⭐ 4.9 Average Rating"
+      "heroStat1": "🔥 Premium Creative Studio",
+      "heroStat2": "📍 Dhanmondi, Dhaka, BD"
     },
     "about": {
       "heroBadge": "The Dokan Story",
@@ -418,5 +360,82 @@
     "wb-multi",
     "wb-full",
     "dp-portrait"
+  ],
+  "blogPosts": [
+    {
+      "id": "custom-lighter-cases-portfolio",
+      "title": "Custom Lighter Cases — Hameem Bhai er Dokan's Portfolio",
+      "author": "Hameem Bhai",
+      "date": "June 18, 2026",
+      "readTime": "3 min read",
+      "category": "Lighter Cases",
+      "keywords": [
+        "custom lighter cases",
+        "Hameem Bhai",
+        "lighter design Dhaka"
+      ],
+      "summary": "Explore how Hameem Bhai er Dokan turns simple utility lighters into custom, hand-painted and 3D printed works of art directly from Dhaka.",
+      "content": "<p>When it comes to flexing your own aesthetic, standard accessories just don't cut it. That's why <strong>custom lighter cases</strong> have become the ultimate statement piece in the Dhaka street style scene. At <strong>Hameem Bhai er Dokan</strong>, we treat lighter cases not just as utility items, but as miniature canvases.</p><p>Every single case in our collection is hand-crafted, painted, or 3D modeled by <strong>Hameem Bhai</strong> himself, ensuring that your lighter matches your unique vibe. Whether you are looking for a detailed anime character, minimalist typography, or intricate 3D-sculpted elements that glow under UV lights, our <strong>lighter design Dhaka</strong> studio delivers premium results. Check out <strong>Hameem Bhai er Dokan</strong>'s portfolio to see how we turn everyday items into collector's editions.</p>"
+    },
+    {
+      "id": "graphic-design-beats-templates",
+      "title": "Graphic Design Services — Why Hameem Bhai er Dokan Beats Templates",
+      "author": "Hameem Bhai",
+      "date": "June 17, 2026",
+      "readTime": "4 min read",
+      "category": "Graphics Design",
+      "keywords": [
+        "graphic design Dhaka",
+        "Hameem Bhai design",
+        "poster design Bangladesh"
+      ],
+      "summary": "Generic templates might be fast, but they dilute your brand. Discover why custom graphic design from Hameem Bhai er Dokan is the premium choice.",
+      "content": "<p>In a world flooded with generic Canva templates, standing out requires original design thinking. If you want your brand or event to make a real impact, opting for custom <strong>graphic design Dhaka</strong> is a game changer. <strong>Hameem Bhai er Dokan</strong> offers bespoke graphic assets tailored to your brand identity, moving away from cookie-cutter structures.</p><p>Every <strong>Hameem Bhai design</strong> is built from scratch with proper typography, color harmony, and a modern aesthetic. From custom logos to high-quality <strong>poster design Bangladesh</strong>, we ensure that your visuals speak directly to your target audience. Discover why collaborating with <strong>Hameem Bhai er Dokan</strong> beats basic templates every single time.</p>"
+    },
+    {
+      "id": "web-dev-glassmorphism",
+      "title": "Web Development by Hameem Bhai — Modern Glassmorphism Websites",
+      "author": "Hameem Bhai",
+      "date": "June 16, 2026",
+      "readTime": "5 min read",
+      "category": "Website Building",
+      "keywords": [
+        "web development Dhaka",
+        "Hameem Bhai websites",
+        "modern design"
+      ],
+      "summary": "Ditch slow builders and bloated frameworks. Learn how Hameem Bhai crafts lightning-fast, custom glassmorphism websites.",
+      "content": "<p>A website is your digital storefront, and it should look just as premium as your physical products. When it comes to <strong>web development Dhaka</strong>, the trend is moving towards ultra-clean, fast-loading, and interactive layouts. <strong>Hameem Bhai</strong> specializes in creating modern glassmorphism websites that feel premium and responsive.</p><p>Instead of bloated templates or slow WordPress setups, <strong>Hameem Bhai websites</strong> are built with vanilla code for maximum speed and SEO efficiency. By combining <strong>modern design</strong> principles with interactive cursor trails and smooth scroll reveals, <strong>Hameem Bhai er Dokan</strong> builds digital experiences that keep users engaged and convert them into buyers.</p>"
+    },
+    {
+      "id": "3d-modeling-process-portfolio",
+      "title": "3D Modeling from Hameem Bhai er Dokan — Creative Process & Portfolio",
+      "author": "Hameem Bhai",
+      "date": "June 15, 2026",
+      "readTime": "4 min read",
+      "category": "3D Modeling",
+      "keywords": [
+        "3D modeling Dhaka",
+        "Hameem Bhai er Dokan",
+        "digital sculpture"
+      ],
+      "summary": "Go behind the scenes of digital sculpture prototyping, and how Hameem Bhai blends software precision with physical craftsmanship.",
+      "content": "<p>Bringing physical products to life starts with digital precision. Our <strong>3D modeling Dhaka</strong> workflow combines industrial design concepts with artistic sculpture. At <strong>Hameem Bhai er Dokan</strong>, we use advanced modeling tools to prototype custom designs before they hit the 3D printers.</p><p>Whether we are working on a custom lighter case or a bespoke product prototype, <strong>Hameem Bhai</strong> handles the entire process. From the initial 3D sketch to the final high-resolution <strong>digital sculpture</strong>, every detail is refined. Learn more about the creative process at <strong>Hameem Bhai er Dokan</strong> and view our 3D portfolio today.</p>"
+    },
+    {
+      "id": "commissioning-creative-work",
+      "title": "Commissioning Work from Hameem Bhai er Dokan — Process & Pricing",
+      "author": "Hameem Bhai",
+      "date": "June 14, 2026",
+      "readTime": "3 min read",
+      "category": "Guides",
+      "keywords": [
+        "custom creative work",
+        "Hameem Bhai services",
+        "Dhaka creatives"
+      ],
+      "summary": "A simple guide to hiring Hameem Bhai er Dokan for custom design, development, and modeling services without agency headaches.",
+      "content": "<p>Commissioning <strong>custom creative work</strong> shouldn't feel like a guessing game. At <strong>Hameem Bhai er Dokan</strong>, we make the commissioning process completely transparent, simple, and affordable for startups and individuals.</p><p>Our process is split into clear phases: brief sharing, payment setup, drafts review, and final delivery. Whether you're ordering a custom website, logo, or lighter case, <strong>Hameem Bhai services</strong> are built to suit your BDT budget. Discover how <strong>Hameem Bhai er Dokan</strong> supports fellow <strong>Dhaka creatives</strong> and startup founders with premium assets.</p>"
+    }
   ]
 }

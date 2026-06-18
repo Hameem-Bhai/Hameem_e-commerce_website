@@ -185,7 +185,7 @@ console.log('=== Core modules loaded ===');
   try {
     if (!window.HBD.data.categories || window.HBD.data.categories.length === 0) errors.push('No categories in data');
     if (!window.HBD.data.services || window.HBD.data.services.length === 0) errors.push('No services in data');
-    if (!window.HBD.data.reviews || window.HBD.data.reviews.length === 0) errors.push('No reviews in data');
+    if (!window.HBD.data.reviews) errors.push('No reviews array in data');
     if (!window.HBD.data.paymentMethods) errors.push('No paymentMethods in data');
     if (!window.HBD.data.referralCodes) errors.push('No referralCodes in data');
     if (typeof window.HBD.data.getServiceById !== 'function') errors.push('getServiceById not a function');

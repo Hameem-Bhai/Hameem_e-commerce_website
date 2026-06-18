@@ -183,11 +183,6 @@
           },
           "founder": {
             "@id": siteUrl + "/#person"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "40"
           }
         },
         {
@@ -457,7 +452,7 @@
       // Bottom bar
       '<div class="hbd-footer__bottom">' +
         '<p>&copy; 2026 Hameem Bhai er Dokan. All rights reserved. | Created by Hameem Bhai</p>' +
-        '<div class="hbd-footer__trust-badge" style="font-size: 0.8rem; color: var(--clr-text-muted); margin: 8px 0;">Hameem Bhai\'s Studio — 40+ Orders, 4.9★ Rating, Made in Dhaka</div>' +
+        '<div class="hbd-footer__trust-badge" style="font-size: 0.8rem; color: var(--clr-text-muted); margin: 8px 0;">Hameem Bhai\'s Studio — Creative Design & Development, Made in Dhaka</div>' +
         '<button class="hbd-footer__back-to-top" aria-label="Back to top" title="Back to top">' +
           '↑ Top' +
         '</button>' +

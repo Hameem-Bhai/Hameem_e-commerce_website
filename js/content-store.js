@@ -21,8 +21,8 @@
       heroSubtitle: 'Hameem Bhai er Dokan — Personal creative studio by Hameem Bhai. From custom lighter cases to full websites — we bring your creative ideas to life with passion, precision, and prices that won\'t break your wallet.',
       heroCTA1: 'Explore Services →',
       heroCTA2: 'Learn More',
-      heroStat1: '🔥 40+ Orders at Hameem Bhai er Dokan',
-      heroStat2: '⭐ 4.9★ Rating — Clients Love Hameem Bhai\'s Work',
+      heroStat1: '🔥 Premium Creative Studio',
+      heroStat2: '📍 Dhanmondi, Dhaka, BD',
     },
     // ── ABOUT PAGE ──
     about: {

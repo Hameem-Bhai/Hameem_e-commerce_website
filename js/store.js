@@ -633,6 +633,24 @@
       });
     }
 
+    function saveBlogPosts(arr) {
+      return fetch('/api/admin/blog', {
+        method: 'POST',
+        headers: UserStore._headers(),
+        body: JSON.stringify(arr)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (res) {
+        if (res.success && window.HBD.data.reloadFromStorage) {
+          return window.HBD.data.reloadFromStorage().then(function () { return res; });
+        }
+        return res;
+      })
+      .catch(function (err) {
+        return { success: false, message: 'Server connection failed: ' + err.message };
+      });
+    }
+
     /** Wipe all admin overrides and restore defaults */
     function reset() {
       // Restores to static defaults in memory
@@ -737,6 +755,7 @@
       saveReviews:     saveReviews,
       saveReferralCodes: saveReferralCodes,
       saveRecommended: saveRecommended,
+      saveBlogPosts:   saveBlogPosts,
       reset:           reset,
       exportJSON:      exportJSON,
       importJSON:      importJSON

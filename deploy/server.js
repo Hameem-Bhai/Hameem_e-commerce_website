@@ -168,6 +168,7 @@ app.get('/api/public-data', async (req, res) => {
     reviews: db.reviews.filter(r => !r.hidden),
     referralCodes: db.referralCodes,
     recommendedIds: db.recommendedIds,
+    blogPosts: db.blogPosts || [],
     content: db.content || {},
     availabilityStatus: db.availabilityStatus || 'available'
   });
@@ -474,6 +475,13 @@ app.post('/api/admin/referrals', adminOnly, async (req, res) => {
   db.referralCodes = req.body;
   await writeDB(db);
   res.json({ success: true, message: 'Referral codes saved successfully!' });
+});
+
+app.post('/api/admin/blog', adminOnly, async (req, res) => {
+  const db = await readDB();
+  db.blogPosts = req.body;
+  await writeDB(db);
+  res.json({ success: true, message: 'Blog posts saved successfully!' });
 });
 
 

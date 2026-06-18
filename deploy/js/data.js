@@ -293,17 +293,7 @@
   // ──────────────────────────────────────────────
   //  REVIEWS  (placeholder — to be replaced with real ones)
   // ──────────────────────────────────────────────
-  var reviews = [
-  {
-    "id": "r-1780753525582",
-    "serviceId": "lc-custom-3d",
-    "userName": "Kala Mia",
-    "rating": 5,
-    "text": "It's cool asf istg omg TT",
-    "date": "2026-06-06",
-    "hidden": false
-  }
-];
+  var reviews = [];
 
   // ──────────────────────────────────────────────
   //  HAMEEM BHAI RECOMMENDS  (curated picks)
@@ -403,6 +393,7 @@
         if (db.reviews) reviews = db.reviews;
         if (db.referralCodes) referralCodes = db.referralCodes;
         if (db.recommendedIds) recommendedIds = db.recommendedIds;
+        if (db.blogPosts) blogPosts = db.blogPosts;
 
         if (db.content && window.HBD && window.HBD.content && window.HBD.content.syncFromServer) {
           window.HBD.content.syncFromServer(db.content);
