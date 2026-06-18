@@ -44,9 +44,23 @@
 
       if (post) {
         // Set page metadata
-        document.title = post.title + ' | Hameem Bhai er Dokan';
+        document.title = post.title;
         var metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', post.summary);
+
+        var metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (!metaKeywords) {
+          metaKeywords = document.createElement('meta');
+          metaKeywords.setAttribute('name', 'keywords');
+          document.head.appendChild(metaKeywords);
+        }
+        if (post.keywords) {
+          if (Array.isArray(post.keywords)) {
+            metaKeywords.setAttribute('content', post.keywords.join(', '));
+          } else {
+            metaKeywords.setAttribute('content', post.keywords);
+          }
+        }
 
         // Update breadcrumbs
         if (breadcrumb && breadcrumbCurrent) {
