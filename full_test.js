@@ -42,6 +42,9 @@ const html = `<!DOCTYPE html><html lang="en"><body>
 <div id="referral-codes"></div>
 <div id="orders-list"></div>
 <div id="orders-empty" style="display:none;"></div>
+<div id="blog-container"></div>
+<div id="blog-breadcrumb"></div>
+<div id="breadcrumb-blog-current"></div>
 </body></html>`;
 
 const dom = new JSDOM(html, {
@@ -328,6 +331,7 @@ console.log('=== Core modules loaded ===');
   loadFile(dom, 'd:/my website/js/pages/profile.js');
   loadFile(dom, 'd:/my website/js/pages/service.js');
   loadFile(dom, 'd:/my website/js/pages/wishlist.js');
+  loadFile(dom, 'd:/my website/js/pages/blog.js');
   loadFile(dom, 'd:/my website/js/premium-effects.js');
 
   // Trigger DOMContentLoaded

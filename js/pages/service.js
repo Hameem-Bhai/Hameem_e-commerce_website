@@ -60,7 +60,7 @@
     var cat = HBD.data.getCategoryById(currentService.categoryId);
 
     // Meta
-    document.title = currentService.name + ' — HameemBhai er Dokan';
+    document.title = currentService.name + ' | Hameem Bhai er Dokan';
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', currentService.description);
 

@@ -54,241 +54,241 @@
   // ──────────────────────────────────────────────
   //  SERVICES
   // ──────────────────────────────────────────────
-  var services = [
+    var services = [
     {
-      "id": "lc-premade-3d",
-      "categoryId": "lighter-cases",
-      "name": "Custom 3D Lighter Case",
-      "tier": "Custom",
-      "price": 699,
-      "priceDisplay": "৳699",
-      "description": "Carry lighter cases which glows your own aesthetic. We'll help you turning your idea into reality.\n\n1. Comes with a free lighter (sunlite smoll)\n2. Tell us what you want e.g. cartoon character, anime character or anything.\n3. If you wanna change the lighter model then please let us know while ordering.",
-      "features": [
-        "Premade 3D element designs",
-        "Choose from available templates",
-        "Durable & detailed finish",
-        "Delivered in time",
-        "Free lighter"
-      ],
-      "popular": false,
-      "image": "img_lc_premade_3d.jpg",
-      "originalPrice": 1300,
-      "stock": 0,
-      "badge": "Custom editions"
+        "id": "lc-premade-3d",
+        "categoryId": "lighter-cases",
+        "name": "Custom 3D Lighter Case by Hameem Bhai",
+        "tier": "Custom",
+        "price": 699,
+        "priceDisplay": "৳699",
+        "description": "Carry lighter cases which glows your own aesthetic. We'll help you turning your idea into reality.\n\n1. Comes with a free lighter (sunlite smoll)\n2. Tell us what you want e.g. cartoon character, anime character or anything.\n3. If you wanna change the lighter model then please let us know while ordering.",
+        "features": [
+            "Premade 3D element designs",
+            "Choose from available templates",
+            "Durable & detailed finish",
+            "Delivered in time",
+            "Free lighter"
+        ],
+        "popular": false,
+        "image": "img_lc_premade_3d.jpg",
+        "originalPrice": 1300,
+        "stock": 0,
+        "badge": "Custom editions"
     },
     {
-      "id": "lc-custom-3d",
-      "categoryId": "lighter-cases",
-      "name": "3D Lighter Case - Hello  Kitty version",
-      "tier": "Collector edition",
-      "price": 1350,
-      "priceDisplay": "৳1,350",
-      "description": "Buy 2 for only ৳2000.\nOnly for true HK fans!",
-      "features": [
-        "Buy 2 for ৳2000 (save ৳700)",
-        "Delivered asap",
-        "Nice glossy finishing",
-        "CLICK IT!"
-      ],
-      "popular": true,
-      "image": "img_lc_custom_3d.jpg",
-      "originalPrice": 1500,
-      "stock": 2,
-      "badge": "FAN FAV!"
+        "id": "lc-custom-3d",
+        "categoryId": "lighter-cases",
+        "name": "3D Lighter Case - Hello  Kitty version by Hameem Bhai",
+        "tier": "Collector edition",
+        "price": 1350,
+        "priceDisplay": "৳1,350",
+        "description": "Buy 2 for only ৳2000.\nOnly for true HK fans!",
+        "features": [
+            "Buy 2 for ৳2000 (save ৳700)",
+            "Delivered asap",
+            "Nice glossy finishing",
+            "CLICK IT!"
+        ],
+        "popular": true,
+        "image": "img_lc_custom_3d.jpg",
+        "originalPrice": 1500,
+        "stock": 2,
+        "badge": "FAN FAV!"
     },
     {
-      "id": "gd-standard",
-      "categoryId": "graphics-design",
-      "name": "Custom Logo Design",
-      "tier": "Standard",
-      "price": 1299,
-      "priceDisplay": "৳1,299",
-      "description": "Custom logo with multiple variations — perfect for a brand just getting started.",
-      "features": [
-        "Custom logo design",
-        "3 initial concepts to choose from",
-        "Light + dark version",
-        "PNG + SVG files",
-        "2 revision rounds"
-      ],
-      "popular": false,
-      "image": "img_gd_standard.png",
-      "originalPrice": 1700,
-      "stock": 0,
-      "badge": null
+        "id": "gd-standard",
+        "categoryId": "graphics-design",
+        "name": "Custom Logo Design by Hameem Bhai",
+        "tier": "Standard",
+        "price": 1299,
+        "priceDisplay": "৳1,299",
+        "description": "Custom logo with multiple variations — perfect for a brand just getting started.",
+        "features": [
+            "Custom logo design",
+            "3 initial concepts to choose from",
+            "Light + dark version",
+            "PNG + SVG files",
+            "2 revision rounds"
+        ],
+        "popular": false,
+        "image": "img_gd_standard.png",
+        "originalPrice": 1700,
+        "stock": 0,
+        "badge": null
     },
     {
-      "id": "gd-brand",
-      "categoryId": "graphics-design",
-      "name": "Full Brand Identity",
-      "tier": "Premium",
-      "price": 14999,
-      "priceDisplay": "৳14,999",
-      "description": "Complete brand identity package — logo, colour palette, social media kit & business card design.",
-      "features": [
-        "Custom logo (all variations)",
-        "Colour palette & typography guide",
-        "Social media profile & cover designs",
-        "Business card design",
-        "Full-Stack modern aesthetic website!",
-        "Other marketing tips if needed."
-      ],
-      "popular": true,
-      "image": "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png",
-      "originalPrice": 25000,
-      "stock": 0,
-      "badge": "Premium Edition"
+        "id": "gd-brand",
+        "categoryId": "graphics-design",
+        "name": "Full Brand Identity by Hameem Bhai",
+        "tier": "Premium",
+        "price": 14999,
+        "priceDisplay": "৳14,999",
+        "description": "Complete brand identity package — logo, colour palette, social media kit & business card design.",
+        "features": [
+            "Custom logo (all variations)",
+            "Colour palette & typography guide",
+            "Social media profile & cover designs",
+            "Business card design",
+            "Full-Stack modern aesthetic website!",
+            "Other marketing tips if needed."
+        ],
+        "popular": true,
+        "image": "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png",
+        "originalPrice": 25000,
+        "stock": 0,
+        "badge": "Premium Edition"
     },
     {
-      "id": "pd-basic",
-      "categoryId": "poster-design",
-      "name": "Basic Poster",
-      "tier": "Basic",
-      "price": 799,
-      "priceDisplay": "৳799",
-      "description": "A clean, straightforward poster for events, announcements or promotions.",
-      "features": [
-        "Single poster design",
-        "A4 / social media size",
-        "High-res PNG delivery",
-        "1 revision round"
-      ],
-      "popular": false,
-      "image": "https://i.postimg.cc/RFndjdww/Image8.jpg",
-      "originalPrice": null,
-      "stock": 1,
-      "badge": null
+        "id": "pd-basic",
+        "categoryId": "poster-design",
+        "name": "Basic Poster by Hameem Bhai",
+        "tier": "Basic",
+        "price": 799,
+        "priceDisplay": "৳799",
+        "description": "A clean, straightforward poster for events, announcements or promotions.",
+        "features": [
+            "Single poster design",
+            "A4 / social media size",
+            "High-res PNG delivery",
+            "1 revision round"
+        ],
+        "popular": false,
+        "image": "https://i.postimg.cc/RFndjdww/Image8.jpg",
+        "originalPrice": null,
+        "stock": 1,
+        "badge": null
     },
     {
-      "id": "pd-custom",
-      "categoryId": "poster-design",
-      "name": "Custom Poster Design",
-      "tier": "Standard",
-      "price": 1500,
-      "priceDisplay": "৳1,500",
-      "description": "A custom poster with visual effects, lighting and detailed design work — built to impress.",
-      "features": [
-        "Custom design with effects & lighting",
-        "Multiple size variants",
-        "Print-ready quality",
-        "2 revision rounds"
-      ],
-      "popular": false,
-      "image": "img_pd_custom.jpg",
-      "originalPrice": 2000,
-      "stock": 14,
-      "badge": "JDM Edition"
+        "id": "pd-custom",
+        "categoryId": "poster-design",
+        "name": "Custom Poster Design by Hameem Bhai",
+        "tier": "Standard",
+        "price": 1500,
+        "priceDisplay": "৳1,500",
+        "description": "A custom poster with visual effects, lighting and detailed design work — built to impress.",
+        "features": [
+            "Custom design with effects & lighting",
+            "Multiple size variants",
+            "Print-ready quality",
+            "2 revision rounds"
+        ],
+        "popular": false,
+        "image": "img_pd_custom.jpg",
+        "originalPrice": 2000,
+        "stock": 14,
+        "badge": "JDM Edition"
     },
     {
-      "id": "pd-campaign",
-      "categoryId": "poster-design",
-      "name": "Album Cover Design",
-      "tier": "Premium",
-      "price": 2399,
-      "priceDisplay": "৳2,399",
-      "description": "An original hand-drawn digital artwork created on iPad, blending abstract expressionism, industrial aesthetics, and psychological symbolism. The composition explores themes of chaos, isolation, ambition, destruction, and rebirth through layered imagery, fragmented structures, and a dominant red-black palette. Designed to evoke intensity and emotional depth, this piece is suitable for album covers in genres such as hip-hop, alternative, metal, industrial, dark electronic, and experimental music.\n\nMedium: Digital Painting (iPad)\nStyle: Abstract / Industrial / Expressionist\nResolution: High Resolution\nRights: Commercial Use Available\n\n\n*THE MARKS ARE FOR COPYRIGHT ISSUES*",
-      "features": [
-        "Custom Cover Art",
-        "Single & Album Designs",
-        "Streaming Platform Ready",
-        "Unique Creative Direction",
-        "High-Resolution Delivery",
-        "Fully Hand-Made"
-      ],
-      "popular": true,
-      "image": "https://i.postimg.cc/pdVcmKz5/albumcover.jpg",
-      "originalPrice": null,
-      "stock": 0,
-      "badge": "Music"
+        "id": "pd-campaign",
+        "categoryId": "poster-design",
+        "name": "Album Cover Design by Hameem Bhai",
+        "tier": "Premium",
+        "price": 2399,
+        "priceDisplay": "৳2,399",
+        "description": "An original hand-drawn digital artwork created on iPad, blending abstract expressionism, industrial aesthetics, and psychological symbolism. The composition explores themes of chaos, isolation, ambition, destruction, and rebirth through layered imagery, fragmented structures, and a dominant red-black palette. Designed to evoke intensity and emotional depth, this piece is suitable for album covers in genres such as hip-hop, alternative, metal, industrial, dark electronic, and experimental music.\n\nMedium: Digital Painting (iPad)\nStyle: Abstract / Industrial / Expressionist\nResolution: High Resolution\nRights: Commercial Use Available\n\n\n*THE MARKS ARE FOR COPYRIGHT ISSUES*",
+        "features": [
+            "Custom Cover Art",
+            "Single & Album Designs",
+            "Streaming Platform Ready",
+            "Unique Creative Direction",
+            "High-Resolution Delivery",
+            "Fully Hand-Made"
+        ],
+        "popular": true,
+        "image": "https://i.postimg.cc/pdVcmKz5/albumcover.jpg",
+        "originalPrice": null,
+        "stock": 0,
+        "badge": "Music"
     },
     {
-      "id": "wb-multi",
-      "categoryId": "website-building",
-      "name": "Multi-Page Website",
-      "tier": "Standard",
-      "price": 5999,
-      "priceDisplay": "৳5,999",
-      "description": "Get a sleek, high-performance website tailored to your brand. Includes 3–5 professionally crafted pages such as Home, About, Services, Contact, and more. Designed with a modern aesthetic, fast loading speeds, mobile responsiveness, and seamless navigation to help you attract visitors and convert them into customers.",
-      "features": [
-        "3–5 custom pages",
-        "Responsive on all devices",
-        "Contact form",
-        "Basic SEO setup",
-        "Aesthetic and modern",
-        "you can make it like portfolio, experience, blog, community type etc."
-      ],
-      "popular": true,
-      "image": "https://i.postimg.cc/LX9S6q6c/Screenshot-2026-06-06-152317.png",
-      "originalPrice": 15000,
-      "stock": 0,
-      "badge": "Popular"
+        "id": "wb-multi",
+        "categoryId": "website-building",
+        "name": "Multi-Page Website by Hameem Bhai",
+        "tier": "Standard",
+        "price": 5999,
+        "priceDisplay": "৳5,999",
+        "description": "Get a sleek, high-performance website tailored to your brand. Includes 3–5 professionally crafted pages such as Home, About, Services, Contact, and more. Designed with a modern aesthetic, fast loading speeds, mobile responsiveness, and seamless navigation to help you attract visitors and convert them into customers.",
+        "features": [
+            "3–5 custom pages",
+            "Responsive on all devices",
+            "Contact form",
+            "Basic SEO setup",
+            "Aesthetic and modern",
+            "you can make it like portfolio, experience, blog, community type etc."
+        ],
+        "popular": true,
+        "image": "https://i.postimg.cc/LX9S6q6c/Screenshot-2026-06-06-152317.png",
+        "originalPrice": 15000,
+        "stock": 0,
+        "badge": "Popular"
     },
     {
-      "id": "wb-full",
-      "categoryId": "website-building",
-      "name": "Full Custom Website",
-      "tier": "Premium",
-      "price": 9500,
-      "priceDisplay": "৳9,500",
-      "description": "1. The Storefront & Customer Experience\nDynamic Product Catalog: Clean grids, category filters, and tags (like ⭐ Popular or Limited Item).\nActive Review & Rating System: Customers can rate products, write testimonials, and see average star ratings updated in real-time.\nWishlist System: Let customers save their favorite items to a custom list that persists across visits.\nSmart Shopping Cart & Checkout:\nAuto-calculates totals and delivery fees (digital vs. physical items).\nAuto-applies promo codes (e.g., HBFRIEND10).\nAuto-recognizes returning customers to apply special customer loyalty discounts.\nDirect cash-out integration showing bKash payment details.\n\n2. The Powerhouse: Admin Control Center\nLive Order Manager: View new orders, customer contact info, check transition IDs, and change order status (Pending ➡️ Completed).\nDirect WhatsApp Integration: Tap a button next to any order to immediately open a chat window with that specific customer on WhatsApp.\nInteractive Inventory Controller: Add new services, edit pricing, change badges, edit features, and upload photos directly from the dashboard.\nCustomer List: Search and view registered customer profiles and emails.\nDatabase Backup Utility: Export the entire store database as a JSON backup or import it to move databases instantly.",
-      "features": [
-        "Fully custom design & code",
-        "Admin panel (if needed)",
-        "Animations & micro-interactions",
-        "Zero Templates, Zero WordPress Bloat",
-        "Mobile-First Experience",
-        "Full Control without Complexity"
-      ],
-      "popular": true,
-      "image": "https://i.postimg.cc/nrLQ7cTd/Screenshot-2026-06-06-152925.png",
-      "originalPrice": 30000,
-      "stock": null,
-      "badge": "Most Demanded"
+        "id": "wb-full",
+        "categoryId": "website-building",
+        "name": "Full Custom Website by Hameem Bhai",
+        "tier": "Premium",
+        "price": 9500,
+        "priceDisplay": "৳9,500",
+        "description": "1. The Storefront & Customer Experience\nDynamic Product Catalog: Clean grids, category filters, and tags (like ⭐ Popular or Limited Item).\nActive Review & Rating System: Customers can rate products, write testimonials, and see average star ratings updated in real-time.\nWishlist System: Let customers save their favorite items to a custom list that persists across visits.\nSmart Shopping Cart & Checkout:\nAuto-calculates totals and delivery fees (digital vs. physical items).\nAuto-applies promo codes (e.g., HBFRIEND10).\nAuto-recognizes returning customers to apply special customer loyalty discounts.\nDirect cash-out integration showing bKash payment details.\n\n2. The Powerhouse: Admin Control Center\nLive Order Manager: View new orders, customer contact info, check transition IDs, and change order status (Pending ➡️ Completed).\nDirect WhatsApp Integration: Tap a button next to any order to immediately open a chat window with that specific customer on WhatsApp.\nInteractive Inventory Controller: Add new services, edit pricing, change badges, edit features, and upload photos directly from the dashboard.\nCustomer List: Search and view registered customer profiles and emails.\nDatabase Backup Utility: Export the entire store database as a JSON backup or import it to move databases instantly.",
+        "features": [
+            "Fully custom design & code",
+            "Admin panel (if needed)",
+            "Animations & micro-interactions",
+            "Zero Templates, Zero WordPress Bloat",
+            "Mobile-First Experience",
+            "Full Control without Complexity"
+        ],
+        "popular": true,
+        "image": "https://i.postimg.cc/nrLQ7cTd/Screenshot-2026-06-06-152925.png",
+        "originalPrice": 30000,
+        "stock": null,
+        "badge": "Most Demanded"
     },
     {
-      "id": "dp-basic",
-      "categoryId": "digital-painting",
-      "name": "Character Sketch",
-      "tier": "Basic",
-      "price": 999,
-      "priceDisplay": "৳999",
-      "description": "A striking, hand-drawn digital ink portrait that combines sharp, expressive black line-art with a soft, neon-pink ambient glow. It captures a moody, modern aesthetic that is perfect for personalized avatars, custom prints, or stickers.",
-      "features": [
-        "Single character / portrait",
-        "Clean line art",
-        "Basic shading & colour",
-        "High-res PNG delivery",
-        "Customizable background neon glow (choose your accent color)."
-      ],
-      "popular": false,
-      "image": "https://i.postimg.cc/jqwGzVkx/Image-(10).jpg",
-      "originalPrice": 1600,
-      "stock": null,
-      "badge": null
+        "id": "dp-basic",
+        "categoryId": "digital-painting",
+        "name": "Character Sketch by Hameem Bhai",
+        "tier": "Basic",
+        "price": 999,
+        "priceDisplay": "৳999",
+        "description": "A striking, hand-drawn digital ink portrait that combines sharp, expressive black line-art with a soft, neon-pink ambient glow. It captures a moody, modern aesthetic that is perfect for personalized avatars, custom prints, or stickers.",
+        "features": [
+            "Single character / portrait",
+            "Clean line art",
+            "Basic shading & colour",
+            "High-res PNG delivery",
+            "Customizable background neon glow (choose your accent color)."
+        ],
+        "popular": false,
+        "image": "https://i.postimg.cc/jqwGzVkx/Image-(10).jpg",
+        "originalPrice": 1600,
+        "stock": null,
+        "badge": null
     },
     {
-      "id": "dp-portrait",
-      "categoryId": "digital-painting",
-      "name": "Detailed Portrait",
-      "tier": "Premium",
-      "price": 1499,
-      "priceDisplay": "৳1,499",
-      "description": "A fully rendered, hand-painted digital portrait featuring rich color transitions, warm highlights, and a realistic canvas-texture background. The detailed shading on the face and hair creates a high-end, gallery-quality piece that is perfect for aesthetic wallpapers, custom gifts, or room prints.",
-      "features": [
-        "Detailed character / portrait",
-        "Full shading & textures",
-        "Simple background included",
-        "2 revision rounds",
-        "PNG + layered PSD",
-        "Full-color rendering with facial lighting and blush details."
-      ],
-      "popular": true,
-      "image": "https://i.postimg.cc/9XRvG3Nf/Image-(9).jpg",
-      "originalPrice": 2100,
-      "stock": null,
-      "badge": null
+        "id": "dp-portrait",
+        "categoryId": "digital-painting",
+        "name": "Detailed Portrait by Hameem Bhai",
+        "tier": "Premium",
+        "price": 1499,
+        "priceDisplay": "৳1,499",
+        "description": "A fully rendered, hand-painted digital portrait featuring rich color transitions, warm highlights, and a realistic canvas-texture background. The detailed shading on the face and hair creates a high-end, gallery-quality piece that is perfect for aesthetic wallpapers, custom gifts, or room prints.",
+        "features": [
+            "Detailed character / portrait",
+            "Full shading & textures",
+            "Simple background included",
+            "2 revision rounds",
+            "PNG + layered PSD",
+            "Full-color rendering with facial lighting and blush details."
+        ],
+        "popular": true,
+        "image": "https://i.postimg.cc/9XRvG3Nf/Image-(9).jpg",
+        "originalPrice": 2100,
+        "stock": null,
+        "badge": null
     }
-  ];
+];
 
   // ──────────────────────────────────────────────
   //  REVIEWS  (placeholder — to be replaced with real ones)
@@ -465,6 +465,64 @@
     return Math.round((sum / serviceReviews.length) * 10) / 10;
   }
 
+  var blogPosts = [
+    {
+      id: 'custom-lighter-cases-portfolio',
+      title: "Custom Lighter Cases — Hameem Bhai er Dokan's Portfolio",
+      author: 'Hameem Bhai',
+      date: 'June 18, 2026',
+      readTime: '3 min read',
+      category: 'Lighter Cases',
+      keywords: ['custom lighter cases', 'Hameem Bhai', 'lighter design Dhaka'],
+      summary: "Explore how Hameem Bhai er Dokan turns simple utility lighters into custom, hand-painted and 3D printed works of art directly from Dhaka.",
+      content: "<p>When it comes to flexing your own aesthetic, standard accessories just don't cut it. That's why <strong>custom lighter cases</strong> have become the ultimate statement piece in the Dhaka street style scene. At <strong>Hameem Bhai er Dokan</strong>, we treat lighter cases not just as utility items, but as miniature canvases.</p><p>Every single case in our collection is hand-crafted, painted, or 3D modeled by <strong>Hameem Bhai</strong> himself, ensuring that your lighter matches your unique vibe. Whether you are looking for a detailed anime character, minimalist typography, or intricate 3D-sculpted elements that glow under UV lights, our <strong>lighter design Dhaka</strong> studio delivers premium results. Check out <strong>Hameem Bhai er Dokan</strong>'s portfolio to see how we turn everyday items into collector's editions.</p>"
+    },
+    {
+      id: 'graphic-design-beats-templates',
+      title: "Graphic Design Services — Why Hameem Bhai er Dokan Beats Templates",
+      author: 'Hameem Bhai',
+      date: 'June 17, 2026',
+      readTime: '4 min read',
+      category: 'Graphics Design',
+      keywords: ['graphic design Dhaka', 'Hameem Bhai design', 'poster design Bangladesh'],
+      summary: "Generic templates might be fast, but they dilute your brand. Discover why custom graphic design from Hameem Bhai er Dokan is the premium choice.",
+      content: "<p>In a world flooded with generic Canva templates, standing out requires original design thinking. If you want your brand or event to make a real impact, opting for custom <strong>graphic design Dhaka</strong> is a game changer. <strong>Hameem Bhai er Dokan</strong> offers bespoke graphic assets tailored to your brand identity, moving away from cookie-cutter structures.</p><p>Every <strong>Hameem Bhai design</strong> is built from scratch with proper typography, color harmony, and a modern aesthetic. From custom logos to high-quality <strong>poster design Bangladesh</strong>, we ensure that your visuals speak directly to your target audience. Discover why collaborating with <strong>Hameem Bhai er Dokan</strong> beats basic templates every single time.</p>"
+    },
+    {
+      id: 'web-dev-glassmorphism',
+      title: "Web Development by Hameem Bhai — Modern Glassmorphism Websites",
+      author: 'Hameem Bhai',
+      date: 'June 16, 2026',
+      readTime: '5 min read',
+      category: 'Website Building',
+      keywords: ['web development Dhaka', 'Hameem Bhai websites', 'modern design'],
+      summary: "Ditch slow builders and bloated frameworks. Learn how Hameem Bhai crafts lightning-fast, custom glassmorphism websites.",
+      content: "<p>A website is your digital storefront, and it should look just as premium as your physical products. When it comes to <strong>web development Dhaka</strong>, the trend is moving towards ultra-clean, fast-loading, and interactive layouts. <strong>Hameem Bhai</strong> specializes in creating modern glassmorphism websites that feel premium and responsive.</p><p>Instead of bloated templates or slow WordPress setups, <strong>Hameem Bhai websites</strong> are built with vanilla code for maximum speed and SEO efficiency. By combining <strong>modern design</strong> principles with interactive cursor trails and smooth scroll reveals, <strong>Hameem Bhai er Dokan</strong> builds digital experiences that keep users engaged and convert them into buyers.</p>"
+    },
+    {
+      id: '3d-modeling-process-portfolio',
+      title: "3D Modeling from Hameem Bhai er Dokan — Creative Process & Portfolio",
+      author: 'Hameem Bhai',
+      date: 'June 15, 2026',
+      readTime: '4 min read',
+      category: '3D Modeling',
+      keywords: ['3D modeling Dhaka', 'Hameem Bhai er Dokan', 'digital sculpture'],
+      summary: "Go behind the scenes of digital sculpture prototyping, and how Hameem Bhai blends software precision with physical craftsmanship.",
+      content: "<p>Bringing physical products to life starts with digital precision. Our <strong>3D modeling Dhaka</strong> workflow combines industrial design concepts with artistic sculpture. At <strong>Hameem Bhai er Dokan</strong>, we use advanced modeling tools to prototype custom designs before they hit the 3D printers.</p><p>Whether we are working on a custom lighter case or a bespoke product prototype, <strong>Hameem Bhai</strong> handles the entire process. From the initial 3D sketch to the final high-resolution <strong>digital sculpture</strong>, every detail is refined. Learn more about the creative process at <strong>Hameem Bhai er Dokan</strong> and view our 3D portfolio today.</p>"
+    },
+    {
+      id: 'commissioning-creative-work',
+      title: "Commissioning Work from Hameem Bhai er Dokan — Process & Pricing",
+      author: 'Hameem Bhai',
+      date: 'June 14, 2026',
+      readTime: '3 min read',
+      category: 'Guides',
+      keywords: ['custom creative work', 'Hameem Bhai services', 'Dhaka creatives'],
+      summary: "A simple guide to hiring Hameem Bhai er Dokan for custom design, development, and modeling services without agency headaches.",
+      content: "<p>Commissioning <strong>custom creative work</strong> shouldn't feel like a guessing game. At <strong>Hameem Bhai er Dokan</strong>, we make the commissioning process completely transparent, simple, and affordable for startups and individuals.</p><p>Our process is split into clear phases: brief sharing, payment setup, drafts review, and final delivery. Whether you're ordering a custom website, logo, or lighter case, <strong>Hameem Bhai services</strong> are built to suit your BDT budget. Discover how <strong>Hameem Bhai er Dokan</strong> supports fellow <strong>Dhaka creatives</strong> and startup founders with premium assets.</p>"
+    }
+  ];
+
   // ──────────────────────────────────────────────
   //  PUBLIC API
   // ──────────────────────────────────────────────
@@ -476,6 +534,7 @@
     get reviews()        { return reviews; },
     get recommendedIds() { return recommendedIds; },
     get referralCodes()  { return referralCodes; },
+    get blogPosts()      { return blogPosts; },
     processSteps:        processSteps,
     paymentMethods:      paymentMethods,
     getServiceById:      getServiceById,

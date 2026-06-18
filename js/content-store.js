@@ -13,36 +13,35 @@
 
   var STORAGE_KEY = 'hbd-site-content';
 
-  /* ── DEFAULT CONTENT ── */
   var DEFAULTS = {
     // ── HOME PAGE ──
     home: {
       heroBadge: '🇧🇩 Made in Bangladesh',
-      heroTitle: 'Your Vision, Our Craft',
-      heroSubtitle: 'From custom lighter cases to full websites — we bring your creative ideas to life with passion, precision, and prices that won\'t break your wallet.',
+      heroTitle: 'Hameem Bhai er Dokan — Your Vision, Our Craft',
+      heroSubtitle: 'Hameem Bhai er Dokan — Personal creative studio by Hameem Bhai. From custom lighter cases to full websites — we bring your creative ideas to life with passion, precision, and prices that won\'t break your wallet.',
       heroCTA1: 'Explore Services →',
       heroCTA2: 'Learn More',
-      heroStat1: '🔥 500+ Orders Completed',
-      heroStat2: '⭐ 4.9 Average Rating',
+      heroStat1: '🔥 40+ Orders at Hameem Bhai er Dokan',
+      heroStat2: '⭐ 4.9★ Rating — Clients Love Hameem Bhai\'s Work',
     },
     // ── ABOUT PAGE ──
     about: {
       heroBadge: 'The Dokan Story',
-      heroTitle: 'About HameemBhai',
-      heroSubtitle: 'Discover the passion, values, and craftsmanship that drive HameemBhai er Dokan.',
+      heroTitle: 'About Hameem Bhai er Dokan',
+      heroSubtitle: 'Discover the passion, values, and craftsmanship that drive Hameem Bhai er Dokan, founded by Hameem Bhai.',
       storyTitle: 'Your Vision, Our Craft',
-      storyP1: 'HameemBhai er Dokan wasn\'t built in a boardroom — it was born from the streets of Dhaka out of a simple necessity: people need a place to show their artistic drip without paying astronomical agency fees.',
-      storyP2: 'I\'m just a simple Hameem Bhai from Dhaka, investing my time and late nights so you can flex your creative vision. Whether it\'s hand-painting custom 3D lighter cases that catch eyes, coding glassmorphism websites that feel like the future, or dropping corporate posters with unmatched aesthetic — we bring that raw, unfiltered passion to everything we touch.',
-      storyP3: 'This isn\'t just a transaction; it\'s a creative partnership. We iterate, we vibe, and we don\'t stop until the final product is absolute typeshit.',
-      statProjects: '500',
-      statClients: '300',
-      statYears: '3',
+      storyP1: 'Hameem Bhai er Dokan wasn\'t built in a boardroom — it was born from the streets of Dhaka out of a simple necessity: people need a place to show their artistic drip without paying astronomical agency fees. Founded by Hameem Bhai, our studio stands for raw creativity.',
+      storyP2: 'I\'m Hameem Bhai, and this is Hameem Bhai er Dokan — my creative studio in Dhaka, investing my time and late nights so you can flex your creative vision. Whether Hameem Bhai is hand-painting custom 3D lighter cases that catch eyes, coding glassmorphism websites that feel like the future, or Hameem Bhai er Dokan is dropping corporate posters with unmatched aesthetic — we bring that raw, unfiltered passion to everything we touch.',
+      storyP3: 'This isn\'t just a transaction; it\'s a creative partnership. We iterate, we vibe, and we don\'t stop until the final product from Hameem Bhai er Dokan is absolute typeshit.',
+      statProjects: '40',
+      statClients: '30',
+      statYears: '1',
       statSatisfaction: '99',
     },
     // ── CONTACT PAGE ──
     contact: {
       title: 'Get in Touch',
-      subtitle: 'Have questions or want to collaborate? Send HameemBhai a message!',
+      subtitle: 'Have questions or want to collaborate? Send Hameem Bhai a message!',
       email: 'basithameem@gmail.com',
       phone: '+880 1785-501873',
       whatsappLink: 'https://wa.me/8801785501873',
@@ -51,7 +50,7 @@
     },
     // ── FOOTER / HEADER ──
     global: {
-      tagline: 'Bringing creative visions to life from Dhaka, Bangladesh.',
+      tagline: 'Hameem Bhai er Dokan — Bringing creative visions to life from Dhaka, Bangladesh. Created by Hameem Bhai.',
       footerEmail: 'basithameem@gmail.com',
       footerPhone: '+880 1785-501873',
       footerInstagram: 'https://instagram.com/hameem_bhai',

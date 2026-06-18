@@ -38,6 +38,7 @@
     var navLinks = [
       { label: 'Home',     href: 'index.html',    id: 'home' },
       { label: 'Services', href: 'services.html', id: 'services' },
+      { label: 'Blog',     href: 'blog.html',     id: 'blog' },
       { label: 'About',    href: 'about.html',    id: 'about' },
       { label: 'Contact',  href: 'contact.html',  id: 'contact' }
     ];
@@ -52,7 +53,7 @@
         // Logo
         '<a href="index.html" class="hbd-header__logo" aria-label="Home">' +
           HB_LOGO_SVG +
-          '<span class="hbd-header__brand">Hameem<span class="hbd-header__brand-suffix">Bhai er Dokan</span><span class="hbd-logo-dot">.</span>' +
+          '<span class="hbd-header__brand">Hameem<span class="hbd-header__brand-suffix"> Bhai er Dokan</span><span class="hbd-logo-dot">.</span>' +
           '</span>' +
         '</a>' +
 
@@ -135,6 +136,99 @@
     HBD.store.EventBus.on('user:changed', function () {
       _maybeRenderAdminBar();
     });
+
+    // ── Inject JSON-LD Schema ──
+    injectSchema(activePage);
+  }
+
+  /** Dynamically inject combined LocalBusiness + Person + BreadcrumbList JSON-LD Schema */
+  function injectSchema(activePage) {
+    if (document.getElementById('hbd-jsonld-schema')) return;
+
+    var siteUrl = 'https://www.hameembhaierdokan.studio';
+    var pageUrl = siteUrl + '/' + (activePage === 'home' ? 'index.html' : activePage + '.html');
+    var pageNameMap = {
+      home: 'Hameem Bhai er Dokan | Home',
+      services: 'All Services',
+      blog: 'Blog Articles',
+      about: 'About Us',
+      contact: 'Contact Us',
+      cart: 'Your Shopping Cart',
+      checkout: 'Checkout',
+      login: 'Login / Register',
+      profile: 'User Profile',
+      orders: 'Order History',
+      wishlist: 'Wishlist',
+      admin: 'Admin Panel'
+    };
+
+    var pageName = pageNameMap[activePage] || 'Page';
+
+    var schemaData = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": siteUrl + "/#localbusiness",
+          "name": "Hameem Bhai er Dokan",
+          "image": siteUrl + "/logo.png",
+          "url": siteUrl,
+          "telephone": "+8801785501873",
+          "priceRange": "৳৳",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dhanmondi",
+            "addressLocality": "Dhaka",
+            "addressCountry": "BD"
+          },
+          "founder": {
+            "@id": siteUrl + "/#person"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "40"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": siteUrl + "/#person",
+          "name": "Hameem Bhai",
+          "url": siteUrl + "/about.html",
+          "jobTitle": "Creative Director & Founder",
+          "worksFor": {
+            "@id": siteUrl + "/#localbusiness"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": pageUrl + "/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Hameem Bhai er Dokan",
+              "item": siteUrl
+            }
+          ]
+        }
+      ]
+    };
+
+    if (activePage !== 'home') {
+      schemaData["@graph"][2].itemListElement.push({
+        "@type": "ListItem",
+        "position": 2,
+        "name": pageName,
+        "item": pageUrl
+      });
+    }
+
+    var script = ce('script');
+    script.type = 'application/ld+json';
+    script.id = 'hbd-jsonld-schema';
+    script.text = JSON.stringify(schemaData, null, 2);
+    document.head.appendChild(script);
   }
 
   /** Internal — attach header event listeners */
@@ -306,7 +400,7 @@
         // Col 1 — Brand
         '<div class="hbd-footer__col hbd-footer__col--brand">' +
           '<div class="hbd-footer__logo">' + HB_LOGO_SVG +
-            '<span class="hbd-footer__brand-name">HameemBhai<span class="hbd-footer__brand-suffix"> er Dokan</span><span class="hbd-logo-dot">.</span></span>' +
+            '<span class="hbd-footer__brand-name">Hameem<span class="hbd-footer__brand-suffix"> Bhai er Dokan</span><span class="hbd-logo-dot">.</span></span>' +
           '</div>' +
           '<p class="hbd-footer__tagline">' + HBD.content.get('global', 'tagline') + '<br>' + HBD.content.get('contact', 'location') + '.</p>' +
           '<div class="hbd-footer__social">' +
@@ -325,9 +419,9 @@
           '<ul class="hbd-footer__list">' +
             '<li><a href="index.html">Home</a></li>' +
             '<li><a href="services.html">All Services</a></li>' +
+            '<li><a href="blog.html">Blog</a></li>' +
             '<li><a href="about.html">About Us</a></li>' +
             '<li><a href="contact.html">Contact</a></li>' +
-            '<li><a href="cart.html">Cart</a></li>' +
           '</ul>' +
         '</div>' +
 
@@ -350,6 +444,7 @@
             '<span class="hbd-payment-badge">bKash</span>' +
             '<span class="hbd-payment-badge">Cash on Delivery</span>' +
           '</div>' +
+          '<p class="hbd-footer__contact-intro" style="font-size:0.85rem; color:var(--clr-text-secondary); margin-bottom:10px;">Get in touch with Hameem Bhai at Hameem Bhai er Dokan:</p>' +
           '<p class="hbd-footer__contact-info">' +
             '📱 bKash: <strong>' + HBD.content.get('global', 'footerPhone') + '</strong><br>' +
             '💬 WhatsApp: <a href="' + HBD.content.get('global', 'footerWhatsapp') + '" target="_blank" style="color:var(--clr-accent)">' + HBD.content.get('global', 'footerPhone') + '</a><br>' +
@@ -361,7 +456,8 @@
 
       // Bottom bar
       '<div class="hbd-footer__bottom">' +
-        '<p>&copy; 2025 HameemBhai er Dokan. All rights reserved.</p>' +
+        '<p>&copy; 2026 Hameem Bhai er Dokan. All rights reserved. | Created by Hameem Bhai</p>' +
+        '<div class="hbd-footer__trust-badge" style="font-size: 0.8rem; color: var(--clr-text-muted); margin: 8px 0;">Hameem Bhai\'s Studio — 40+ Orders, 4.9★ Rating, Made in Dhaka</div>' +
         '<button class="hbd-footer__back-to-top" aria-label="Back to top" title="Back to top">' +
           '↑ Top' +
         '</button>' +
@@ -414,6 +510,7 @@
       '<div class="hbd-service-card__body">' +
         '<span class="hbd-service-card__category">' + (cat ? cat.name : '') + '</span>' +
         '<h3 class="hbd-service-card__title">' + HBD.utils.sanitize(service.name) + '</h3>' +
+        '<div class="hbd-service-card__studio" style="font-size: 0.78rem; color: var(--clr-text-muted); margin-bottom: 8px;">Available at <span style="color: var(--clr-accent); font-weight: 500;">Hameem Bhai er Dokan</span></div>' +
         '<p class="hbd-service-card__desc">' + HBD.utils.sanitize(service.description) + '</p>' +
         (service.stock ? '<div class="hbd-service-card__stock" style="color: #FF6B35; font-size: 12px; margin-top: 5px; font-weight: 600;">🔥 Only ' + service.stock + ' left in stock!</div>' : '') +
         '<div class="hbd-service-card__meta">' +

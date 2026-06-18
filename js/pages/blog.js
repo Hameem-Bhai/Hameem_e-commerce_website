@@ -1,0 +1,142 @@
+/**
+ * ============================================================
+ *  Hameem Bhai er Dokan — Blog Page JS
+ *  Dynamic listing of articles and single article rendering
+ * ============================================================
+ */
+(function () {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    HBD.components.renderHeader('blog');
+    HBD.components.renderFooter();
+
+    renderBlog();
+
+    // Listen for storage changes
+    HBD.store.EventBus.on('data:changed', function () {
+      renderBlog();
+    });
+
+    HBD.components.initScrollAnimations();
+    HBD.components.initCursorTrail();
+    HBD.store.EventBus.emit('content:loaded');
+  });
+
+  function renderBlog() {
+    var container = document.getElementById('blog-container');
+    if (!container) return;
+
+    var postId = HBD.utils.getQueryParam('id');
+    var breadcrumbCurrent = document.getElementById('breadcrumb-blog-current');
+    var breadcrumb = document.getElementById('blog-breadcrumb');
+
+    if (postId) {
+      // Find the specific post
+      var post = null;
+      var posts = HBD.data.blogPosts;
+      for (var i = 0; i < posts.length; i++) {
+        if (posts[i].id === postId) {
+          post = posts[i];
+          break;
+        }
+      }
+
+      if (post) {
+        // Set page metadata
+        document.title = post.title + ' | Hameem Bhai er Dokan';
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', post.summary);
+
+        // Update breadcrumbs
+        if (breadcrumb && breadcrumbCurrent) {
+          breadcrumb.innerHTML =
+            '<a href="index.html" class="breadcrumb__link">Home</a>' +
+            '<span class="breadcrumb__sep">›</span>' +
+            '<a href="blog.html" class="breadcrumb__link">Blog</a>' +
+            '<span class="breadcrumb__sep">›</span>' +
+            '<span class="breadcrumb__current">' + HBD.utils.sanitize(post.category) + '</span>';
+        }
+
+        // Render Single Post Details
+        container.innerHTML =
+          '<article class="blog-post" data-animate="fade-up">' +
+            '<header class="blog-post__header">' +
+              '<div class="blog-post__meta">' +
+                '<span class="blog-post__category">' + HBD.utils.sanitize(post.category) + '</span>' +
+                '<span class="blog-post__sep">•</span>' +
+                '<span class="blog-post__date">' + post.date + '</span>' +
+                '<span class="blog-post__sep">•</span>' +
+                '<span class="blog-post__read-time">' + post.readTime + '</span>' +
+              '</div>' +
+              '<h1 class="blog-post__title">' + HBD.utils.sanitize(post.title) + '</h1>' +
+              '<div class="blog-post__author">' +
+                '<div class="blog-post__author-avatar">👨‍💻</div>' +
+                '<div>' +
+                  '<div class="blog-post__author-name">' + HBD.utils.sanitize(post.author) + '</div>' +
+                  '<div class="blog-post__author-title">Founder & Creative Lead</div>' +
+                '</div>' +
+              '</div>' +
+            '</header>' +
+            '<div class="blog-post__content rich-text">' +
+              post.content +
+            '</div>' +
+            '<footer class="blog-post__footer">' +
+              '<a href="blog.html" class="hbd-btn hbd-btn--outline">← Back to Blog</a>' +
+              '<div class="blog-post__share">' +
+                '<span style="color:var(--clr-text-muted); font-size:var(--fs-sm)">Share:</span>' +
+                '<a href="https://wa.me/?text=' + encodeURIComponent(post.title + ' ' + window.location.href) + '" target="_blank" rel="noopener" class="hbd-footer__social-link" style="margin-left:8px;">💬</a>' +
+              '</div>' +
+            '</footer>' +
+          '</article>';
+        return;
+      }
+    }
+
+    // Default: Render List View
+    document.title = 'Blog | Hameem Bhai er Dokan — Creative Studio Dhaka';
+    if (breadcrumb) {
+      breadcrumb.innerHTML =
+        '<a href="index.html" class="breadcrumb__link">Home</a>' +
+        '<span class="breadcrumb__sep">›</span>' +
+        '<span class="breadcrumb__current">Blog</span>';
+    }
+
+    var postsHTML = HBD.data.blogPosts.map(function (post, index) {
+      return (
+        '<div class="blog-card" data-animate="fade-up" style="animation-delay: ' + (index * 0.1) + 's">' +
+          '<div class="blog-card__body">' +
+            '<div class="blog-card__meta">' +
+              '<span class="blog-card__category">' + HBD.utils.sanitize(post.category) + '</span>' +
+              '<span class="blog-card__sep">•</span>' +
+              '<span class="blog-card__read-time">' + post.readTime + '</span>' +
+            '</div>' +
+            '<h3 class="blog-card__title">' +
+              '<a href="blog.html?id=' + post.id + '">' + HBD.utils.sanitize(post.title) + '</a>' +
+            '</h3>' +
+            '<p class="blog-card__summary">' + HBD.utils.sanitize(post.summary) + '</p>' +
+            '<div class="blog-card__footer">' +
+              '<div class="blog-card__author">' +
+                '<span class="blog-card__author-avatar">👨‍💻</span>' +
+                '<span class="blog-card__author-name">' + HBD.utils.sanitize(post.author) + '</span>' +
+              '</div>' +
+              '<a href="blog.html?id=' + post.id + '" class="blog-card__link">Read Article →</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    container.innerHTML =
+      '<div class="blog-index">' +
+        '<div class="blog-index__header" data-animate="fade-up">' +
+          '<h1 class="blog-index__title">Hameem Bhai\'s Studio Journal</h1>' +
+          '<p class="blog-index__subtitle">Design insights, web development tips, and behind-the-scenes portfolio updates from Hameem Bhai er Dokan.</p>' +
+        '</div>' +
+        '<div class="blog-index__grid">' +
+          postsHTML +
+        '</div>' +
+      '</div>';
+  }
+
+})();

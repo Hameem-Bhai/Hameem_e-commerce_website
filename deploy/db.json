@@ -40,7 +40,7 @@
     {
       "id": "lc-premade-3d",
       "categoryId": "lighter-cases",
-      "name": "Custom 3D Lighter Case",
+      "name": "Custom 3D Lighter Case by Hameem Bhai",
       "tier": "Custom",
       "price": 699,
       "priceDisplay": "৳699",
@@ -61,7 +61,7 @@
     {
       "id": "lc-custom-3d",
       "categoryId": "lighter-cases",
-      "name": "3D Lighter Case - Hello  Kitty version",
+      "name": "3D Lighter Case - Hello  Kitty version by Hameem Bhai",
       "tier": "Collector edition",
       "price": 1350,
       "priceDisplay": "৳1,350",
@@ -81,7 +81,7 @@
     {
       "id": "gd-standard",
       "categoryId": "graphics-design",
-      "name": "Custom Logo Design",
+      "name": "Custom Logo Design by Hameem Bhai",
       "tier": "Standard",
       "price": 1299,
       "priceDisplay": "৳1,299",
@@ -102,7 +102,7 @@
     {
       "id": "gd-brand",
       "categoryId": "graphics-design",
-      "name": "Full Brand Identity",
+      "name": "Full Brand Identity by Hameem Bhai",
       "tier": "Premium",
       "price": 14999,
       "priceDisplay": "৳14,999",
@@ -124,7 +124,7 @@
     {
       "id": "pd-basic",
       "categoryId": "poster-design",
-      "name": "Basic Poster",
+      "name": "Basic Poster by Hameem Bhai",
       "tier": "Basic",
       "price": 799,
       "priceDisplay": "৳799",
@@ -144,7 +144,7 @@
     {
       "id": "pd-custom",
       "categoryId": "poster-design",
-      "name": "Custom Poster Design",
+      "name": "Custom Poster Design by Hameem Bhai",
       "tier": "Standard",
       "price": 1500,
       "priceDisplay": "৳1,500",
@@ -164,7 +164,7 @@
     {
       "id": "pd-campaign",
       "categoryId": "poster-design",
-      "name": "Album Cover Design",
+      "name": "Album Cover Design by Hameem Bhai",
       "tier": "Premium",
       "price": 2399,
       "priceDisplay": "৳2,399",
@@ -186,7 +186,7 @@
     {
       "id": "wb-multi",
       "categoryId": "website-building",
-      "name": "Multi-Page Website",
+      "name": "Multi-Page Website by Hameem Bhai",
       "tier": "Standard",
       "price": 5999,
       "priceDisplay": "৳5,999",
@@ -208,7 +208,7 @@
     {
       "id": "wb-full",
       "categoryId": "website-building",
-      "name": "Full Custom Website",
+      "name": "Full Custom Website by Hameem Bhai",
       "tier": "Premium",
       "price": 9500,
       "priceDisplay": "৳9,500",
@@ -230,7 +230,7 @@
     {
       "id": "dp-basic",
       "categoryId": "digital-painting",
-      "name": "Character Sketch",
+      "name": "Character Sketch by Hameem Bhai",
       "tier": "Basic",
       "price": 999,
       "priceDisplay": "৳999",
@@ -251,7 +251,7 @@
     {
       "id": "dp-portrait",
       "categoryId": "digital-painting",
-      "name": "Detailed Portrait",
+      "name": "Detailed Portrait by Hameem Bhai",
       "tier": "Premium",
       "price": 1499,
       "priceDisplay": "৳1,499",
