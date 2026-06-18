@@ -1398,29 +1398,6 @@ body::before {
     radial-gradient(ellipse 90% 70% at 15% 65%, rgba(244, 168, 199, 0.18) 0%, transparent 55%),
     radial-gradient(ellipse 70% 60% at 85% 20%, rgba(155, 89, 182, 0.14) 0%, transparent 50%) !important;
   animation: aurora-shift 18s ease-in-out infinite alternate;
-}
-
-
-
-/* ============================================================
-   PHASE 1 — PREMIUM QUICK WINS
-   Custom Scrollbar · WhatsApp Bubble · Status Badge · Sparkle
-   ============================================================ */
-
-/* ── 1. CUSTOM SCROLLBAR ── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--clr-accent), rgba(155,89,182,0.7));
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover { background: var(--clr-accent); }
-* { scrollbar-width: thin; scrollbar-color: var(--clr-accent) transparent; }
-[data-theme="light"] ::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
-
-/* ── 2. FLOATING WHATSAPP BUBBLE ── */
-.hbd-wa-bubble {
-  position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 9990;
@@ -1428,34 +1405,6 @@ body::before {
   align-items: center;
   gap: 10px;
   background: #25d366;
-  color: #fff;
-  border-radius: 50px;
-  padding: 14px 20px 14px 16px;
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.45), 0 2px 10px rgba(0,0,0,0.3);
-  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-  animation: wa-pulse 3s ease-in-out infinite;
-}
-.hbd-wa-bubble:hover {
-  transform: scale(1.07) translateY(-3px);
-  box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6), 0 4px 14px rgba(0,0,0,0.3);
-  color: #fff;
-}
-.hbd-wa-bubble__icon {
-  font-size: 1.35rem;
-  line-height: 1;
-}
-.hbd-wa-bubble__label { white-space: nowrap; }
-@keyframes wa-pulse {
-  0%, 100% { box-shadow: 0 6px 30px rgba(37,211,102,0.45), 0 2px 10px rgba(0,0,0,0.3); }
-  50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7), 0 2px 10px rgba(0,0,0,0.3); }
-}
-@media (max-width: 480px) {
-  .hbd-wa-bubble__label { display: none; }
-  .hbd-wa-bubble { padding: 14px; border-radius: 50%; width: 52px; height: 52px; justify-content: center; }
 }
 
 /* ── 3. LIVE STATUS BADGE ── */
@@ -1540,11 +1489,14 @@ body::before {
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   padding-bottom: 1rem;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
 }
 .hbd-drag-carousel::-webkit-scrollbar { display: none; }
 .hbd-drag-carousel.is-dragging { cursor: grabbing; }
-.hbd-drag-carousel > * { flex-shrink: 0; scroll-snap-align: start; }
+.hbd-drag-carousel > * { flex-shrink: 0; scroll-snap-align: start; touch-action: pan-y; }
 
 /* ── 7. SOUND TOGGLE BUTTON ── */
 .hbd-sound-btn {
