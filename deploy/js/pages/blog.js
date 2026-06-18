@@ -13,7 +13,7 @@
 
     renderBlog();
 
-    // Listen for storage changes
+    // Listen for server data updates (async fetch) — re-render then reveal
     HBD.store.EventBus.on('data:changed', function () {
       renderBlog();
     });
@@ -103,6 +103,10 @@
               '</div>' +
             '</footer>' +
           '</article>';
+
+        // Dynamically injected elements won't be caught by the already-running
+        // IntersectionObserver — force-reveal them immediately
+        revealAnimatedElements();
         return;
       }
     }
@@ -151,6 +155,21 @@
           postsHTML +
         '</div>' +
       '</div>';
+
+    // Force-reveal dynamically injected elements
+    revealAnimatedElements();
+  }
+
+  /**
+   * Immediately marks all [data-animate] elements as visible.
+   * Needed because IntersectionObserver won't fire for elements
+   * that are already in the viewport when they're added to the DOM.
+   */
+  function revealAnimatedElements() {
+    var els = document.querySelectorAll('[data-animate]:not(.is-visible)');
+    els.forEach(function (el) {
+      el.classList.add('is-visible');
+    });
   }
 
 })();
