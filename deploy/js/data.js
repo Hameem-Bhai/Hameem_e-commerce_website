@@ -54,7 +54,7 @@
   // ──────────────────────────────────────────────
   //  SERVICES
   // ──────────────────────────────────────────────
-    var services = [
+      var services = [
     {
         "id": "lc-premade-3d",
         "categoryId": "lighter-cases",
@@ -73,7 +73,7 @@
         "popular": false,
         "image": "img_lc_premade_3d.jpg",
         "originalPrice": 1300,
-        "stock": 0,
+        "stock": 10,
         "badge": "Custom editions"
     },
     {
@@ -114,7 +114,7 @@
         "popular": false,
         "image": "img_gd_standard.png",
         "originalPrice": 1700,
-        "stock": 0,
+        "stock": null,
         "badge": null
     },
     {
@@ -136,7 +136,7 @@
         "popular": true,
         "image": "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png",
         "originalPrice": 25000,
-        "stock": 0,
+        "stock": null,
         "badge": "Premium Edition"
     },
     {
@@ -198,7 +198,7 @@
         "popular": true,
         "image": "https://i.postimg.cc/pdVcmKz5/albumcover.jpg",
         "originalPrice": null,
-        "stock": 0,
+        "stock": null,
         "badge": "Music"
     },
     {
