@@ -2257,10 +2257,13 @@
 /* ══════════════════════════════════════════════════════════════
    HBD INPUT / SELECT — REFINED FOCUS & RESET
    ══════════════════════════════════════════════════════════════ */
-
-.hbd-input::placeholder,
-.hbd-select option {
+.hbd-input::placeholder {
   color: var(--clr-text-muted);
+}
+
+select option {
+  background-color: var(--clr-bg-elevated);
+  color: var(--clr-text-primary);
 }
 
 .hbd-input,
