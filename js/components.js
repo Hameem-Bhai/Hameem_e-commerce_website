@@ -945,6 +945,7 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (form.getAttribute('data-custom-handler') === 'true') return;
       showToast('Request submitted! We\'ll get back to you within 24 hours 🙌', 'success');
       form.reset();
     });

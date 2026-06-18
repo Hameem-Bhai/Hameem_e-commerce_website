@@ -57,6 +57,7 @@
     // Bind custom form submission
     var customForm = document.getElementById('hbd-custom-order-form');
     if (customForm) {
+      customForm.setAttribute('data-custom-handler', 'true');
       customForm.addEventListener('submit', function (e) {
         e.preventDefault();
         
@@ -91,27 +92,25 @@
         };
         HBD.store.AdminStore.saveOrder(orderData);
 
-        HBD.components.showToast('Brief saved to dashboard! Redirecting to WhatsApp... 🚀', 'success');
+        // 2. Send via Email
+        if (HBD.email) {
+          var subject = '🔔 Custom Order Brief: #' + orderNumber;
+          var contactInfo = 'Email: ' + email + (phone ? ' | Phone: ' + phone : '');
+          var message = 'Service Category: ' + catName + '\n' +
+                        'Estimated Budget: ৳' + budget + '\n\n' +
+                        'Project Description:\n' + desc;
+          HBD.email.sendContact(name, contactInfo, subject, message);
+        }
 
-        // 2. Build WhatsApp Redirect URL
-        var waText = "Hi HameemBhai! 🎨 I'd like to submit a Custom Order Brief:\n\n" +
-                     "👤 Name: " + name + "\n" +
-                     "📧 Email: " + email + "\n" +
-                     "📱 Phone: " + phone + "\n" +
-                     "📂 Category: " + catName + "\n" +
-                     "💰 Budget: ৳" + budget + "\n\n" +
-                     "📝 Project Details:\n" + desc;
-                    
-        var waUrl = "https://wa.me/8801785501873?text=" + encodeURIComponent(waText);
+        HBD.components.showToast('Brief submitted successfully! HameemBhai will reply via email. ✉️', 'success');
 
         var btn = customForm.querySelector('button[type="submit"]');
-        if (btn) { btn.disabled = true; btn.textContent = 'Redirecting...'; }
+        if (btn) { btn.disabled = true; btn.textContent = 'Submitted ✓'; }
         customForm.reset();
 
         setTimeout(function () {
-          window.open(waUrl, '_blank');
           window.location.href = 'index.html';
-        }, 1500);
+        }, 2000);
       });
     }
   }
