@@ -35,8 +35,14 @@
 
 .blog-index__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: var(--sp-6);
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: var(--sp-7);
+}
+
+@media (max-width: 960px) {
+  .blog-index__grid {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
