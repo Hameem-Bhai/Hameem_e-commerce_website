@@ -28,7 +28,7 @@
 }
 
 .blog-index__subtitle {
-  color: #9ca3b0;
+  color: #b8bfcc;
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -104,12 +104,12 @@
 }
 
 .blog-card__read-time {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
 }
 
 .blog-card__title {
-  font-size: 1.2rem;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   font-weight: 800;
   line-height: 1.4;
   margin-bottom: 1rem;
@@ -118,7 +118,7 @@
 }
 
 .blog-card__title a {
-  color: #f0f0f5;
+  color: #f5f5fa;
   text-decoration: none;
   transition: color 0.25s ease;
 }
@@ -128,9 +128,10 @@
 }
 
 .blog-card__summary {
-  color: #8a909e;
-  font-size: 0.88rem;
-  line-height: 1.75;
+  /* bumped from #8a909e — was too dim on dark bg */
+  color: #b0b8c8;
+  font-size: 0.9rem;
+  line-height: 1.8;
   margin-bottom: 1.75rem;
   flex-grow: 1;
 }
@@ -151,8 +152,9 @@
 }
 
 .blog-card__author-name {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
+  /* bumped from 0.4 opacity — was nearly invisible */
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.82rem;
   font-weight: 500;
 }
 
@@ -170,6 +172,51 @@
 .blog-card__link:hover {
   color: #ffffff;
   gap: 0.6rem;
+}
+
+/* ─── MOBILE CARD OVERRIDES ─── */
+@media (max-width: 600px) {
+  .blog-section {
+    padding: 2rem 0 4rem;
+  }
+
+  .blog-index__header {
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .blog-index__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .blog-card__body {
+    /* tighter padding on small screens */
+    padding: 1.4rem 1.25rem 1.2rem;
+  }
+
+  .blog-card__title {
+    font-size: 1.05rem;
+  }
+
+  .blog-card__summary {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-card__footer {
+    padding-top: 1rem;
+  }
+
+  .blog-card__link {
+    /* bigger tap target on mobile */
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+  }
+
+  .blog-card__meta {
+    margin-bottom: 0.9rem;
+  }
 }
 
 
@@ -214,11 +261,12 @@
 }
 
 .blog-post__title {
-  font-size: var(--fs-2xl);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: var(--fw-extrabold);
-  line-height: 1.3;
+  line-height: 1.25;
   margin-bottom: var(--sp-6);
   font-family: var(--font-heading);
+  color: #ffffff;
 }
 
 .blog-post__author {
@@ -252,14 +300,33 @@
 
 /* ─── RICH TEXT CONTENT ─── */
 .blog-post__content {
-  color: var(--clr-text-primary);
+  color: #e8eaf0;
   font-size: 1.05rem;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .blog-post__content p {
   margin-bottom: var(--sp-6);
-  color: #f3f4f6; /* Brighter, high-contrast text color */
+  color: #dde0e8;
+}
+
+@media (max-width: 600px) {
+  .blog-post__content {
+    font-size: 0.97rem;
+    line-height: 1.8;
+  }
+
+  .blog-post__content section {
+    padding: var(--sp-5) var(--sp-4) !important;
+  }
+
+  .blog-post__content h2 {
+    font-size: 1.1rem !important;
+  }
+
+  .blog-post__content h3 {
+    font-size: 1rem !important;
+  }
 }
 
 .blog-post__content strong {
