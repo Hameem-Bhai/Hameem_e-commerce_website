@@ -812,7 +812,7 @@
    The home .hero handles its own offset via calc(var(--header-h) + section-pad).
    All other pages need the header clearance on their first section. */
 .about-hero,
-.contact-hero,
+.contact-section,
 .service-hero,
 .auth-section,
 .blog-section,
@@ -828,15 +828,20 @@
   padding-top: calc(var(--header-h, 108px) + 1.5rem);
 }
 
-/* First-child breadcrumb handles header clearance */
+/* First-child breadcrumb handles header clearance. 
+   Since the base .breadcrumb class already has margin-top: calc(var(--header-h) + 1.5rem),
+   the first-child breadcrumb does not need additional padding-top. */
 nav.breadcrumb:first-child {
-  padding-top: calc(var(--header-h, 108px) + 1.5rem);
+  padding-top: 0;
 }
 
 /* Reset duplicate padding for sections that follow breadcrumb nav */
 nav.breadcrumb:first-child + .catalog,
-nav.breadcrumb:first-child + .blog-section {
-  padding-top: 1.5rem;
+nav.breadcrumb:first-child + .blog-section,
+nav.breadcrumb:first-child + .service-hero,
+nav.breadcrumb:first-child + .orders-section,
+nav.breadcrumb:first-child + .wishlist-section {
+  padding-top: 0;
 }
 
 
