@@ -408,12 +408,12 @@
 
 .blog-post__content section h2 {
   color: var(--clr-accent);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
   margin-top: 0;
   margin-bottom: var(--sp-4);
   border-bottom: 2px solid rgba(244, 168, 199, 0.2);
   padding-bottom: var(--sp-3);
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   text-shadow: 0 0 15px var(--clr-accent-glow);
 }
 
@@ -422,7 +422,7 @@
   font-size: var(--fs-base);
   margin-top: var(--sp-5);
   margin-bottom: var(--sp-3);
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 

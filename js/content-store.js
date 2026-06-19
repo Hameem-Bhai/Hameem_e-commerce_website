@@ -169,13 +169,13 @@
       var title = document.querySelector('#hero-section .hero__title');
       if (title) {
         var mainTitle = get('home', 'heroTitle');
-        var accentWord = 'Our Craft';
-        if (mainTitle.indexOf(accentWord) !== -1) {
-          title.innerHTML = mainTitle.replace(accentWord, '<span class="hero__title-accent">' + accentWord + '</span>');
+        if (mainTitle.includes('Your Vision') && mainTitle.includes('Our Craft')) {
+          title.innerHTML = 'Your Vision,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hero__title-accent">Our Craft</span>';
+          title.setAttribute('data-text', 'Your Vision,\n       Our Craft');
         } else {
           title.textContent = mainTitle;
+          title.setAttribute('data-text', mainTitle);
         }
-        title.setAttribute('data-text', mainTitle); // for glitch hover effect
       }
 
       var subtitle = document.querySelector('#hero-section .hero__subtitle');
