@@ -389,21 +389,28 @@
 
 /* Custom Gen Z & Card styling for blog posts content */
 .blog-post__content section {
-  background: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-radius: 0;
-  padding: 0;
-  margin-bottom: var(--sp-6);
-  border: none;
-  box-shadow: none;
-  transition: none;
+  background: linear-gradient(135deg, rgba(38, 20, 29, 0.6) 0%, rgba(22, 22, 22, 0.85) 100%);
+  border: 1.5px solid rgba(244, 168, 199, 0.25);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  margin-bottom: var(--sp-8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(244, 168, 199, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
 }
 
 .blog-post__content section:hover {
-  transform: none;
-  border-color: transparent;
-  box-shadow: none;
+  transform: translateY(-6px);
+  border-color: rgba(244, 168, 199, 0.55);
+  box-shadow: 0 15px 35px rgba(244, 168, 199, 0.15), 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .blog-post__content section {
+    padding: 1.75rem;
+    margin-bottom: var(--sp-6);
+  }
 }
 
 .blog-post__content section h2 {
