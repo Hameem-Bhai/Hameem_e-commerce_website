@@ -148,7 +148,7 @@
 
   /* ▸ Section rhythm */
   --section-pad:   clamp(4rem, 8vw, 7rem);
-  --header-h:      86px;   /* header height at rest */
+  --header-h:      108px;  /* header height at rest (68px logo + 20px top + 20px bottom) */
 }
 
 
@@ -904,10 +904,21 @@ small { font-size: var(--fs-sm); }
   transform: translateY(0);
 }
 
-[data-animate]:nth-child(2) { transition-delay: 0.08s; }
-[data-animate]:nth-child(3) { transition-delay: 0.16s; }
-[data-animate]:nth-child(4) { transition-delay: 0.24s; }
-[data-animate]:nth-child(5) { transition-delay: 0.32s; }
+/* Hero content is above the fold — show immediately, no scroll trigger needed */
+.hero [data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero [data-animate]:nth-child(1) { animation-delay: 0.1s; }
+.hero [data-animate]:nth-child(2) { animation-delay: 0.2s; }
+.hero [data-animate]:nth-child(3) { animation-delay: 0.3s; }
+.hero [data-animate]:nth-child(4) { animation-delay: 0.4s; }
+.hero [data-animate]:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes heroFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 
 /* ══════════════════════════════════════════════════════════════

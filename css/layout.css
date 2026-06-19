@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   z-index: var(--z-header);
-  padding: 14px 0;
+  padding: 20px 0;
   transition: padding var(--transition-smooth), background var(--transition-smooth), box-shadow var(--transition-smooth), top var(--transition-smooth);
   background: rgba(20, 20, 20, 0.65);
   backdrop-filter: blur(24px);
@@ -40,7 +40,7 @@
 }
 
 .hbd-logo-img {
-  height: 58px;
+  height: 68px;
   width: auto;
   display: block;
   transition: transform 0.3s ease;
@@ -51,12 +51,12 @@
 
 @media (max-width: 768px) {
   .hbd-logo-img {
-    height: 38px;
+    height: 40px;
   }
 }
 @media (max-width: 480px) {
   .hbd-logo-img {
-    height: 32px;
+    height: 34px;
   }
 }
 
@@ -136,7 +136,7 @@
 
 .hbd-header__brand {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.3px;
@@ -168,7 +168,7 @@
   position: relative;
   padding: var(--sp-2) var(--sp-4);
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: var(--fw-semibold);
   color: var(--clr-text-secondary);
   text-decoration: none;
