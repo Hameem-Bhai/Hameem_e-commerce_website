@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ── Google Fonts ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Fraunces:opsz,wght@9..144,100..900&family=Yeseva+One&family=Calistoga&display=swap');
 
 /* ── CSS Custom Properties ────────────────────────────────── */
 :root {
@@ -56,6 +56,7 @@
   --font-heading: 'Outfit', sans-serif;
   --font-body:    'Inter', sans-serif;
   --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-vanilla: 'Fraunces', 'Yeseva One', 'Calistoga', serif;
 
   --fs-xs:   0.75rem;    /* 12px */
   --fs-sm:   0.875rem;   /* 14px */

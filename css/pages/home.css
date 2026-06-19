@@ -964,10 +964,13 @@
 }
 
 .hero__subtitle {
-  font-size: 1.125rem;
-  color: #999;
-  line-height: 1.75;
-  max-width: 560px;
+  font-family: var(--font-vanilla);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 4vw, 1.55rem);
+  color: #EEEBDA;
+  text-shadow: 0 2px 10px rgba(238, 235, 218, 0.12);
+  line-height: 1.5;
+  max-width: 680px;
   margin-bottom: 2rem;
   animation: fadeInUp 0.8s ease 0.4s both;
 }

@@ -18,7 +18,7 @@
     home: {
       heroBadge: '🇧🇩 Made in Bangladesh',
       heroTitle: 'Hameem Bhai er Dokan — Your Vision, Our Craft',
-      heroSubtitle: 'From the streets of Dhaka to your Hearts. I code premium glassmorphism trendy websites that serve main character energy and sculpt custom 3D lighter cases that actually hit different. Real aesthetic, budget-friendly drip, pure AURA. No cap. Let’s cook something legendary.',
+      heroSubtitle: 'We serve aesthetic that hits harder than your ex’s texts.<br>Street soul. Expensive taste.',
       heroCTA1: 'Explore Services →',
       heroCTA2: 'Learn More',
       heroStat1: '🔥 Premium Creative Studio',
@@ -179,7 +179,7 @@
       }
 
       var subtitle = document.querySelector('#hero-section .hero__subtitle');
-      if (subtitle) subtitle.textContent = get('home', 'heroSubtitle');
+      if (subtitle) subtitle.innerHTML = get('home', 'heroSubtitle');
 
       var cta1 = document.getElementById('hero-cta-explore');
       if (cta1) cta1.textContent = get('home', 'heroCTA1');
