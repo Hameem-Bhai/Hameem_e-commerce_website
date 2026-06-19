@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ── Google Fonts ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Jacquarda+Bastarda+9&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 
 /* ── CSS Custom Properties ────────────────────────────────── */
 :root {
@@ -55,7 +55,7 @@
   /* ▸ Typography */
   --font-heading: 'Outfit', sans-serif;
   --font-body:    'Inter', sans-serif;
-  --font-display: 'Jacquarda Bastarda 9', serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
 
   --fs-xs:   0.75rem;    /* 12px */
   --fs-sm:   0.875rem;   /* 14px */
@@ -1260,12 +1260,12 @@ r(--sp-3);
 .glitch-hover::before {
   left: 2px;
   text-shadow: -2px 0 var(--clr-accent);
-  clip: rect(44px, 450px, 56px, 0);
+  clip: rect(44px, 9999px, 56px, 0);
 }
 .glitch-hover::after {
   left: -2px;
   text-shadow: -2px 0 #00ffff;
-  clip: rect(44px, 450px, 56px, 0);
+  clip: rect(44px, 9999px, 56px, 0);
 }
 .glitch-hover:hover::before {
   opacity: 1;

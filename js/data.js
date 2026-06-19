@@ -472,7 +472,11 @@
                         "creative studio Dhaka"
                 ],
                 "summary": "Learn how to turn basic utility lighters into custom, hand-painted and 3D-sculpted works of art. Step-by-step DIY guide from Hameem Bhai.",
-                "content": `<section>
+                "content": `<div class="blog-post__banner">
+    <h2>✨ Custom Lighter Cases ✨</h2>
+    <p class="tagline">Turn boring utility lighters into custom, hand-painted and 3D-sculpted works of art. Let's cook! 🔥</p>
+</div>
+<section>
     <h2>hey bestie, your lighter is giving NPC energy 🔥</h2>
     <p>No cap — a plain lighter is the most underrated canvas in your everyday carry. At <span class=\"highlight\">Hameem Bhai er Dokan</span>, we've been turning boring plastic lighters into straight-up wearable art. Think anime characters, UV-reactive sculptures, minimalist typography — all hand-crafted, all hitting different.</p>
 
@@ -590,170 +594,11 @@ Supports: Yes — Organic mode
                         "design inspiration"
                 ],
                 "summary": "Graphic design isn't gatekept anymore. Learn color theory, typography, design principles, and branding basics. Build your first portfolio piece that actually slays. Real talk, simplified steps.",
-                "content": `<!DOCTYPE html>
-<html lang=\"en\">
-<head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <meta name=\"description\" content=\"Graphic design isn't gatekept anymore. Learn color theory, typography, design principles, and branding basics. Build your first portfolio piece that actually slays. Real talk, simplified steps.\">
-    <meta name=\"keywords\" content=\"graphic design, learn graphic design, graphic design for beginners, design principles, color theory, typography tutorial, logo design, branding design\">
-    <title>Graphic Design for Beginners 2026: Learn Design Principles That Slay</title>
-    <style>
-        #graphic-design-blog * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        #graphic-design-blog {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-            color: #e0e0e0;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        #graphic-design-blog header {
-            background: linear-gradient(135deg, #2d0a1f 0%, #1a0612 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 3px solid #ff1493;
-        }
-
-        #graphic-design-blog h1 {
-            font-size: 3.5rem;
-            color: #ff69b4;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-            font-weight: 700;
-        }
-
-        #graphic-design-blog .tagline {
-            font-size: 1.3rem;
-            color: #ffb3d9;
-            font-style: italic;
-        }
-
-        #graphic-design-blog main {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        #graphic-design-blog section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border: 2px solid #ff1493;
-            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #graphic-design-blog section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
-        }
-
-        #graphic-design-blog h2 {
-            color: #ff69b4;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #ff1493;
-            padding-bottom: 0.75rem;
-        }
-
-        #graphic-design-blog h3 {
-            color: #ffb3d9;
-            font-size: 1.3rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        #graphic-design-blog p {
-            font-size: 1.05rem;
-            margin-bottom: 1rem;
-            color: #d0d0d0;
-        }
-
-        #graphic-design-blog .genz-slang {
-            background: rgba(255, 20, 147, 0.1);
-            border-left: 4px solid #ff1493;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: #ffb3d9;
-        }
-
-        #graphic-design-blog code {
-            background: rgba(255, 20, 147, 0.15);
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #ff69b4;
-            font-weight: 600;
-        }
-
-        #graphic-design-blog ul, #graphic-design-blog ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        #graphic-design-blog li {
-            margin-bottom: 0.75rem;
-            color: #c0c0c0;
-        }
-
-        #graphic-design-blog .highlight {
-            color: #ff69b4;
-            font-weight: 700;
-        }
-
-        #graphic-design-blog .emoji-box {
-            display: inline-block;
-            font-size: 1.5rem;
-            margin: 0 0.3rem;
-        }
-
-        #graphic-design-blog .principle-box {
-            background: rgba(255, 105, 180, 0.1);
-            border: 2px solid #ff69b4;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-
-        #graphic-design-blog .principle-box h4 {
-            color: #ff69b4;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        #graphic-design-blog footer {
-            text-align: center;
-            padding: 2rem;
-            color: #888;
-            font-size: 0.95rem;
-            border-top: 2px solid #ff1493;
-            margin-top: 3rem;
-        }
-
-        #graphic-design-blog .author {
-            color: #ff69b4;
-            font-weight: 600;
-        }
-    </style>
-</head>
-<body>
-    <div id=\"graphic-design-blog\">
-    <header>
-        <h1>✨ Graphic Design for Beginners ✨</h1>
-        <p class=\"tagline\">Learn Design Principles That Actually Slay (No Cap)</p>
-    </header>
-
-    <main>
-        <section>
+                "content": `<div class="blog-post__banner">
+    <h2>✨ Graphic Design for Beginners ✨</h2>
+    <p class="tagline">Learn Design Principles That Actually Slay (No Cap) 💅</p>
+</div>
+<section>
             <h2>What Even Is Graphic Design? <span class=\"emoji-box\">🎨</span></h2>
             <p>Graphic design isn't just \"making things look pretty.\" That's mid. Real graphic design is about communicating ideas visually. It's about making people FEEL something when they see your work.</p>
             
@@ -1030,16 +875,7 @@ Supports: Yes — Organic mode
             <p><span class=\"highlight\">Design is solving problems beautifully.</span> Learn that and you've got a superpower that pays well and makes people happy.</p>
 
             <p>Now go design something. And when you do? Show me. 💅✨</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>Written by <span class=\"author\">Hameem</span>, a self-taught designer and creative from Dhaka.</p>
-        <p style=\"margin-top: 0.5rem; font-size: 0.85rem;\">© 2026. Design is for everyone. Gatekeeping is dead.</p>
-    </footer>
-    </div>
-</body>
-</html>`
+        </section>`
         },
         {
                 "id": "web-dev-glassmorphism",
@@ -1066,170 +902,11 @@ Supports: Yes — Organic mode
                         "web development for beginners"
                 ],
                 "summary": "Learn web development from zero: HTML, CSS, JavaScript basics explained simply. Build responsive websites that actually look fire. No frameworks, no gatekeeping. Real talk for real devs.",
-                "content": `<!DOCTYPE html>
-<html lang=\"en\">
-<head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Web Dev is Bussin - A GenZ Guide to Slaying Code</title>
-    <style>
-        #web-dev-blog * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        #web-dev-blog {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-            color: #e0e0e0;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        #web-dev-blog header {
-            background: linear-gradient(135deg, #2d0a1f 0%, #1a0612 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 3px solid #ff1493;
-        }
-
-        #web-dev-blog h1 {
-            font-size: 3.5rem;
-            color: #ff69b4;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-            font-weight: 700;
-        }
-
-        #web-dev-blog .tagline {
-            font-size: 1.3rem;
-            color: #ffb3d9;
-            font-style: italic;
-        }
-
-        #web-dev-blog main {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        #web-dev-blog section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border: 2px solid #ff1493;
-            box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #web-dev-blog section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
-        }
-
-        #web-dev-blog h2 {
-            color: #ff69b4;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #ff1493;
-            padding-bottom: 0.75rem;
-        }
-
-        #web-dev-blog h3 {
-            color: #ffb3d9;
-            font-size: 1.3rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        #web-dev-blog p {
-            font-size: 1.05rem;
-            margin-bottom: 1rem;
-            color: #d0d0d0;
-        }
-
-        #web-dev-blog .genz-slang {
-            background: rgba(255, 20, 147, 0.1);
-            border-left: 4px solid #ff1493;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            font-style: italic;
-            color: #ffb3d9;
-        }
-
-        #web-dev-blog code {
-            background: rgba(255, 20, 147, 0.15);
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #ff69b4;
-            font-weight: 600;
-        }
-
-        #web-dev-blog .code-block {
-            background: #0f0f0f;
-            color: #e0e0e0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            border: 2px solid #ff1493;
-        }
-
-        #web-dev-blog .code-block code {
-            background: none;
-            color: #e0e0e0;
-            padding: 0;
-        }
-
-        #web-dev-blog ul, #web-dev-blog ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        #web-dev-blog li {
-            margin-bottom: 0.75rem;
-            color: #c0c0c0;
-        }
-
-        #web-dev-blog .highlight {
-            color: #ff69b4;
-            font-weight: 700;
-        }
-
-        #web-dev-blog .emoji-box {
-            display: inline-block;
-            font-size: 1.5rem;
-            margin: 0 0.3rem;
-        }
-
-        #web-dev-blog footer {
-            text-align: center;
-            padding: 2rem;
-            color: #888;
-            font-size: 0.95rem;
-            border-top: 2px solid #ff1493;
-            margin-top: 3rem;
-        }
-
-        #web-dev-blog .author {
-            color: #ff69b4;
-            font-weight: 600;
-        }
-    </style>
-</head>
-<body>
-    <div id=\"web-dev-blog\">
-    <header>
-        <h1>✨ Web Dev is Bussin ✨</h1>
-        <p class=\"tagline\">A GenZ Guide to Slaying Code, No Cap</p>
-    </header>
-
-    <main>
-        <section>
+                "content": `<div class="blog-post__banner">
+    <h2>✨ Web Dev is Bussin ✨</h2>
+    <p class="tagline">A GenZ Guide to Slaying Code, No Cap 🚀</p>
+</div>
+<section>
             <h2>Intro: Why Web Dev Hits Different <span class=\"emoji-box\">🔥</span></h2>
             <p>Yo, real talk? Web development is literally <span class=\"highlight\">the move</span> right now. If you're still sleeping on learning how to code, it's giving main character energy, but like... for your career. We're not gatekeeping this anymore!</p>
             
@@ -1368,16 +1045,7 @@ document.querySelector('button').addEventListener('click', function() {
             <p>So stop scrolling and start coding. Build something. Break it. Fix it. Ship it. That's the web dev energy. And when you deploy that first project? That's your main character moment right there.</p>
 
             <p><span class=\"highlight\">The code is always waiting for you.</span> Now go absolutely slay. 💅✨</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>Written by a <span class=\"author\">very online developer</span> who has too much free time and strong opinions about web development.</p>
-        <p style=\"margin-top: 0.5rem; font-size: 0.85rem;\">© 2024. This blog post is giving main character energy.</p>
-    </footer>
-    </div>
-</body>
-</html>`
+        </section>`
         },
         {
                 "id": "3d-modeling-process-portfolio",
@@ -1395,7 +1063,11 @@ document.querySelector('button').addEventListener('click', function() {
                         "3D modeling for beginners"
                 ],
                 "summary": "Get into 3D modeling from zero. Master basic Blender tools, digital sculpting workflows, and prepare your models for 3D printing. No gatekeeping.",
-                "content": `<section>
+                "content": `<div class="blog-post__banner">
+    <h2>✨ 3D Modeling with Blender ✨</h2>
+    <p class="tagline">Master digital sculpting and prepare your models for 3D printing. Let's cook! 🚀</p>
+</div>
+<section>
     <h2>bestie, 2D is cute but 3D is the main character era 🚀</h2>
     <p>Real talk — 3D modeling is one of the most slept-on creative skills in 2026. Whether you want to design video game assets, create product mockups, or sculpt custom 3D printed lighter cases like the ones at <span class=\"highlight\">Hameem Bhai er Dokan</span>, this skill is a full superpower. And the best part? It's literally free to start.</p>
 
@@ -1502,7 +1174,11 @@ Material:        PLA (easy) or PETG (flexible+durable)
                         "creative brief tutorial"
                 ],
                 "summary": "Stop getting ghosted by freelancers. Learn how to write a killer creative brief, set realistic budgets, and manage design feedback like a pro.",
-                "content": `<section>
+                "content": `<div class="blog-post__banner">
+    <h2>✨ Collaborating with Creatives ✨</h2>
+    <p class="tagline">Write killer briefs, negotiate budgets, and get results that actually slap. No cap! 🤝</p>
+</div>
+<section>
     <h2>bestie, 'make it look cool' is NOT a creative brief 🤝</h2>
     <p>Most creative projects don't fail because the designer was bad. They fail because nobody explained what was actually needed. If you've ever hired someone and gotten back something totally off from what you imagined, you know what I'm talking about. This guide fixes that.</p>
 

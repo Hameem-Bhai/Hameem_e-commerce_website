@@ -506,3 +506,36 @@
     gap: 0.75rem;
   }
 }
+
+/* Custom highlighted blog post banner/card */
+.blog-post__banner {
+  background: linear-gradient(135deg, rgba(45, 10, 31, 0.45) 0%, rgba(26, 6, 18, 0.45) 100%);
+  border: 1.5px solid rgba(244, 168, 199, 0.18);
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  margin-bottom: var(--sp-8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(244, 168, 199, 0.03);
+}
+
+.blog-post__banner h1, .blog-post__banner h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  color: var(--clr-accent);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 20px var(--clr-accent-glow);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.blog-post__banner .tagline {
+  font-size: 1.15rem;
+  color: #ffb3d9;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
