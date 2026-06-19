@@ -212,14 +212,40 @@
 
       // Touch support
       var touchStartX = 0;
+      var touchStartY = 0;
       var touchScrollLeft = 0;
+      var isVerticalScroll = false;
+      var isHorizontalDrag = false;
+
       carousel.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].pageX;
+        touchStartY = e.touches[0].pageY;
         touchScrollLeft = carousel.scrollLeft;
+        isVerticalScroll = false;
+        isHorizontalDrag = false;
       }, { passive: true });
+
       carousel.addEventListener('touchmove', function(e) {
-        var walk = (touchStartX - e.touches[0].pageX) * 1.2;
-        carousel.scrollLeft = touchScrollLeft + walk;
+        if (isVerticalScroll) return;
+
+        var currentX = e.touches[0].pageX;
+        var currentY = e.touches[0].pageY;
+        var diffX = Math.abs(currentX - touchStartX);
+        var diffY = Math.abs(currentY - touchStartY);
+
+        if (!isHorizontalDrag && !isVerticalScroll) {
+          if (diffY > diffX && diffY > 10) {
+            isVerticalScroll = true;
+            return;
+          } else if (diffX > diffY && diffX > 10) {
+            isHorizontalDrag = true;
+          }
+        }
+
+        if (isHorizontalDrag) {
+          var walk = (touchStartX - currentX) * 1.2;
+          carousel.scrollLeft = touchScrollLeft + walk;
+        }
       }, { passive: true });
     });
   }

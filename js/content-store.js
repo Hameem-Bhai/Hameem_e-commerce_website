@@ -18,7 +18,7 @@
     home: {
       heroBadge: '🇧🇩 Made in Bangladesh',
       heroTitle: 'Hameem Bhai er Dokan — Your Vision, Our Craft',
-      heroSubtitle: 'Hameem Bhai er Dokan — Personal creative studio by Hameem Bhai. From custom lighter cases to full websites — we bring your creative ideas to life with passion, precision, and prices that won\'t break your wallet.',
+      heroSubtitle: 'Coding premium custom web development websites and sculpting custom 3D lighter cases that hit different. Real aesthetic, budget-friendly drip, fr, no cap. Let\'s cook! 🚀',
       heroCTA1: 'Explore Services →',
       heroCTA2: 'Learn More',
       heroStat1: '🔥 Premium Creative Studio',

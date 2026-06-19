@@ -25,9 +25,9 @@
   --clr-accent-subtle-hover: rgba(244, 168, 199, 0.12);
 
   /* ▸ Color — Text */
-  --clr-text-primary:   #f0f0f0;
-  --clr-text-secondary: #999999;
-  --clr-text-muted:     #666666;
+  --clr-text-primary:   #ffffff;
+  --clr-text-secondary: #dcdcdc;
+  --clr-text-muted:     #9e9e9e;
   --clr-text-on-accent: #1a1a1a;
   --clr-text-link:      #f4a8c7;
 
@@ -142,13 +142,13 @@
   --container-sm:  640px;
   --container-md:  768px;
   --container-lg:  1024px;
-  --container-xl:  1200px;
+  --container-xl:  1340px;
   --container-2xl: 1440px;
   --container-pad: var(--sp-6);
 
   /* ▸ Section rhythm */
   --section-pad:   clamp(4rem, 8vw, 7rem);
-  --header-h:      68px;   /* header height at rest */
+  --header-h:      86px;   /* header height at rest */
 }
 
 

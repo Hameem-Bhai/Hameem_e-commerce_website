@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   z-index: var(--z-header);
-  padding: 28px 0;
+  padding: 14px 0;
   transition: padding var(--transition-smooth), background var(--transition-smooth), box-shadow var(--transition-smooth), top var(--transition-smooth);
   background: rgba(20, 20, 20, 0.65);
   backdrop-filter: blur(24px);
@@ -40,7 +40,7 @@
 }
 
 .hbd-logo-img {
-  height: 48px;
+  height: 58px;
   width: auto;
   display: block;
   transition: transform 0.3s ease;
@@ -136,7 +136,7 @@
 
 .hbd-header__brand {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.3px;
@@ -210,11 +210,15 @@
   gap: var(--sp-4);
   z-index: calc(var(--z-header) + 1);
 }
+.hbd-header__actions svg {
+  width: 22px;
+  height: 22px;
+}
 
 .hbd-header__icon-btn, .hbd-header__user {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -340,7 +344,7 @@
 
 /* Scrolled state: stronger glass */
 .header.is-scrolled, .hbd-header.is-scrolled {
-  padding: 16px 0;
+  padding: 8px 0;
   top: var(--admin-bar-h, 0px);
   background: rgba(13, 12, 15, 0.85);
   border-bottom-color: rgba(244, 168, 199, 0.15);
@@ -891,32 +895,33 @@
    BREADCRUMBS
    ══════════════════════════════════════════════════════════════ */
 
-.breadcrumbs {
+.breadcrumbs, .breadcrumb {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: var(--sp-2);
   padding: var(--sp-4) 0;
   font-size: var(--fs-sm);
+  margin-top: calc(var(--header-h) + 1.5rem);
 }
 
-.breadcrumbs__item {
+.breadcrumbs__item, .breadcrumb__link {
   color: var(--clr-text-muted);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
-.breadcrumbs__item:hover {
+.breadcrumbs__item:hover, .breadcrumb__link:hover {
   color: var(--clr-accent);
 }
 
-.breadcrumbs__separator {
+.breadcrumbs__separator, .breadcrumb__sep {
   color: var(--clr-text-muted);
   opacity: 0.5;
   font-size: var(--fs-xs);
 }
 
-.breadcrumbs__current {
+.breadcrumbs__current, .breadcrumb__current {
   color: var(--clr-text-primary);
   font-weight: var(--fw-medium);
 }
@@ -1311,22 +1316,25 @@
 /* ── 1. HBD Logo SVG responsive sizing ─────────────────────── */
 @media (max-width: 768px) {
   .hbd-header__logo .hb-logo-svg { width: 30px; height: 30px; }
-  .hbd-header__brand { font-size: 0.95rem; }
+  .hbd-header__brand { font-size: 1.35rem; }
   .hbd-header__brand-suffix { display: inline !important; }
   .hbd-header__actions { gap: 0.4rem; }
   .hbd-header__icon-btn, .hbd-header__user { width: 34px; height: 34px; }
+  .hbd-header__actions svg { width: 19px; height: 19px; }
 }
 @media (max-width: 480px) {
   .hbd-header__logo .hb-logo-svg { width: 24px; height: 24px; }
-  .hbd-header__brand { font-size: 0.82rem; }
+  .hbd-header__brand { font-size: 1.1rem; }
   .hbd-header__actions { gap: 0.25rem; }
+  .hbd-header__icon-btn, .hbd-header__user { width: 30px; height: 30px; }
+  .hbd-header__actions svg { width: 19px; height: 19px; }
 }
 
 
 /* ── 2. Smoother nav underline animation ───────────────────── */
 .hbd-nav__link {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: 10px 16px;
+  font-size: 1.15rem;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
