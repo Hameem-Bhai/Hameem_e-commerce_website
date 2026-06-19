@@ -804,8 +804,33 @@
    ══════════════════════════════════════════════════════════════ */
 
 .page, #main-content {
-  padding-top: 140px; /* height of fixed header + visual spacing */
+  padding-top: 0;
   min-height: 100vh;
+}
+
+/* All page-level first sections that need to sit below the fixed header.
+   The home .hero handles its own offset via calc(var(--header-h) + section-pad).
+   All other pages need the header clearance on their first section. */
+.about-hero,
+.contact-hero,
+.service-hero,
+.auth-section,
+.blog-section,
+.cart-section,
+.checkout-section,
+.login-section,
+.register-section,
+.profile-section,
+.orders-section,
+.wishlist-section,
+.admin-section,
+.catalog {
+  padding-top: calc(var(--header-h, 86px) + 2rem);
+}
+
+/* Services page has breadcrumb nav as first child before .catalog */
+nav.breadcrumb.container:first-of-type {
+  padding-top: calc(var(--header-h, 86px) + 1rem);
 }
 
 
