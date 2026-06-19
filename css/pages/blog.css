@@ -17,14 +17,14 @@
 }
 
 .blog-index__title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: var(--fw-extrabold);
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
   margin-bottom: 1rem;
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   background: linear-gradient(135deg, #ffffff 0%, #ffb3d0 55%, #9b59b6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
 }
 
 .blog-index__subtitle {
@@ -261,12 +261,12 @@
 }
 
 .blog-post__title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: var(--fw-extrabold);
-  line-height: 1.25;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.15;
   margin-bottom: var(--sp-6);
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   color: #ffffff;
+  letter-spacing: 0.01em;
 }
 
 .blog-post__author {

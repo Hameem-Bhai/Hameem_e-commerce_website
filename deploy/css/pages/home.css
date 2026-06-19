@@ -951,6 +951,8 @@
 }
 
 .hero__title-accent {
+  font-family: var(--font-display);
+  font-weight: normal;
   background: linear-gradient(135deg, #f4a8c7, #f8c4d9, #e8a0d0);
   -webkit-background-clip: text;
   background-clip: text;
