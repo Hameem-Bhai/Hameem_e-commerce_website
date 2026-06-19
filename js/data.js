@@ -472,7 +472,7 @@
                         "creative studio Dhaka"
                 ],
                 "summary": "Learn how to turn basic utility lighters into custom, hand-painted and 3D-sculpted works of art. Step-by-step DIY guide from Hameem Bhai.",
-                "content": "<section>
+                "content": `<section>
     <h2>hey bestie, your lighter is giving NPC energy 🔥</h2>
     <p>No cap — a plain lighter is the most underrated canvas in your everyday carry. At <span class=\"highlight\">Hameem Bhai er Dokan</span>, we've been turning boring plastic lighters into straight-up wearable art. Think anime characters, UV-reactive sculptures, minimalist typography — all hand-crafted, all hitting different.</p>
 
@@ -558,7 +558,7 @@ Supports: Yes — Organic mode
     <div class=\"genz-slang\">
         <strong>Final Boss Tip:</strong> Order one from Hameem Bhai er Dokan if you're not ready to DIY yet. Every case is hand-crafted with premium materials and ships from Dhaka to your door. No cap, they hit different.
     </div>
-</section>"
+</section>`
         },
         {
                 "id": "graphic-design-beats-templates",
@@ -590,7 +590,7 @@ Supports: Yes — Organic mode
                         "design inspiration"
                 ],
                 "summary": "Graphic design isn't gatekept anymore. Learn color theory, typography, design principles, and branding basics. Build your first portfolio piece that actually slays. Real talk, simplified steps.",
-                "content": "<!DOCTYPE html>
+                "content": `<!DOCTYPE html>
 <html lang=\"en\">
 <head>
     <meta charset=\"UTF-8\">
@@ -1039,7 +1039,7 @@ Supports: Yes — Organic mode
     </footer>
     </div>
 </body>
-</html>"
+</html>`
         },
         {
                 "id": "web-dev-glassmorphism",
@@ -1066,7 +1066,7 @@ Supports: Yes — Organic mode
                         "web development for beginners"
                 ],
                 "summary": "Learn web development from zero: HTML, CSS, JavaScript basics explained simply. Build responsive websites that actually look fire. No frameworks, no gatekeeping. Real talk for real devs.",
-                "content": "<!DOCTYPE html>
+                "content": `<!DOCTYPE html>
 <html lang=\"en\">
 <head>
     <meta charset=\"UTF-8\">
@@ -1377,7 +1377,7 @@ document.querySelector('button').addEventListener('click', function() {
     </footer>
     </div>
 </body>
-</html>"
+</html>`
         },
         {
                 "id": "3d-modeling-process-portfolio",
@@ -1395,7 +1395,7 @@ document.querySelector('button').addEventListener('click', function() {
                         "3D modeling for beginners"
                 ],
                 "summary": "Get into 3D modeling from zero. Master basic Blender tools, digital sculpting workflows, and prepare your models for 3D printing. No gatekeeping.",
-                "content": "<section>
+                "content": `<section>
     <h2>bestie, 2D is cute but 3D is the main character era 🚀</h2>
     <p>Real talk — 3D modeling is one of the most slept-on creative skills in 2026. Whether you want to design video game assets, create product mockups, or sculpt custom 3D printed lighter cases like the ones at <span class=\"highlight\">Hameem Bhai er Dokan</span>, this skill is a full superpower. And the best part? It's literally free to start.</p>
 
@@ -1486,7 +1486,7 @@ Material:        PLA (easy) or PETG (flexible+durable)
     </div>
 
     <p>Load it into Cura, slice it, export the G-code, and send it to your printer. Then wait. Watch the first layer stick. And when it's done — peel it off the bed, and your 3D model is now a real physical object. Absolutely unhinged how cool that is. 🔥</p>
-</section>"
+</section>`
         },
         {
                 "id": "commissioning-creative-work",
@@ -1502,7 +1502,7 @@ Material:        PLA (easy) or PETG (flexible+durable)
                         "creative brief tutorial"
                 ],
                 "summary": "Stop getting ghosted by freelancers. Learn how to write a killer creative brief, set realistic budgets, and manage design feedback like a pro.",
-                "content": "<section>
+                "content": `<section>
     <h2>bestie, 'make it look cool' is NOT a creative brief 🤝</h2>
     <p>Most creative projects don't fail because the designer was bad. They fail because nobody explained what was actually needed. If you've ever hired someone and gotten back something totally off from what you imagined, you know what I'm talking about. This guide fixes that.</p>
 
@@ -1595,7 +1595,7 @@ Material:        PLA (easy) or PETG (flexible+durable)
     <div class=\"genz-slang\">
         <strong>Hameem Bhai's Promise:</strong> Every project at Hameem Bhai er Dokan comes with clear timelines, honest communication, and proper revision rounds. Hit the contact page and let's build something together fr fr.
     </div>
-</section>"
+</section>`
         }
 ];
 
