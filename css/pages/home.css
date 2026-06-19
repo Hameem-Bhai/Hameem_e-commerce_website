@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: calc(var(--header-h) + var(--section-pad)) 0 var(--section-pad);
+  padding: calc(var(--header-h) + 2.5rem) 0 var(--section-pad);
 }
 
 /* Multi-layer gradient background */

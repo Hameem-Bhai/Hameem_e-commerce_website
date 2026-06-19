@@ -825,12 +825,18 @@
 .wishlist-section,
 .admin-section,
 .catalog {
-  padding-top: calc(var(--header-h, 86px) + 2rem);
+  padding-top: calc(var(--header-h, 108px) + 1.5rem);
 }
 
-/* Services page has breadcrumb nav as first child before .catalog */
-nav.breadcrumb.container:first-of-type {
-  padding-top: calc(var(--header-h, 86px) + 1rem);
+/* First-child breadcrumb handles header clearance */
+nav.breadcrumb:first-child {
+  padding-top: calc(var(--header-h, 108px) + 1.5rem);
+}
+
+/* Reset duplicate padding for sections that follow breadcrumb nav */
+nav.breadcrumb:first-child + .catalog,
+nav.breadcrumb:first-child + .blog-section {
+  padding-top: 1.5rem;
 }
 
 
