@@ -1233,6 +1233,24 @@
   window.HBD.components.openLightbox = openLightbox;
   window.HBD.components.closeLightbox = closeLightbox;
 
+  // ════════════════════════════════════════════════════════════
+  //  ABANDONED CART REMINDER
+  // ════════════════════════════════════════════════════════════
+  function checkAbandonedCart() {
+    var cartItems = HBD.store.CartStore.getItems();
+    if (cartItems.length > 0) {
+      var reminded = sessionStorage.getItem('hbd_cart_reminded');
+      if (!reminded) {
+        setTimeout(function() {
+          var actionBtn = '<a href="cart.html" style="margin-left: 10px; color: var(--primary); text-decoration: underline; font-weight: bold;">Checkout</a>';
+          HBD.components.showToast('You left ' + cartItems.length + ' item(s) in your cart! 🛒' + actionBtn, 'info');
+          sessionStorage.setItem('hbd_cart_reminded', 'true');
+        }, 2000); // Wait 2s before showing
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', checkAbandonedCart);
 
 })();
 

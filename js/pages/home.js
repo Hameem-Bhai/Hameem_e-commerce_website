@@ -151,56 +151,78 @@
   // ════════════════════════════════════════════════════════════
   function renderReviewsCarousel() {
     var track = document.getElementById('reviews-track');
-    var dotsContainer = document.getElementById('reviews-dots');
     var prevBtn = document.getElementById('reviews-prev');
     var nextBtn = document.getElementById('reviews-next');
+    var dotsContainer = document.getElementById('reviews-dots');
     if (!track) return;
 
-    var reviews = HBD.data.reviews.slice(0, 10); // Show top 10
+    var reviews = HBD.data.reviews.slice(0, 10);
     var currentIndex = 0;
-    var cardsPerView = getCardsPerView();
+    var slides = [];
 
     // Render review cards
-    reviews.forEach(function (review) {
+    track.innerHTML = '';
+    reviews.forEach(function (review, idx) {
       var cardWrapper = document.createElement('div');
-      cardWrapper.className = 'reviews-carousel__slide';
+      cardWrapper.className = 'reviews-carousel__slide-3d';
       HBD.components.renderReviewCard(review, cardWrapper);
+      
+      // Click on slide to bring it to front
+      cardWrapper.addEventListener('click', function() {
+        if (currentIndex !== idx) {
+          currentIndex = idx;
+          updateCarousel();
+        }
+      });
+      
       track.appendChild(cardWrapper);
+      slides.push(cardWrapper);
     });
 
     // Render dots
-    var totalPages = Math.ceil(reviews.length / cardsPerView);
-    renderDots(totalPages);
-
-    function getCardsPerView() {
-      if (window.innerWidth < 640) return 1;
-      if (window.innerWidth < 1024) return 2;
-      return 3;
-    }
-
-    function renderDots(pages) {
-      if (!dotsContainer) return;
+    if (dotsContainer) {
       dotsContainer.innerHTML = '';
-      for (var i = 0; i < pages; i++) {
+      reviews.forEach(function (_, i) {
         var dot = document.createElement('button');
-        dot.className = 'reviews-carousel__dot' + (i === 0 ? ' is-active' : '');
+        dot.className = 'reviews-carousel__dot';
         dot.setAttribute('data-index', i);
-        dot.setAttribute('aria-label', 'Go to review page ' + (i + 1));
         dotsContainer.appendChild(dot);
-      }
+      });
     }
 
     function updateCarousel() {
-      var slideWidth = 100 / cardsPerView;
-      var offset = currentIndex * slideWidth;
-      track.style.transform = 'translateX(-' + offset + '%)';
+      slides.forEach(function(slide, idx) {
+        slide.className = 'reviews-carousel__slide-3d'; // Reset
+        
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+          slide.style.transform = 'translateX(-50%) translateZ(200px) scale(1)';
+          slide.style.opacity = 1;
+          slide.style.zIndex = 10;
+        } else if (idx === currentIndex - 1 || (currentIndex === 0 && idx === slides.length - 1)) {
+          // Prev
+          slide.classList.add('prev');
+          slide.style.transform = 'translateX(-120%) translateZ(0px) scale(0.8) rotateY(15deg)';
+          slide.style.opacity = 0.6;
+          slide.style.zIndex = 5;
+        } else if (idx === currentIndex + 1 || (currentIndex === slides.length - 1 && idx === 0)) {
+          // Next
+          slide.classList.add('next');
+          slide.style.transform = 'translateX(20%) translateZ(0px) scale(0.8) rotateY(-15deg)';
+          slide.style.opacity = 0.6;
+          slide.style.zIndex = 5;
+        } else {
+          // Hidden
+          slide.style.transform = 'translateX(-50%) translateZ(-200px) scale(0.5)';
+          slide.style.opacity = 0;
+          slide.style.zIndex = 1;
+        }
+      });
 
-      // Update dots
       if (dotsContainer) {
         var dots = dotsContainer.querySelectorAll('.reviews-carousel__dot');
-        var activePage = Math.floor(currentIndex / cardsPerView);
-        dots.forEach(function (d, i) {
-          d.classList.toggle('is-active', i === activePage);
+        dots.forEach(function(d, i) {
+          d.classList.toggle('is-active', i === currentIndex);
         });
       }
     }
@@ -208,15 +230,13 @@
     // Controls
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
-        currentIndex = Math.max(0, currentIndex - cardsPerView);
+        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
         updateCarousel();
       });
     }
-
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
-        var maxIndex = reviews.length - cardsPerView;
-        currentIndex = Math.min(maxIndex, currentIndex + cardsPerView);
+        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
         updateCarousel();
       });
     }
@@ -226,23 +246,36 @@
       dotsContainer.addEventListener('click', function (e) {
         var dot = e.target.closest('.reviews-carousel__dot');
         if (!dot) return;
-        var pageIndex = parseInt(dot.getAttribute('data-index'), 10);
-        currentIndex = pageIndex * cardsPerView;
+        currentIndex = parseInt(dot.getAttribute('data-index'), 10);
         updateCarousel();
       });
     }
 
-    // Handle resize
-    window.addEventListener('resize', HBD.utils.debounce(function () {
-      cardsPerView = getCardsPerView();
-      totalPages = Math.ceil(reviews.length / cardsPerView);
-      renderDots(totalPages);
-      currentIndex = 0;
-      updateCarousel();
-    }, 250));
+    // Touch/Swipe Support
+    var touchStartX = 0;
+    var touchEndX = 0;
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    track.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, {passive: true});
 
-    // Set initial card widths via CSS custom property
-    track.style.setProperty('--cards-per-view', cardsPerView);
+    function handleSwipe() {
+      if (touchEndX < touchStartX - 50) {
+        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+        updateCarousel();
+      }
+      if (touchEndX > touchStartX + 50) {
+        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+        updateCarousel();
+      }
+    }
+
+    // Init
+    updateCarousel();
   }
 
 
