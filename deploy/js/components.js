@@ -487,7 +487,7 @@
     var catIconHTML = '';
     if (service.image) {
       imageBgStyle = "background: url('" + service.image + "') center/cover; border-bottom: 1px solid rgba(255, 255, 255, 0.05);";
-      catIconHTML = '<span class="hbd-service-card__cat-icon--thumb">' + (cat ? cat.icon : '📦') + '</span>';
+      catIconHTML = '<span class="hbd-service-card__cat-icon--thumb" loading="lazy">' + (cat ? cat.icon : '📦') + '</span>';
     } else {
       var catColor = cat ? cat.color : '#f4a8c7';
       imageBgStyle = 'background: linear-gradient(135deg, #1b191e 0%, ' + catColor + '30 50%, #0d0c0f 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.05);';
@@ -504,7 +504,7 @@
       '</div>' +
       '<div class="hbd-service-card__body">' +
         '<span class="hbd-service-card__category">' + (cat ? cat.name : '') + '</span>' +
-        '<h3 class="hbd-service-card__title">' + HBD.utils.sanitize(service.name) + '</h3>' +
+        '<h3 class="hbd-service-card__title"><a href="service.html?id=' + service.id + '" style="color: inherit; text-decoration: none;">' + HBD.utils.sanitize(service.name) + '</a></h3>' +
         '<div class="hbd-service-card__studio" style="font-size: 0.78rem; color: var(--clr-text-muted); margin-bottom: 8px;">Available at <span style="color: var(--clr-accent); font-weight: 500;">Hameem Bhai er Dokan</span></div>' +
         '<p class="hbd-service-card__desc">' + HBD.utils.sanitize(service.description) + '</p>' +
         (service.stock ? '<div class="hbd-service-card__stock" style="color: #FF6B35; font-size: 12px; margin-top: 5px; font-weight: 600;">🔥 Only ' + service.stock + ' left in stock!</div>' : '') +
@@ -517,7 +517,11 @@
             ? '<span class="hbd-service-card__rating">' + renderStarsHTML(avgRating) + ' <small>(' + reviewCount + ')</small></span>'
             : '') +
         '</div>' +
-        '<a href="service.html?id=' + service.id + '" class="hbd-btn hbd-btn--outline hbd-btn--sm hbd-service-card__cta">View Details →</a>' +
+        '<div class="hbd-service-card__actions" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem;">' +
+          '<a href="service.html?id=' + service.id + '" class="hbd-btn hbd-btn--outline hbd-btn--sm" style="flex: 1; justify-content: center; padding: 0.5rem 0.75rem;">View</a>' +
+          '<button class="hbd-btn hbd-btn--outline hbd-btn--sm btn-add-cart" data-sid="' + service.id + '" style="flex: 1; justify-content: center; padding: 0.5rem 0.75rem;">Add</button>' +
+          '<button class="hbd-btn hbd-btn--primary hbd-btn--sm btn-buy-now" data-sid="' + service.id + '" style="flex: 1; justify-content: center; padding: 0.5rem 0.75rem;">Buy</button>' +
+        '</div>' +
       '</div>';
 
     // Wishlist toggle
@@ -534,6 +538,27 @@
           nowWished ? service.name + ' added to wishlist ❤️' : service.name + ' removed from wishlist',
           nowWished ? 'success' : 'info'
         );
+      });
+    }
+
+    var addCartBtn = card.querySelector('.btn-add-cart');
+    if (addCartBtn) {
+      addCartBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        HBD.store.CartStore.addItem(service);
+        showToast('Added to cart! 🛒', 'success');
+        renderHeader(document.body.id); // re-render header to update cart count
+      });
+    }
+
+    var buyNowBtn = card.querySelector('.btn-buy-now');
+    if (buyNowBtn) {
+      buyNowBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        HBD.store.CartStore.addItem(service);
+        window.location.href = 'checkout.html';
       });
     }
 

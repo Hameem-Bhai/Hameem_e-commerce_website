@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Aura Not Found | Hameem Bhai er Dokan</title>
+  <meta name="theme-color" content="#1a1a1a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=1.1.9">
+  <link rel="stylesheet" href="css/components.css?v=1.1.9">
+  <link rel="stylesheet" href="css/layout.css?v=1.1.9">
+  <link rel="icon" href="favicon.png" type="image/png">
+  
+  <style>
+    /* Custom 404 Styles */
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--header-h) + 2rem) var(--sp-6) var(--sp-12);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .error-page::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(244,168,199,0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 12rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: var(--sp-4);
+      background: linear-gradient(135deg, #fff 0%, var(--clr-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      animation: float-pulse 6s ease-in-out infinite;
+    }
+
+    .error-subtitle {
+      font-size: var(--fs-xl);
+      color: var(--clr-text-primary);
+      margin-bottom: var(--sp-2);
+      font-weight: 600;
+    }
+
+    .error-desc {
+      color: var(--clr-text-secondary);
+      max-width: 500px;
+      margin: 0 auto var(--sp-8);
+      font-size: var(--fs-base);
+      line-height: 1.6;
+    }
+
+    @keyframes float-pulse {
+      0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 20px rgba(244,168,199,0.2)); }
+      50% { transform: translateY(-10px); filter: drop-shadow(0 0 40px rgba(244,168,199,0.4)); }
+    }
+  </style>
+</head>
+<body class="page-transition">
+
+  <header id="hbd-header"></header>
+
+  <main id="main-content">
+    <section class="error-page">
+      <h1 class="error-title glitch-hover" data-text="404">404</h1>
+      <h2 class="error-subtitle">Aura Not Found</h2>
+      <p class="error-desc">You strayed too far from the drip. This page doesn't exist or has been moved to another dimension.</p>
+      
+      <a href="index.html" class="hbd-btn hbd-btn--primary hbd-btn--lg magnetic-skip">
+        Return to Home
+      </a>
+    </section>
+  </main>
+
+  <footer id="hbd-footer"></footer>
+
+  <!-- Core Scripts -->
+  <script src="js/data.js?v=1.1.9"></script>
+  <script src="js/store.js?v=1.1.9"></script>
+  <script src="js/utils.js?v=1.1.9"></script>
+  <script src="js/components.js?v=1.1.9"></script>
+  <script src="js/page-transitions.js?v=1.1.9"></script>
+  <script src="js/premium-effects.js?v=1.1.9"></script>
+</body>
+</html>

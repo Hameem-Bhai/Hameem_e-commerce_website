@@ -1659,3 +1659,15 @@ body::before {
   90% { transform: translate(-2px, -2px) skewX(-15deg); opacity: 0.8; }
   100% { transform: translate(1px, 1px) skewX(0deg); opacity: 0.85; }
 }
+
+/* ── PAGE TRANSITIONS ── */
+.page-transition {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.page-transition.is-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
