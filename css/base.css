@@ -1661,13 +1661,19 @@ body::before {
 }
 
 /* ── PAGE TRANSITIONS ── */
-.page-transition {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+.page-transition::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--clr-bg-primary);
+  z-index: 99999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  pointer-events: none;
 }
 
-.page-transition.is-loaded {
-  opacity: 1;
-  transform: translateY(0);
+.page-transition.is-loaded::after {
+  opacity: 0;
+  visibility: hidden;
 }
