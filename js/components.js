@@ -546,7 +546,7 @@
       addCartBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        HBD.store.CartStore.addItem(service);
+        HBD.store.CartStore.add(service.id, '');
         showToast('Added to cart! 🛒', 'success');
         renderHeader(document.body.id); // re-render header to update cart count
       });
@@ -557,7 +557,7 @@
       buyNowBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        HBD.store.CartStore.addItem(service);
+        HBD.store.CartStore.add(service.id, '');
         window.location.href = 'checkout.html';
       });
     }
