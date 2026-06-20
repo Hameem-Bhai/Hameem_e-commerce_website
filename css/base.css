@@ -1412,6 +1412,11 @@ body::before {
     radial-gradient(ellipse 90% 70% at 15% 65%, rgba(244, 168, 199, 0.18) 0%, transparent 55%),
     radial-gradient(ellipse 70% 60% at 85% 20%, rgba(155, 89, 182, 0.14) 0%, transparent 50%) !important;
   animation: aurora-shift 18s ease-in-out infinite alternate;
+}
+
+/* ── 2. FLOATING WHATSAPP BUBBLE ── */
+.hbd-wa-bubble {
+  position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 9990;
@@ -1419,6 +1424,50 @@ body::before {
   align-items: center;
   gap: 10px;
   background: #25d366;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 22px 12px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 200px;
+  animation: wa-bubble-pop 0.5s 1.2s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.hbd-wa-bubble:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6), 0 4px 12px rgba(0,0,0,0.35);
+}
+.hbd-wa-bubble__icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.hbd-wa-bubble__label {
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+@keyframes wa-bubble-pop {
+  0% { opacity: 0; transform: scale(0.5) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@media (max-width: 480px) {
+  .hbd-wa-bubble {
+    bottom: 20px;
+    right: 16px;
+    padding: 12px;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    max-width: 52px;
+  }
+  .hbd-wa-bubble__label { display: none; }
+  .hbd-wa-bubble__icon { font-size: 1.5rem; }
 }
 
 /* ── 3. LIVE STATUS BADGE ── */

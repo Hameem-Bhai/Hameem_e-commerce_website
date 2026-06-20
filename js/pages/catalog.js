@@ -176,19 +176,38 @@
     var filterToggle = document.getElementById('filter-toggle');
     var sidebar = document.getElementById('catalog-sidebar');
     var sidebarClose = document.getElementById('sidebar-close');
+    var overlay = document.getElementById('catalog-overlay');
+
+    function openSidebar() {
+      sidebar.classList.add('is-open');
+      if (overlay) overlay.classList.add('is-visible');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('is-open');
+      if (overlay) overlay.classList.remove('is-visible');
+      document.body.style.overflow = '';
+    }
 
     if (filterToggle && sidebar) {
       filterToggle.addEventListener('click', function () {
-        sidebar.classList.toggle('is-open');
+        if (sidebar.classList.contains('is-open')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
       });
     }
 
     if (sidebarClose && sidebar) {
-      sidebarClose.addEventListener('click', function () {
-        sidebar.classList.remove('is-open');
-      });
+      sidebarClose.addEventListener('click', closeSidebar);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeSidebar);
     }
   }
+
 
 
   // ════════════════════════════════════════════════════════════

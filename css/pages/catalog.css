@@ -12,9 +12,9 @@
 }
 
 .catalog__header {
-  padding: var(--sp-8) 0 var(--sp-6);
+  padding: var(--sp-5) 0 var(--sp-5);
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-6);
 }
 
 .catalog__title {
@@ -310,6 +310,17 @@
   .filter-sidebar.is-open, .catalog__sidebar.is-open {
     transform: translateX(0);
     box-shadow: var(--shadow-xl);
+  }
+
+  .catalog__sidebar-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    font-size: 1.1rem;
   }
 
   .filter-overlay, .catalog__overlay {

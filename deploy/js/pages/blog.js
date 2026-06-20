@@ -98,11 +98,16 @@
             '<footer class="blog-post__footer">' +
               '<a href="blog.html" class="hbd-btn hbd-btn--outline">← Back to Blog</a>' +
               '<div class="blog-post__share">' +
-                '<span style="color:var(--clr-text-muted); font-size:var(--fs-sm)">Share:</span>' +
-                '<a href="https://wa.me/?text=' + encodeURIComponent(post.title + ' ' + window.location.href) + '" target="_blank" rel="noopener" class="hbd-footer__social-link" style="margin-left:8px;">💬</a>' +
+                '<span style="color:var(--clr-text-muted); font-size:var(--fs-sm); margin-right:8px;">Share:</span>' +
+                '<button class="share-btn share-btn--wa" title="Share on WhatsApp" onclick="window.open(\'https://wa.me/?text=\' + encodeURIComponent(\'' + post.title.replace(/'/g, "\\'") + ' \' + window.location.href), \'_blank\')" aria-label="Share on WhatsApp">💬</button>' +
+                '<button class="share-btn share-btn--tw" title="Share on X / Twitter" onclick="window.open(\'https://twitter.com/intent/tweet?text=\' + encodeURIComponent(\'' + post.title.replace(/'/g, "\\'") + '\') + \'&url=\' + encodeURIComponent(window.location.href), \'_blank\')" aria-label="Share on Twitter">𝕏</button>' +
+                '<button class="share-btn share-btn--fb" title="Share on Facebook" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=\' + encodeURIComponent(window.location.href), \'_blank\')" aria-label="Share on Facebook">f</button>' +
+                '<button class="share-btn share-btn--li" title="Share on LinkedIn" onclick="window.open(\'https://www.linkedin.com/shareArticle?mini=true&url=\' + encodeURIComponent(window.location.href) + \'&title=\' + encodeURIComponent(\'' + post.title.replace(/'/g, "\\'") + '\'), \'_blank\')" aria-label="Share on LinkedIn">in</button>' +
+                '<button class="share-btn share-btn--copy" id="share-copy-btn" title="Copy link" onclick="(function(btn){navigator.clipboard.writeText(window.location.href).then(function(){var orig=btn.innerHTML;btn.innerHTML=\'✓\';btn.style.color=\'#4ade80\';setTimeout(function(){btn.innerHTML=orig;btn.style.color=\'\';},2000);})})(this)" aria-label="Copy link">🔗</button>' +
               '</div>' +
             '</footer>' +
           '</article>';
+
 
         // Dynamically injected elements won't be caught by the already-running
         // IntersectionObserver — force-reveal them immediately

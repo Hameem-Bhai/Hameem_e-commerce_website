@@ -825,7 +825,7 @@
 .wishlist-section,
 .admin-section,
 .catalog {
-  padding-top: calc(var(--header-h, 108px) + 1.5rem);
+  padding-top: calc(var(--header-h, 108px) + 1rem);
 }
 
 /* First-child breadcrumb handles header clearance. 
@@ -936,9 +936,9 @@ nav.breadcrumb:first-child + .wishlist-section {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--sp-2);
-  padding: var(--sp-4) 0;
+  padding: var(--sp-3) 0;
   font-size: var(--fs-sm);
-  margin-top: calc(var(--header-h) + 1.5rem);
+  margin-top: calc(var(--header-h) + 0.75rem);
 }
 
 .breadcrumbs__item, .breadcrumb__link {
