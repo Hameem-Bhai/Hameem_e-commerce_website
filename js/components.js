@@ -65,15 +65,10 @@
         // Right actions
         '<div class="hbd-header__actions">' +
           // Search
-          '<div class="hbd-search">' +
-            '<button class="hbd-search__toggle" aria-label="Toggle search" title="Search">' +
-              '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>' +
-            '</button>' +
-            '<div class="hbd-search__dropdown">' +
-              '<input type="text" class="hbd-search__input" placeholder="Search services..." aria-label="Search services" />' +
-              '<div class="hbd-search__results"></div>' +
-            '</div>' +
-          '</div>' +
+          '<button class="hbd-header__icon-btn hbd-header__search-btn" aria-label="Search (Cmd+K)" title="Search (Cmd+K)">' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>' +
+            '<span class="hbd-search-shortcut" style="font-size: 10px; opacity: 0.5; margin-left: 4px; font-weight: 600; display: none;">⌘K</span>' +
+          '</button>' +
 
           // Wishlist
           '<a href="wishlist.html" class="hbd-header__icon-btn" aria-label="Wishlist" title="Wishlist">' +
@@ -1044,6 +1039,200 @@
     // Set header offset to 0 since the bar is now a floating panel on the left edge
     document.body.style.setProperty('--admin-bar-h', '0px');
   }
+
+
+  // ════════════════════════════════════════════════════════════
+  //  SEARCH MODAL
+  // ════════════════════════════════════════════════════════════
+  var searchModalEl = null;
+
+  function renderSearchModal() {
+    if (searchModalEl) return;
+    searchModalEl = ce('div', 'hbd-search-modal');
+    searchModalEl.innerHTML = 
+      '<div class="hbd-search-modal__backdrop"></div>' +
+      '<div class="hbd-search-modal__content">' +
+        '<div class="hbd-search-modal__header">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>' +
+          '<input type="text" class="hbd-search-modal__input" placeholder="Search services, categories, or blogs..." autofocus />' +
+          '<div class="hbd-search-modal__esc">ESC</div>' +
+        '</div>' +
+        '<div class="hbd-search-modal__results"></div>' +
+      '</div>';
+    
+    document.body.appendChild(searchModalEl);
+
+    var backdrop = searchModalEl.querySelector('.hbd-search-modal__backdrop');
+    var input = searchModalEl.querySelector('.hbd-search-modal__input');
+    var resultsBox = searchModalEl.querySelector('.hbd-search-modal__results');
+
+    backdrop.addEventListener('click', closeSearchModal);
+
+    input.addEventListener('input', function(e) {
+      var query = e.target.value.toLowerCase().trim();
+      resultsBox.innerHTML = '';
+      if (!query) return;
+
+      var results = [];
+
+      // Search services
+      HBD.data.services.forEach(function(s) {
+        if (s.name.toLowerCase().includes(query) || s.description.toLowerCase().includes(query)) {
+          results.push({ type: 'Service', title: s.name, url: 'service.html?id=' + s.id });
+        }
+      });
+
+      // Search categories
+      HBD.data.categories.forEach(function(c) {
+        if (c.title.toLowerCase().includes(query)) {
+          results.push({ type: 'Category', title: c.title, url: 'services.html?category=' + c.id });
+        }
+      });
+
+      // Search blogs
+      if (HBD.data.blogPosts) {
+        HBD.data.blogPosts.forEach(function(b) {
+          if (b.title.toLowerCase().includes(query) || b.excerpt.toLowerCase().includes(query)) {
+            results.push({ type: 'Blog', title: b.title, url: 'blog.html' });
+          }
+        });
+      }
+
+      if (results.length === 0) {
+        resultsBox.innerHTML = '<div class="hbd-search-modal__no-results">No results found.</div>';
+        return;
+      }
+
+      var html = '';
+      results.slice(0, 8).forEach(function(r) {
+        html += '<a href="' + r.url + '" class="hbd-search-modal__item">' +
+                  '<span class="hbd-search-modal__item-type">' + r.type + '</span>' +
+                  '<span class="hbd-search-modal__item-title">' + r.title + '</span>' +
+                '</a>';
+      });
+      resultsBox.innerHTML = html;
+    });
+  }
+
+  function openSearchModal() {
+    renderSearchModal();
+    searchModalEl.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var input = searchModalEl.querySelector('.hbd-search-modal__input');
+      if (input) input.focus();
+    }, 100);
+  }
+
+  function closeSearchModal() {
+    if (searchModalEl) {
+      searchModalEl.classList.remove('active');
+      document.body.style.overflow = '';
+      searchModalEl.querySelector('.hbd-search-modal__input').value = '';
+      searchModalEl.querySelector('.hbd-search-modal__results').innerHTML = '';
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    // Cmd+K or Ctrl+K
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    }
+    // ESC to close
+    if (e.key === 'Escape') {
+      closeSearchModal();
+      closeLightbox();
+    }
+  });
+
+  // ════════════════════════════════════════════════════════════
+  //  LIGHTBOX
+  // ════════════════════════════════════════════════════════════
+  var lightboxEl = null;
+  var lightboxImages = [];
+  var lightboxIndex = 0;
+
+  function renderLightbox() {
+    if (lightboxEl) return;
+    lightboxEl = ce('div', 'hbd-lightbox');
+    lightboxEl.innerHTML = 
+      '<div class="hbd-lightbox__backdrop"></div>' +
+      '<button class="hbd-lightbox__close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
+      '<button class="hbd-lightbox__nav hbd-lightbox__prev"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>' +
+      '<img class="hbd-lightbox__img" src="" alt="Lightbox image">' +
+      '<button class="hbd-lightbox__nav hbd-lightbox__next"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>' +
+      '<div class="hbd-lightbox__counter"></div>';
+    
+    document.body.appendChild(lightboxEl);
+
+    var backdrop = lightboxEl.querySelector('.hbd-lightbox__backdrop');
+    var closeBtn = lightboxEl.querySelector('.hbd-lightbox__close');
+    var prevBtn = lightboxEl.querySelector('.hbd-lightbox__prev');
+    var nextBtn = lightboxEl.querySelector('.hbd-lightbox__next');
+
+    backdrop.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    prevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navigateLightbox(-1);
+    });
+    
+    nextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navigateLightbox(1);
+    });
+  }
+
+  function openLightbox(images, startIndex) {
+    if (!images || images.length === 0) return;
+    renderLightbox();
+    
+    lightboxImages = Array.isArray(images) ? images : [images];
+    lightboxIndex = startIndex || 0;
+    
+    updateLightboxView();
+    lightboxEl.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateLightboxView() {
+    var imgEl = lightboxEl.querySelector('.hbd-lightbox__img');
+    var counterEl = lightboxEl.querySelector('.hbd-lightbox__counter');
+    var prevBtn = lightboxEl.querySelector('.hbd-lightbox__prev');
+    var nextBtn = lightboxEl.querySelector('.hbd-lightbox__next');
+
+    imgEl.src = lightboxImages[lightboxIndex];
+    counterEl.textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+
+    prevBtn.style.display = lightboxImages.length > 1 ? 'flex' : 'none';
+    nextBtn.style.display = lightboxImages.length > 1 ? 'flex' : 'none';
+  }
+
+  function navigateLightbox(dir) {
+    lightboxIndex += dir;
+    if (lightboxIndex < 0) lightboxIndex = lightboxImages.length - 1;
+    if (lightboxIndex >= lightboxImages.length) lightboxIndex = 0;
+    updateLightboxView();
+  }
+
+  function closeLightbox() {
+    if (lightboxEl) {
+      lightboxEl.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        lightboxEl.querySelector('.hbd-lightbox__img').src = '';
+      }, 300);
+    }
+  }
+
+  // Export
+  window.HBD.components.openSearchModal = openSearchModal;
+  window.HBD.components.closeSearchModal = closeSearchModal;
+  window.HBD.components.openLightbox = openLightbox;
+  window.HBD.components.closeLightbox = closeLightbox;
+
 
 })();
 
