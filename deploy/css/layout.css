@@ -1297,7 +1297,7 @@ nav.breadcrumb:first-child + .wishlist-section {
 
 .back-to-top, .hbd-footer__back-to-top {
   position: fixed;
-  bottom: var(--sp-8);
+  bottom: calc(var(--sp-8) + 72px);
   right: var(--sp-8);
   width: 44px;
   height: 44px;
@@ -1335,7 +1335,7 @@ nav.breadcrumb:first-child + .wishlist-section {
 
 @media (max-width: 768px) {
   .back-to-top, .hbd-footer__back-to-top {
-    bottom: var(--sp-4);
+    bottom: calc(var(--sp-4) + 68px);
     right: var(--sp-4);
     width: 40px;
     height: 40px;
@@ -1454,7 +1454,7 @@ nav.breadcrumb:first-child + .wishlist-section {
 /* ── 8. Back-to-top button — scroll-triggered visibility ────── */
 .hbd-footer__back-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: calc(2rem + 72px);
   right: 2rem;
   width: 46px;
   height: 46px;
@@ -1482,6 +1482,13 @@ nav.breadcrumb:first-child + .wishlist-section {
   box-shadow: 0 4px 20px rgba(244, 168, 199, 0.3);
   transform: translateY(-3px);
 }
+@media (max-width: 480px) {
+  .hbd-footer__back-to-top {
+    bottom: calc(1rem + 72px);
+    right: 1rem;
+  }
+}
+
 
 
 /* ── 9. Global body improvements ────────────────────────────── */
