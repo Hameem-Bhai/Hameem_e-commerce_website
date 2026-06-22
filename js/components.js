@@ -234,62 +234,16 @@
       });
     }
 
-    // Search toggle
-    var searchToggle = header.querySelector('.hbd-search__toggle');
-    var searchDropdown = header.querySelector('.hbd-search__dropdown');
-    var searchInput = header.querySelector('.hbd-search__input');
-    if (searchToggle && searchDropdown) {
-      searchToggle.addEventListener('click', function (e) {
-        if (userDropdown) userDropdown.classList.remove('is-open');
-        searchDropdown.classList.toggle('is-open');
-        if (searchDropdown.classList.contains('is-open') && searchInput) {
-          searchInput.focus();
+    // Search toggle (new modal)
+    var searchBtn = header.querySelector('.hbd-header__search-btn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function (e) {
+        if (window.HBD.components.openSearchModal) {
+          window.HBD.components.openSearchModal();
         }
       });
     }
 
-    // Live search
-    if (searchInput) {
-      searchInput.addEventListener('input', HBD.utils.debounce(function () {
-        var query = searchInput.value.trim().toLowerCase();
-        var resultsEl = header.querySelector('.hbd-search__results');
-        if (!resultsEl) return;
-
-        if (query.length < 2) {
-          resultsEl.innerHTML = '';
-          return;
-        }
-
-        var matches = HBD.data.services.filter(function (s) {
-          return s.name.toLowerCase().indexOf(query) !== -1 ||
-                 s.description.toLowerCase().indexOf(query) !== -1 ||
-                 s.tier.toLowerCase().indexOf(query) !== -1;
-        }).slice(0, 5);
-
-        if (matches.length === 0) {
-          resultsEl.innerHTML = '<div class="hbd-search__empty">No results found</div>';
-          return;
-        }
-
-        resultsEl.innerHTML = matches.map(function (s) {
-          var cat = HBD.data.getCategoryById(s.categoryId);
-          return '<a href="service.html?id=' + s.id + '" class="hbd-search__result-item">' +
-                   '<span class="hbd-search__result-icon">' + (cat ? cat.icon : '📦') + '</span>' +
-                   '<div class="hbd-search__result-info">' +
-                     '<span class="hbd-search__result-name">' + HBD.utils.sanitize(s.name) + '</span>' +
-                     '<span class="hbd-search__result-price">' + s.priceDisplay + '</span>' +
-                   '</div>' +
-                 '</a>';
-        }).join('');
-      }, 250));
-    }
-
-    // Close search on outside click
-    document.addEventListener('click', function (e) {
-      if (searchDropdown && !searchDropdown.contains(e.target) && !searchToggle.contains(e.target)) {
-        searchDropdown.classList.remove('is-open');
-      }
-    });
 
     // User dropdown
     var userBtn = header.querySelector('.hbd-header__user');
