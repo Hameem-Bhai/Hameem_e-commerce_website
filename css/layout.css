@@ -1512,7 +1512,7 @@ body.is-loading { overflow: hidden; }
     --container-pad: var(--sp-4) !important;
   }
   .page, #main-content {
-    padding-top: 90px !important;
+    padding-top: 70px !important;
   }
 }
 
