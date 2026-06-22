@@ -250,7 +250,6 @@
     var userDropdown = header.querySelector('#hbd-user-dropdown');
     if (userBtn && userDropdown) {
       userBtn.addEventListener('click', function (e) {
-        if (searchDropdown) searchDropdown.classList.remove('is-open');
         _renderUserDropdown(userDropdown);
         userDropdown.classList.toggle('is-open');
       });
