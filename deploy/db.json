@@ -244,7 +244,10 @@
       ],
       "popular": false,
       "image": "https://i.postimg.cc/jqwGzVkx/Image-(10).jpg",
-      "originalPrice": 1600,
+      "images": [
+        "https://i.postimg.cc/jqwGzVkx/Image-(10).jpg"
+      ],
+      "originalPrice": 1498,
       "stock": null,
       "badge": null
     },
@@ -307,7 +310,7 @@
       "password": "basiTbhalo12?",
       "joinedAt": "2026-06-06T17:21:09.689Z",
       "orderCount": 0,
-      "token": "tok_1w60z6yxrgjzfw9yr461g"
+      "token": "tok_nrrccfusi5m6rufqkzpvj"
     }
   ],
   "orders": [],
