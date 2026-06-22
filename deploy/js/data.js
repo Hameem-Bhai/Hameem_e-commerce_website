@@ -72,6 +72,7 @@
         ],
         "popular": false,
         "image": "img_lc_premade_3d.jpg",
+        "images": ["img_lc_premade_3d.jpg", "img_lc_premade_3d.jpg", "img_lc_premade_3d.jpg"],
         "originalPrice": 1300,
         "stock": 10,
         "badge": "Custom editions"
@@ -92,6 +93,7 @@
         ],
         "popular": true,
         "image": "img_lc_custom_3d.jpg",
+        "images": ["img_lc_custom_3d.jpg", "img_lc_custom_3d.jpg", "img_lc_custom_3d.jpg"],
         "originalPrice": 1500,
         "stock": 2,
         "badge": "FAN FAV!"
@@ -113,6 +115,7 @@
         ],
         "popular": false,
         "image": "img_gd_standard.png",
+        "images": ["img_gd_standard.png", "img_gd_standard.png", "img_gd_standard.png"],
         "originalPrice": 1700,
         "stock": null,
         "badge": null
@@ -135,6 +138,7 @@
         ],
         "popular": true,
         "image": "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png",
+        "images": ["https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png", "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png", "https://i.postimg.cc/m2MYBhzt/Gemini-Generated-Image-b7vynnb7vynnb7vy.png"],
         "originalPrice": 25000,
         "stock": null,
         "badge": "Premium Edition"
@@ -155,6 +159,7 @@
         ],
         "popular": false,
         "image": "https://i.postimg.cc/RFndjdww/Image8.jpg",
+        "images": ["https://i.postimg.cc/RFndjdww/Image8.jpg", "https://i.postimg.cc/RFndjdww/Image8.jpg", "https://i.postimg.cc/RFndjdww/Image8.jpg"],
         "originalPrice": null,
         "stock": 1,
         "badge": null

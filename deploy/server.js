@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs').promises;
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DB_FILE = path.join(__dirname, 'db.json');
 
 app.use(cors());
@@ -483,6 +484,63 @@ app.post('/api/admin/blog', adminOnly, async (req, res) => {
   db.blogPosts = req.body;
   await writeDB(db);
   res.json({ success: true, message: 'Blog posts saved successfully!' });
+});
+
+app.post('/api/admin/publish', adminOnly, async (req, res) => {
+  try {
+    const token = process.env.GITHUB_TOKEN;
+    const repo = process.env.GITHUB_REPO; // e.g., "Hameem-Bhai/Hameem_e-commerce_website"
+    
+    if (!token || !repo) {
+      return res.status(400).json({ success: false, message: 'GitHub Auto-Publish is not configured. Missing GITHUB_TOKEN or GITHUB_REPO in server environment variables.' });
+    }
+
+    const dbContent = await fs.readFile(DB_FILE, 'utf8');
+    const contentBase64 = Buffer.from(dbContent).toString('base64');
+    const apiUrl = `https://api.github.com/repos/${repo}/contents/db.json`;
+    
+    let fileSha;
+    try {
+      const getRes = await fetch(apiUrl, {
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'User-Agent': 'HameemBhai-Store'
+        }
+      });
+      if (getRes.ok) {
+        const getJson = await getRes.json();
+        fileSha = getJson.sha;
+      }
+    } catch (e) {
+      console.log('[Publish] Could not fetch existing db.json SHA:', e.message);
+    }
+    
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'HameemBhai-Store',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Admin Dashboard: Auto-Publish db.json updates',
+        content: contentBase64,
+        sha: fileSha
+      })
+    });
+    
+    const putJson = await putRes.json();
+    if (!putRes.ok) {
+      return res.status(400).json({ success: false, message: putJson.message || 'GitHub API error.' });
+    }
+    
+    res.json({ success: true, message: 'Successfully published to GitHub!' });
+  } catch (err) {
+    console.error('[Publish Error]:', err);
+    res.status(500).json({ success: false, message: 'Internal server error during publish: ' + err.message });
+  }
 });
 
 
