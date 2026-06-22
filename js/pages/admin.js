@@ -53,6 +53,36 @@
       var section = btn.getAttribute('data-section');
       _switchSection(section);
     });
+
+    var goLiveBtn = document.getElementById('go-live-btn');
+    if (goLiveBtn) {
+      goLiveBtn.addEventListener('click', function () {
+        if (!confirm('This will publish all your current changes to the live website. It takes about 1-2 minutes to apply globally. Are you sure?')) return;
+        HBD.components.showToast('🚀 Publishing changes to live server...', 'info');
+        goLiveBtn.disabled = true;
+        goLiveBtn.textContent = 'Publishing...';
+        
+        fetch('/api/admin/publish', {
+          method: 'POST',
+          headers: HBD.store.UserStore._headers()
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.success) {
+            HBD.components.showToast('✅ Success! Your changes will be live in 1-2 minutes.', 'success');
+          } else {
+            HBD.components.showToast('❌ Failed: ' + (data.message || 'Unknown error'), 'error');
+          }
+        })
+        .catch(function(err) {
+          HBD.components.showToast('❌ Network Error: ' + err.message, 'error');
+        })
+        .finally(function() {
+          goLiveBtn.disabled = false;
+          goLiveBtn.textContent = '🚀 Publish Live';
+        });
+      });
+    }
   }
 
   function _switchSection(name) {
@@ -404,8 +434,8 @@
             '<div style="flex: 1;">' +
               '<input type="file" id="svc-image-file" accept="image/*" class="admin-file-input" style="display:none;" />' +
               '<button type="button" class="admin-btn admin-btn--outline" onclick="document.getElementById(\'svc-image-file\').click()">📸 Choose Local Photo</button>' +
-              '<span style="display:block; font-size:10px; color:rgba(255,255,255,0.3); margin-top:5px;">Or paste a web link below:</span>' +
-              '<input class="admin-input" id="svc-image-url" type="text" value="' + (s && s.image && !s.image.startsWith('data:') ? _esc(s.image) : '') + '" placeholder="https://example.com/image.jpg" style="margin-top:5px; font-size:12px; padding:8px 12px;" />' +
+              '<span style="display:block; font-size:10px; color:rgba(255,255,255,0.3); margin-top:5px;">Or paste web links below (comma or newline separated for multiple):</span>' +
+              '<textarea class="admin-textarea" id="svc-image-url" placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg" style="margin-top:5px; font-size:12px; padding:8px 12px; min-height:60px;">' + (s && s.images && s.images.length > 0 ? _esc(s.images.join(',\n')) : (s && s.image && !s.image.startsWith('data:') ? _esc(s.image) : '')) + '</textarea>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -432,7 +462,7 @@
       var stock = document.getElementById('svc-stock').value;
       var badge = document.getElementById('svc-badge').value.trim();
       var pop   = document.getElementById('svc-popular').checked;
-      var imageUrl = document.getElementById('svc-image-url').value.trim();
+      var imageUrlText = document.getElementById('svc-image-url').value.trim();
       var featInputs = document.querySelectorAll('#svc-features-list .admin-input');
       var feats = Array.from(featInputs).map(function (el) { return el.value.trim(); }).filter(Boolean);
 
@@ -441,7 +471,14 @@
         return false;
       }
 
-      var finalImage = imageUrl || imageBase64 || '';
+      var imagesArray = [];
+      if (imageUrlText) {
+        imagesArray = imageUrlText.split(/[\n,]+/).map(function(u) { return u.trim(); }).filter(Boolean);
+      } else if (imageBase64) {
+        imagesArray = [imageBase64];
+      }
+
+      var finalImage = imagesArray.length > 0 ? imagesArray[0] : '';
 
       var services = HBD.data.services.slice();
       var newSvc = {
@@ -455,6 +492,7 @@
         features:    feats,
         popular:     pop,
         image:       finalImage,
+        images:      imagesArray,
         originalPrice: isNaN(originalPrice) ? null : originalPrice,
         stock:       stock !== '' ? parseInt(stock) : null,
         badge:       badge || null
