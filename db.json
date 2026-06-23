@@ -63,8 +63,8 @@
       "categoryId": "lighter-cases",
       "name": "3D Lighter Case - Hello  Kitty version by Hameem Bhai",
       "tier": "Collector edition",
-      "price": 1350,
-      "priceDisplay": "৳1,350",
+      "price": 1150,
+      "priceDisplay": "৳1,150",
       "description": "Buy 2 for only ৳2000.\nOnly for true HK fans!",
       "features": [
         "Buy 2 for ৳2000 (save ৳700)",
@@ -74,6 +74,9 @@
       ],
       "popular": true,
       "image": "img_lc_custom_3d.jpg",
+      "images": [
+        "img_lc_custom_3d.jpg"
+      ],
       "originalPrice": 1500,
       "stock": 2,
       "badge": "FAN FAV!"
@@ -272,6 +275,32 @@
       "originalPrice": 2100,
       "stock": null,
       "badge": null
+    },
+    {
+      "id": "lighter-cases-1782222537355",
+      "categoryId": "lighter-cases",
+      "name": "3D Lighter Case by HameemBhai - Spider-Man B&W Edition",
+      "tier": "Collector edition",
+      "price": 1150,
+      "priceDisplay": "৳1,150",
+      "description": "Hand-sculpted. Midnight black with raw white accents. This one hits different.\nNo cheap prints. Every curve, every web line, every muscle is carefully carved and finished by hand — giving it that thick, glossy, premium street texture. The contrast is clean, aggressive, and timeless.\nWhether you're sparking up in the dark or just flexing on the table, this lighter doesn’t just light cigarettes — it makes a statement.\nLimited Black & White Drop\nDhaka handmade. Main character approved.",
+      "features": [
+        "Free Lighter",
+        "Glossy finishing",
+        "Pocket durable",
+        "water proof",
+        "COLLECTOR EDITION"
+      ],
+      "popular": true,
+      "image": "https://hameembhaierdokan.studio/spider1.jpg",
+      "images": [
+        "https://hameembhaierdokan.studio/spider1.jpg",
+        "https://hameembhaierdokan.studio/spider2.jpg",
+        "https://hameembhaierdokan.studio/spider3.jpg"
+      ],
+      "originalPrice": 1500,
+      "stock": 2,
+      "badge": "Custom editions"
     }
   ],
   "reviews": [],
