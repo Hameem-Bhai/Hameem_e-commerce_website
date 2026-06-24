@@ -18,24 +18,43 @@
       return;
     }
 
-    currentService = HBD.data.getServiceById(id);
-    if (!currentService) {
-      window.location.href = 'services.html';
-      return;
+    function initPage() {
+      // ── Render shared components ──
+      HBD.components.renderHeader('services');
+      HBD.components.renderFooter();
+
+      // ── Populate dynamic data ──
+      populateServiceDetails();
+      renderProductWidget();
+      renderProcessTimeline();
+      renderReviews();
+      renderRelatedServices();
+      initTabs();
+      initReviewForm();
+
+      // ── Init animations ──
+      HBD.components.initScrollAnimations();
+      HBD.components.initCursorTrail();
+      HBD.store.EventBus.emit('content:loaded');
     }
 
-    // ── Render shared components ──
-    HBD.components.renderHeader('services');
-    HBD.components.renderFooter();
-
-    // ── Populate dynamic data ──
-    populateServiceDetails();
-    renderProductWidget();
-    renderProcessTimeline();
-    renderReviews();
-    renderRelatedServices();
-    initTabs();
-    initReviewForm();
+    currentService = HBD.data.getServiceById(id);
+    if (currentService) {
+      initPage();
+    } else {
+      // Wait for server data fetch to finish in case it's a dynamic service
+      HBD.data.reloadFromStorage().then(function () {
+        currentService = HBD.data.getServiceById(id);
+        if (currentService) {
+          initPage();
+        } else {
+          // Genuinely not found
+          window.location.href = 'services.html';
+        }
+      }).catch(function () {
+        window.location.href = 'services.html';
+      });
+    }
 
     HBD.store.EventBus.on('data:changed', function () {
       currentService = HBD.data.getServiceById(id);
@@ -46,11 +65,6 @@
         renderRelatedServices();
       }
     });
-
-    // ── Init animations ──
-    HBD.components.initScrollAnimations();
-    HBD.components.initCursorTrail();
-    HBD.store.EventBus.emit('content:loaded');
   });
 
   // ════════════════════════════════════════════════════════════
