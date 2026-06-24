@@ -304,6 +304,37 @@
     .qr-subtitle {
       font-size: 12px;
       color: var(--clr-text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .promo-badge {
+      margin-top: 15px;
+      background: rgba(var(--clr-accent-rgb), 0.08);
+      border: 1px dashed rgba(var(--clr-accent-rgb), 0.5);
+      border-radius: 12px;
+      padding: 10px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      box-shadow: 0 0 15px rgba(var(--clr-accent-rgb), 0.03);
+    }
+
+    .promo-badge span {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--clr-text-secondary);
+    }
+
+    .promo-badge strong {
+      font-family: var(--font-title);
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--clr-accent);
+      text-shadow: 0 0 10px rgba(var(--clr-accent-rgb), 0.4);
     }
 
     /* Footer Section */
@@ -432,6 +463,13 @@
         </div>
         <h3 class="qr-title">Scan to order</h3>
         <p class="qr-subtitle">Customize your own style!</p>
+        
+        <!-- Promo Coupon Hook -->
+        <div class="promo-badge">
+          <span>USE CODE</span>
+          <strong>HAMEEMBHAI10</strong>
+          <span>FOR 10% OFF</span>
+        </div>
       </div>
 
     </div>
