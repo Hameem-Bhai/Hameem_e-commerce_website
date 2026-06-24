@@ -59,6 +59,19 @@
     } else {
       switchTab('login');
     }
+
+    // Check for expired session token
+    if (HBD.utils.getQueryParam('expired') === 'true') {
+      try {
+        var cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        if (tabParam) cleanUrl += '?tab=' + tabParam;
+        window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+      } catch (e) {}
+
+      setTimeout(function () {
+        HBD.components.showToast('Your session has expired. Please log in again.', 'warning');
+      }, 100);
+    }
   }
 
   // ════════════════════════════════════════════════════════════

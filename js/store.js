@@ -298,6 +298,18 @@
   })();
 
 
+  // Helper to handle invalid/expired session tokens globally
+  function _handleSessionError(res) {
+    if (res.status === 401 || res.status === 403) {
+      if (typeof UserStore !== 'undefined' && UserStore && UserStore.logout) {
+        UserStore.logout();
+      }
+      window.location.href = 'login.html?expired=true';
+      throw new Error('Session expired');
+    }
+    return res;
+  }
+
   // ================================================================
   //  USER STORE
   // ================================================================
@@ -407,6 +419,7 @@
         headers: _headers(),
         body: JSON.stringify(fields)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (res.success) {
@@ -563,6 +576,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify(arr)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (res.success && window.HBD.data.reloadFromStorage) {
@@ -585,6 +599,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify(arr)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (res.success && window.HBD.data.reloadFromStorage) {
@@ -603,6 +618,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify(obj)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (res.success && window.HBD.data.reloadFromStorage) {
@@ -621,6 +637,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify(arr)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (res.success && window.HBD.data.reloadFromStorage) {
@@ -639,6 +656,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify(arr)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         if (res.success && window.HBD.data.reloadFromStorage) {
@@ -666,6 +684,7 @@
       return fetch('/api/admin/db/export', {
         headers: UserStore._headers()
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) { return JSON.stringify(res, null, 2); });
     }
@@ -679,6 +698,7 @@
           headers: UserStore._headers(),
           body: JSON.stringify(parsed)
         })
+        .then(_handleSessionError)
         .then(function (res) { return res.json(); })
         .then(function (res) {
           if (res.success && window.HBD.data.reloadFromStorage) {
@@ -695,6 +715,7 @@
       return fetch('/api/orders', {
         headers: UserStore._headers()
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .catch(function (err) { return []; });
     }
@@ -705,6 +726,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify(orderData)
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         EventBus.emit('admin:ordersUpdated');
@@ -721,6 +743,7 @@
         headers: UserStore._headers(),
         body: JSON.stringify({ status: status })
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .then(function (res) {
         EventBus.emit('admin:ordersUpdated');
@@ -735,6 +758,7 @@
       return fetch('/api/users', {
         headers: UserStore._headers()
       })
+      .then(_handleSessionError)
       .then(function (res) { return res.json(); })
       .catch(function (err) { return []; });
     }
