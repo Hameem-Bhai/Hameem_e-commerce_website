@@ -94,20 +94,30 @@
     }
 
     // Dynamic Shipping Address showing/hiding based on cart contents
-    var hasPhysical = HBD.store.CartStore.hasPhysicalItems();
-    var addressGroup = document.getElementById('shipping-address-group');
-    var addressInput = document.getElementById('co-address');
-    if (hasPhysical) {
-      if (addressGroup) addressGroup.style.display = 'block';
-      if (addressInput) addressInput.required = true;
-    } else {
-      if (addressGroup) addressGroup.style.display = 'none';
-      if (addressInput) addressInput.required = false;
+    function updateShippingAddress() {
+      var hasPhysical = HBD.store.CartStore.hasPhysicalItems();
+      var addressGroup = document.getElementById('shipping-address-group');
+      var addressInput = document.getElementById('co-address');
+      if (hasPhysical) {
+        if (addressGroup) addressGroup.style.display = 'block';
+        if (addressInput) addressInput.required = true;
+      } else {
+        if (addressGroup) addressGroup.style.display = 'none';
+        if (addressInput) addressInput.required = false;
+      }
     }
 
+    updateShippingAddress();
     renderOrderSummary();
     renderPaymentMethods();
     bindStepEvents();
+
+    // Listen for server database updates to refresh details once dynamic products load
+    HBD.store.EventBus.on('data:changed', function () {
+      updateShippingAddress();
+      renderOrderSummary();
+      renderPaymentMethods();
+    });
 
     HBD.components.initScrollAnimations();
     HBD.components.initCursorTrail();

@@ -25,6 +25,11 @@
       renderCart();
     });
 
+    // Listen for server database updates
+    HBD.store.EventBus.on('data:changed', function () {
+      renderCart();
+    });
+
     HBD.components.initScrollAnimations();
     HBD.components.initCursorTrail();
     HBD.store.EventBus.emit('content:loaded');
