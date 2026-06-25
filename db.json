@@ -301,6 +301,30 @@
       "originalPrice": 1500,
       "stock": 2,
       "badge": "Custom editions"
+    },
+    {
+      "id": "lighter-cases-1782321088565",
+      "categoryId": "lighter-cases",
+      "name": "3D Lighter Case by HameemBhai - Spider-Man Classic Edition",
+      "tier": "Collector edition",
+      "price": 1150,
+      "priceDisplay": "৳1,150",
+      "description": "Hand-sculpted. Classic red with an aggressive raised black spider emblem. This one hits different.\nNo cheap prints. Every curve, every web line, every leg is carefully carved and finished by hand — giving it that thick, glossy, premium street texture. The contrast is clean, bold, and timeless.\nWhether you're sparking up in the dark or just flexing on the table, this lighter doesn’t just light cigarettes — it makes a statement.\nDhaka handmade. Main character approved.",
+      "features": [
+        "Free Lighter",
+        "Glossy finishing",
+        "Pocket durable",
+        "water proof",
+        "COLLECTOR EDITION"
+      ],
+      "popular": true,
+      "image": "https://hameembhaierdokan.studio/spider_classic1.jpg",
+      "images": [
+        "https://hameembhaierdokan.studio/spider_classic1.jpg"
+      ],
+      "originalPrice": 1500,
+      "stock": 2,
+      "badge": "Custom editions"
     }
   ],
   "reviews": [],
@@ -339,7 +363,7 @@
       "password": "basiTbhalo12?",
       "joinedAt": "2026-06-06T17:21:09.689Z",
       "orderCount": 0,
-      "token": "tok_c3b8pfibx6vonc8alumd6"
+      "token": "tok_jjmufaotpejq9qi0ulaqql"
     }
   ],
   "orders": [],
