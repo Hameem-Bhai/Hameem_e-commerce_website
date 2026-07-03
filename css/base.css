@@ -153,6 +153,19 @@
   --header-h:      108px;  /* header height at rest (68px logo + 20px top + 20px bottom) */
 }
 
+@media (max-width: 768px) {
+  :root {
+    --header-h: 80px;      /* shrunken header height on mobile (40px logo + 20px top + 20px bottom) */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-h: 74px;      /* shrunken header height on smoll mobile (34px logo + 20px top + 20px bottom) */
+  }
+}
+
+
 
 /* ── Modern Reset ─────────────────────────────────────────── */
 *,

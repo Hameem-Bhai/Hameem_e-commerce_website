@@ -811,7 +811,31 @@
     var targets = document.querySelectorAll('[data-animate]');
     targets.forEach(function (el) { observer.observe(el); });
 
-    // Re-scan for dynamically added elements
+    // MutationObserver to auto-observe any dynamically added elements
+    if ('MutationObserver' in window) {
+      var mutationObserver = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          if (mutation.addedNodes) {
+            mutation.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) { // Element node
+                if (node.hasAttribute && node.hasAttribute('data-animate') && !node.classList.contains('is-visible')) {
+                  observer.observe(node);
+                }
+                if (node.querySelectorAll) {
+                  var descendants = node.querySelectorAll('[data-animate]:not(.is-visible)');
+                  descendants.forEach(function (desc) {
+                    observer.observe(desc);
+                  });
+                }
+              }
+            });
+          }
+        });
+      });
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }
+
+    // Re-scan for dynamically added elements (fallback/compatibility)
     var reobserve = function () {
       var newTargets = document.querySelectorAll('[data-animate]:not(.is-visible)');
       newTargets.forEach(function (el) { observer.observe(el); });

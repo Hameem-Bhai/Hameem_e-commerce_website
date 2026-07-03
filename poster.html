@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HameemBhai er Dokan - Lighter Cases Poster</title>
+  <title>HameemBhai er Dokan - Streetwear Poster</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --clr-bg: #050505;
-      --clr-card: #0d0d0d;
+      --clr-bg: #030303;
       --clr-accent: #f4a8c7;
       --clr-accent-rgb: 244, 168, 199;
       --clr-text: #ffffff;
-      --clr-text-secondary: #a0a0a0;
-      --font-title: 'Outfit', sans-serif;
+      --clr-text-secondary: #d0d0d0;
+      --font-title: 'Syne', sans-serif;
+      --font-marker: 'Permanent Marker', cursive;
       --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Courier Prime', monospace;
     }
 
     * {
@@ -28,7 +29,7 @@
     }
 
     body {
-      background-color: var(--clr-bg);
+      background-color: #0c0c0c;
       color: var(--clr-text);
       font-family: var(--font-body);
       display: flex;
@@ -36,32 +37,37 @@
       align-items: center;
       min-height: 100vh;
       padding: 40px;
+      overflow-x: hidden;
     }
 
     /* A4 Poster Container (exact 210mm x 297mm ratio) */
     .poster {
       width: 210mm;
       height: 297mm;
-      background: radial-gradient(circle at 50% 30%, #1a0f14 0%, #050505 70%);
-      border: 2px solid rgba(var(--clr-accent-rgb), 0.2);
-      border-radius: 24px;
-      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 50px rgba(var(--clr-accent-rgb), 0.05);
+      background-color: var(--clr-bg);
+      /* Cyber Grid + Diagonal scanline combo */
+      background-image: 
+        linear-gradient(rgba(var(--clr-accent-rgb), 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--clr-accent-rgb), 0.04) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.01) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0.01) 75%, transparent 75%, transparent);
+      background-size: 25px 25px, 25px 25px, 10px 10px;
+      border: 8px solid #ffffff;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.95);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 50px;
+      padding: 40px;
     }
 
-    /* Ambient background glows */
+    /* Neon glows */
     .glow-1 {
       position: absolute;
-      top: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 500px;
-      height: 500px;
+      top: 15%;
+      left: 10%;
+      width: 450px;
+      height: 450px;
       background: radial-gradient(circle, rgba(var(--clr-accent-rgb), 0.15) 0%, transparent 70%);
       pointer-events: none;
       z-index: 1;
@@ -69,301 +75,476 @@
 
     .glow-2 {
       position: absolute;
-      bottom: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
+      bottom: 20%;
+      right: 10%;
+      width: 450px;
+      height: 450px;
       background: radial-gradient(circle, rgba(var(--clr-accent-rgb), 0.08) 0%, transparent 70%);
       pointer-events: none;
       z-index: 1;
     }
 
-    /* Content layers */
+    /* Streetwear Warning Tape Ticker (Pink & Black) */
+    .tape-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--clr-accent),
+        var(--clr-accent) 15px,
+        #000000 15px,
+        #000000 30px
+      );
+      height: 14px;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    /* Header section */
     .header {
-      text-align: center;
-      z-index: 2;
+      margin-top: 25px;
+      text-align: left;
+      position: relative;
+      z-index: 5;
+      border-bottom: 4px solid #ffffff;
+      padding-bottom: 25px;
     }
 
-    .logo-container {
-      display: inline-flex;
+    .header-top {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .logo-icon {
-      font-size: 28px;
-      color: var(--clr-accent);
-      filter: drop-shadow(0 0 10px rgba(var(--clr-accent-rgb), 0.6));
+      margin-bottom: 12px;
     }
 
     .brand-name {
       font-family: var(--font-title);
       font-weight: 800;
-      font-size: 24px;
-      letter-spacing: 2px;
+      font-size: 28px;
+      letter-spacing: -0.5px;
       text-transform: uppercase;
-      color: var(--clr-text);
-      border-bottom: 2px solid var(--clr-accent);
-      padding-bottom: 4px;
+      color: #ffffff;
+      background: #000000;
+      padding: 6px 16px;
+      border: 3px solid var(--clr-accent);
+      display: inline-block;
+      transform: rotate(-1deg);
+      box-shadow: 4px 4px 0px #ffffff;
+    }
+
+    /* CSS Barcode next to Header */
+    .header-barcode {
+      display: flex;
+      align-items: stretch;
+      height: 35px;
+      gap: 1.5px;
+      background: #ffffff;
+      padding: 4px 8px;
+      border: 2px solid #000000;
+    }
+
+    .header-barcode .bar {
+      background: #000000;
     }
 
     .main-title {
       font-family: var(--font-title);
       font-weight: 900;
-      font-size: 58px;
-      line-height: 1.1;
+      font-size: 72px;
+      line-height: 0.85;
       text-transform: uppercase;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffffff 40%, var(--clr-accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 4px 15px rgba(0,0,0,0.5));
-    }
-
-    .tagline {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--clr-accent);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 35px;
-      text-shadow: 0 0 15px rgba(var(--clr-accent-rgb), 0.4);
-    }
-
-    /* Product Showcase Container (2 columns) */
-    .showcase-container {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 40px;
-      z-index: 2;
-    }
-
-    .showcase-card {
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid rgba(var(--clr-accent-rgb), 0.15);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .showcase-image {
-      width: 100%;
-      height: 310px;
-      position: relative;
-      border-bottom: 1px solid rgba(var(--clr-accent-rgb), 0.15);
-    }
-
-    .showcase-image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
-      pointer-events: none;
-    }
-
-    .showcase-details {
-      padding: 16px 20px;
-      text-align: left;
-    }
-
-    .showcase-details h3 {
-      font-family: var(--font-title);
-      font-weight: 700;
-      font-size: 20px;
+      letter-spacing: -2px;
       color: #ffffff;
-      margin-bottom: 4px;
+      margin-top: 15px;
+      text-shadow: 4px 4px 0px var(--clr-accent);
+      position: relative;
     }
 
-    .showcase-details p {
-      font-size: 13px;
-      color: var(--clr-text-secondary);
-      line-height: 1.4;
+    .main-title span {
+      display: block;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--clr-accent);
+      text-shadow: none;
+      letter-spacing: 0px;
+      margin-top: 8px;
+      text-transform: uppercase;
     }
 
-    .badge-limited {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: var(--clr-accent);
-      color: #050505;
+    .tagline-container {
+      margin-top: 20px;
+      background: var(--clr-accent);
+      color: #000000;
+      padding: 8px 18px;
       font-family: var(--font-title);
       font-weight: 800;
-      font-size: 13px;
-      padding: 5px 14px;
-      border-radius: 30px;
+      font-size: 16px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(var(--clr-accent-rgb), 0.4);
-      z-index: 3;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      transform: skewX(-12deg);
+      box-shadow: 4px 4px 0px #ffffff;
     }
 
-    .badge-hk {
-      background-color: #ff9ebb !important;
-      box-shadow: 0 4px 15px rgba(255, 158, 187, 0.4) !important;
-    }
-
-    /* Details Panel (Grid) */
-    .details-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      z-index: 2;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    .features-list {
-      list-style: none;
+    /* Sticker Collage Showcase */
+    .showcase-container {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      gap: 18px;
+      justify-content: center;
+      gap: 40px;
+      margin: 35px 0;
+      position: relative;
+      z-index: 5;
     }
 
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 18px;
-      line-height: 1.4;
+    /* Polaroid sticker-style cards */
+    .sticker-card {
+      background: #ffffff;
+      color: #000000;
+      padding: 14px 14px 28px 14px;
+      width: 260px;
+      box-shadow: 14px 14px 0px #000000, 14px 14px 0px 2px var(--clr-accent);
+      border: 3px solid #000000;
+      transition: transform 0.3s ease;
+      position: relative;
     }
 
-    .feature-icon {
-      font-size: 22px;
-      color: var(--clr-accent);
-      text-shadow: 0 0 10px rgba(var(--clr-accent-rgb), 0.5);
-      flex-shrink: 0;
+    /* Translucent pink tape overlay holding the polaroid */
+    .sticker-card::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: 30%;
+      width: 80px;
+      height: 26px;
+      background: rgba(var(--clr-accent-rgb), 0.45);
+      backdrop-filter: blur(1px);
+      transform: rotate(-8deg);
+      border-left: 2px dashed rgba(255, 255, 255, 0.4);
+      border-right: 2px dashed rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 15;
     }
 
-    .feature-text strong {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 19px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 2px;
+    .sticker-card-2::before {
+      background: rgba(255, 255, 255, 0.4);
+      left: 45%;
+      transform: rotate(6deg);
     }
 
-    .feature-text span {
-      color: var(--clr-text-secondary);
-      font-size: 14px;
+    .sticker-card-1 {
+      transform: rotate(-3deg);
     }
 
-    /* QR Code Card */
-    .qr-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(var(--clr-accent-rgb), 0.15);
-      border-radius: 20px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
+    .sticker-card-2 {
+      transform: rotate(4deg);
     }
 
-    .qr-image-wrapper {
-      background-color: #0a0a0a;
-      border: 2px dashed rgba(var(--clr-accent-rgb), 0.4);
-      border-radius: 12px;
-      padding: 10px;
-      margin-bottom: 12px;
-      box-shadow: 0 0 20px rgba(var(--clr-accent-rgb), 0.1);
-      width: 140px;
-      height: 140px;
+    .sticker-card:hover {
+      transform: scale(1.05) rotate(0deg);
+      z-index: 10;
+    }
+
+    .sticker-image {
+      width: 100%;
+      height: 260px;
+      border: 3px solid #000000;
+      position: relative;
+      background-color: #fafafa;
+      /* Soft designer grid background inside polaroid */
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 15px 15px;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: visible;
     }
 
-    .qr-image {
-      width: 100%;
-      height: 100%;
+    .sticker-image img {
+      max-width: 85%;
+      max-height: 85%;
       object-fit: contain;
+      filter: drop-shadow(6px 6px 0px rgba(0,0,0,0.15));
+      animation: float-bob 4s ease-in-out infinite;
+      z-index: 2;
     }
 
-    .qr-title {
-      font-family: var(--font-title);
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: 1px;
+    .sticker-card-2 .sticker-image img {
+      animation-delay: 2s;
+    }
+
+    @keyframes float-bob {
+      0% {
+        transform: translateY(0);
+        filter: drop-shadow(6px 6px 0px rgba(0,0,0,0.15));
+      }
+      50% {
+        transform: translateY(-12px);
+        filter: drop-shadow(12px 18px 4px rgba(0,0,0,0.1));
+      }
+      100% {
+        transform: translateY(0);
+        filter: drop-shadow(6px 6px 0px rgba(0,0,0,0.15));
+      }
+    }
+
+    .sticker-label {
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      background: var(--clr-accent);
+      color: #000000;
+      font-family: var(--font-marker);
+      font-size: 14px;
+      padding: 4px 14px;
       text-transform: uppercase;
-      color: var(--clr-accent);
-      margin-bottom: 4px;
+      box-shadow: 4px 4px 0px #000000;
+      white-space: nowrap;
+      border: 2px solid #000000;
     }
 
-    .qr-subtitle {
+    .sticker-caption {
+      margin-top: 25px;
+      font-family: var(--font-marker);
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: #000000;
+    }
+
+    .sticker-caption span {
+      display: block;
+      font-family: var(--font-body);
       font-size: 12px;
-      color: var(--clr-text-secondary);
-      margin-bottom: 5px;
+      font-weight: 500;
+      color: #555555;
+      margin-top: 4px;
     }
 
-    .promo-badge {
-      margin-top: 15px;
-      background: rgba(var(--clr-accent-rgb), 0.08);
-      border: 1px dashed rgba(var(--clr-accent-rgb), 0.5);
-      border-radius: 12px;
-      padding: 10px 18px;
+    /* Acid Graphics Stickers */
+    .acid-sticker-round {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      background: #000000;
+      color: var(--clr-accent);
+      border: 4px solid var(--clr-accent);
+      border-radius: 50%;
+      width: 95px;
+      height: 95px;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 3px;
-      box-shadow: 0 0 15px rgba(var(--clr-accent-rgb), 0.03);
-    }
-
-    .promo-badge span {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--clr-text-secondary);
-    }
-
-    .promo-badge strong {
+      text-align: center;
       font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 6;
+      box-shadow: 6px 6px 0px #000000;
+    }
+
+    .acid-sticker-round span {
+      font-size: 24px;
+      margin-bottom: 2px;
+      filter: drop-shadow(0 0 5px var(--clr-accent));
+    }
+
+    /* Lower Section: Split Info & Checkout */
+    .bottom-section {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 35px;
+      align-items: center;
+      margin-bottom: 25px;
+      z-index: 5;
+    }
+
+    /* Feature block styled like warning list */
+    .streetwear-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .streetwear-feature-item {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 6px solid var(--clr-accent);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 20px;
+      box-shadow: 5px 5px 0px #000000;
+      position: relative;
+    }
+
+    .streetwear-feature-item::after {
+      content: '✦';
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      color: var(--clr-accent);
+      font-size: 12px;
+    }
+
+    .streetwear-feature-item strong {
+      display: block;
+      font-family: var(--font-title);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--clr-accent);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .streetwear-feature-item p {
+      font-size: 13px;
+      color: var(--clr-text-secondary);
+      line-height: 1.45;
+    }
+
+    /* Checkout manifest receipt style card */
+    .manifest-card {
+      background: #ffffff;
+      color: #000000;
+      border: 3px solid #000000;
+      padding: 22px;
+      font-family: var(--font-mono);
+      position: relative;
+      box-shadow: 10px 10px 0px var(--clr-accent);
+    }
+
+    /* Tear cut-line design */
+    .manifest-card::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(-45deg, transparent 4px, #ffffff 4px), linear-gradient(45deg, transparent 4px, #ffffff 4px);
+      background-size: 8px 12px;
+    }
+
+    .manifest-header {
+      text-align: center;
+      border-bottom: 3px dashed #000000;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .manifest-header h3 {
       font-size: 15px;
       font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .manifest-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+
+    .manifest-row.qr-row {
+      margin-top: 18px;
+      justify-content: center;
+    }
+
+    .manifest-qr-wrapper {
+      border: 3px solid #000000;
+      padding: 8px;
+      background: #ffffff;
+      width: 120px;
+      height: 120px;
+      box-shadow: 4px 4px 0px #000000;
+    }
+
+    .manifest-qr-wrapper img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .manifest-footer {
+      border-top: 3px dashed #000000;
+      margin-top: 14px;
+      padding-top: 12px;
+      text-align: center;
+    }
+
+    .coupon-code {
+      background: #000000;
+      color: #ffffff;
+      padding: 6px 14px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 900;
       letter-spacing: 1px;
+      margin-top: 5px;
+      border: 1px solid var(--clr-accent);
+      box-shadow: 3px 3px 0px var(--clr-accent);
+    }
+
+    /* Stamp graphic overlay (Handwritten marker style) */
+    .retro-stamp {
+      position: absolute;
+      bottom: 95px;
+      left: -25px;
+      border: 3px dashed var(--clr-accent);
       color: var(--clr-accent);
-      text-shadow: 0 0 10px rgba(var(--clr-accent-rgb), 0.4);
+      background: #000000;
+      font-family: var(--font-marker);
+      font-size: 13px;
+      padding: 6px 14px;
+      transform: rotate(-18deg);
+      text-transform: uppercase;
+      z-index: 10;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
     }
 
     /* Footer Section */
     .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 25px;
+      border-top: 3px solid #ffffff;
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 2;
+      z-index: 5;
     }
 
     .url-text {
       font-family: var(--font-title);
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: 1px;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: -0.5px;
       color: #ffffff;
       text-decoration: none;
-      transition: color 0.2s;
     }
 
     .url-text span {
       color: var(--clr-accent);
     }
 
-    .social-note {
-      font-size: 13px;
-      color: var(--clr-text-secondary);
+    .footer-note {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--clr-accent);
+      background: #000000;
+      border: 1px solid var(--clr-accent);
+      padding: 4px 10px;
     }
 
     /* Print settings & scaling */
@@ -376,7 +557,6 @@
         width: 100%;
         height: 100%;
         border: none;
-        border-radius: 0;
         box-shadow: none;
       }
     }
@@ -384,91 +564,131 @@
 </head>
 <body>
 
-  <!-- Background Glow FX -->
-  <div class="glow-1"></div>
-  <div class="glow-2"></div>
-
   <!-- Main A4 Poster -->
   <div class="poster">
-    
+    <!-- Glowing background elements -->
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <!-- Repeating top tape marquee -->
+    <div class="tape-top"></div>
+
     <!-- Top Header -->
     <div class="header">
-      <div class="logo-container">
-        <span class="logo-icon">🔥</span>
+      <div class="header-top">
         <span class="brand-name">HameemBhai er Dokan</span>
+        
+        <!-- CSS Barcode -->
+        <div class="header-barcode">
+          <div class="bar" style="width: 2px;"></div>
+          <div class="bar" style="width: 4px;"></div>
+          <div class="bar" style="width: 1px;"></div>
+          <div class="bar" style="width: 5px;"></div>
+          <div class="bar" style="width: 2px;"></div>
+          <div class="bar" style="width: 1px;"></div>
+          <div class="bar" style="width: 6px;"></div>
+          <div class="bar" style="width: 3px;"></div>
+          <div class="bar" style="width: 2px;"></div>
+          <div class="bar" style="width: 1px;"></div>
+          <div class="bar" style="width: 4px;"></div>
+        </div>
       </div>
-      <h1 class="main-title">3D Lighter Cases</h1>
-      <p class="tagline">Dhaka Handmade. Main Character Approved.</p>
+      <h1 class="main-title">
+        POCKET GRAILS
+        <span>3D Hand-Sculpted Lighter Cases</span>
+      </h1>
+      <div class="tagline-container">
+        Now carry your own customised lighter & boost your drip // spark the aesthetic 📈
+      </div>
     </div>
 
-    <!-- Product Showcase (Double Grid) -->
+    <!-- Product Showcase (Sticker / Polaroid Collage) -->
     <div class="showcase-container">
       
-      <!-- Card 1: Spider-Man Classic -->
-      <div class="showcase-card">
-        <div class="showcase-image" style="background: url('spider_classic1.jpg') center/cover no-repeat;">
-          <span class="badge-limited">Spider-Man Classic</span>
+      <!-- Polaroid Card 1: Spider-Man Classic -->
+      <div class="sticker-card sticker-card-1">
+        <div class="sticker-image">
+          <img src="spider_classic1_nobg.png" alt="Spider-Man Classic Lighter">
+          <span class="sticker-label">Spider Edition</span>
         </div>
-        <div class="showcase-details">
-          <h3>Classic Series</h3>
-          <p>Aggressive raised black spider emblem on a bold red background.</p>
+        <div class="sticker-caption">
+          Spider-Man classic
+          <span>Aggressive 3D clay finish</span>
         </div>
       </div>
 
-      <!-- Card 2: Hello Kitty -->
-      <div class="showcase-card">
-        <div class="showcase-image" style="background: url('img_lc_custom_3d.jpg') center/cover no-repeat;">
-          <span class="badge-limited badge-hk">Hello Kitty Ed.</span>
+      <!-- Center floating acid badge sticker -->
+      <div class="acid-sticker-round">
+        <span>🥶</span>
+        DIFFERENT
+        GRAIL
+      </div>
+
+      <!-- Polaroid Card 2: Hello Kitty -->
+      <div class="sticker-card sticker-card-2">
+        <div class="sticker-image">
+          <img src="img_lc_custom_3d_nobg.png" alt="Hello Kitty Lighter">
+          <span class="sticker-label">Kitty Grail</span>
         </div>
-        <div class="showcase-details">
-          <h3>Cute & Glossy</h3>
-          <p>High-gloss protective finish with customizable 3D figures.</p>
+        <div class="sticker-caption">
+          hello kitty cutie
+          <span>High-gloss protective finish</span>
         </div>
       </div>
 
     </div>
 
-    <!-- Details Grid -->
-    <div class="details-grid">
+    <!-- Details and Checkout manifests -->
+    <div class="bottom-section">
       
-      <!-- Key features -->
-      <ul class="features-list">
-        <li class="feature-item">
-          <span class="feature-icon">✨</span>
-          <div class="feature-text">
-            <strong>100% Hand-Sculpted</strong>
-            <span>No cheap machine prints. Every single curve and detail is carved by hand.</span>
-          </div>
+      <!-- Features list -->
+      <ul class="streetwear-features">
+        <li class="streetwear-feature-item">
+          <strong>01 / SCULPTED CLAY (NO CAP)</strong>
+          <p>Every curve is carved by hand. Not printed by machines, but birthed from raw clay. An individual sculpture for your pocket.</p>
         </li>
-        <li class="feature-item">
-          <span class="feature-icon">💎</span>
-          <div class="feature-text">
-            <strong>Glossy Street-Wear Texture</strong>
-            <span>Aggressive, bold contrast with premium pocket-durable waterproofing.</span>
-          </div>
+        <li class="streetwear-feature-item">
+          <strong>02 / GLOSS SHIELD / POCKET FLEX</strong>
+          <p>Coated in high-gloss streetwear armor. Liquid texture that shines under night lights. Waterproof, pocket-ready, built to survive the flex.</p>
         </li>
-        <li class="feature-item">
-          <span class="feature-icon">🎁</span>
-          <div class="feature-text">
-            <strong>Free Sunlite Lighter</strong>
-            <span>Every single case includes a free lighter ready to flex out of the box.</span>
-          </div>
+        <li class="streetwear-feature-item">
+          <strong>03 / SPARK THE VIBE ⚡</strong>
+          <p>Main character energy standard. Comes loaded with a fresh Sunlite lighter. Ignite a conversation every time you light up.</p>
         </li>
       </ul>
 
-      <!-- QR Code Scanner -->
-      <div class="qr-card">
-        <div class="qr-image-wrapper">
-          <img src="qrcode.png" alt="Scan QR Code" class="qr-image">
+      <!-- Manifest Receipt -->
+      <div class="manifest-card">
+        <!-- Overlay stamp -->
+        <div class="retro-stamp">HB APPROVED</div>
+
+        <div class="manifest-header">
+          <h3>HB // BATCH PROTOCOL: 01</h3>
+          <p>SCAN TO SECURE YOURS</p>
         </div>
-        <h3 class="qr-title">Scan to order</h3>
-        <p class="qr-subtitle">Customize your own style!</p>
         
-        <!-- Promo Coupon Hook -->
-        <div class="promo-badge">
-          <span>USE CODE</span>
-          <strong>HAMEEMBHAI10</strong>
-          <span>FOR 10% OFF</span>
+        <div class="manifest-row">
+          <span>MANIFEST:</span>
+          <span>HEIRLOOM CLAY</span>
+        </div>
+        <div class="manifest-row">
+          <span>DRIP RATE:</span>
+          <span>MAXFLEX (+100%)</span>
+        </div>
+        <div class="manifest-row">
+          <span>ORIGIN:</span>
+          <span>DHAKA UNDERGROUND</span>
+        </div>
+        
+        <div class="manifest-row qr-row">
+          <div class="manifest-qr-wrapper">
+            <img src="qrcode.png" alt="QR Code">
+          </div>
+        </div>
+
+        <div class="manifest-footer">
+          <p>ACQUIRE PASSAGE (10% OFF):</p>
+          <div class="coupon-code">HAMEEMBHAI10</div>
         </div>
       </div>
 
@@ -479,7 +699,7 @@
       <a href="https://hameembhaierdokan.studio" class="url-text" target="_blank">
         hameembhaierdokan<span>.studio</span>
       </a>
-      <span class="social-note">Handmade in Dhaka, Bangladesh</span>
+      <span class="footer-note">WhatsApp: 01785-501873</span>
     </div>
 
   </div>

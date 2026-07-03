@@ -517,10 +517,14 @@
     var siblings = HBD.data.getServicesByCategory(currentService.categoryId)
       .filter(function (s) { return s.id !== currentService.id; });
 
-    // If less than 3, get recommended picks
+    // If less than 3, get recommended picks (prevent duplicates and exclude current service)
     if (siblings.length < 3) {
       var recommended = HBD.data.getRecommended()
-        .filter(function (s) { return s.id !== currentService.id && s.categoryId !== currentService.categoryId; });
+        .filter(function (s) {
+          if (s.id === currentService.id) return false;
+          var isAlreadySibling = siblings.some(function (sib) { return sib.id === s.id; });
+          return !isAlreadySibling;
+        });
       siblings = siblings.concat(recommended);
     }
 
