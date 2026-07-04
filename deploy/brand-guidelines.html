@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Guidelines | Hameem Bhai er Dokan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --clr-pink-light: #FF9EBE;
+      --clr-pink-deep: #FF4D8D;
+      --clr-purple: #9B59B6;
+      --clr-bg: #1a1a1a;
+      --clr-bg-card: #222222;
+      --clr-text-main: #FFFFFF;
+      --clr-text-muted: #A0A0A0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--clr-bg);
+      color: var(--clr-text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Print styling to fit exactly on 1 page (A4) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .container {
+        padding: 0;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .card {
+        background: #f8f8f8 !important;
+        border: 1px solid #ddd !important;
+        color: #333333 !important;
+      }
+      h1, h2, h3 {
+        color: #000000 !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+      }
+      .color-box {
+        border: 1px solid #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .do-dont-col {
+        border-color: #ddd !important;
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 2px solid rgba(255, 158, 190, 0.15);
+      padding-bottom: 2rem;
+    }
+
+    .print-btn {
+      background: linear-gradient(90deg, var(--clr-pink-light), var(--clr-pink-deep));
+      border: none;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(255, 77, 141, 0.4);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(90deg, var(--clr-pink-light), var(--clr-pink-deep));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-family: var(--font-display);
+      color: var(--clr-pink-light);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      border-left: 4px solid var(--clr-pink-deep);
+      padding-left: 0.8rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--clr-text-main);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--clr-bg-card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    /* Colors Section */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+
+    .color-card {
+      text-align: center;
+    }
+
+    .color-box {
+      height: 70px;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    }
+
+    .color-label {
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .color-value {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--clr-text-muted);
+    }
+
+    /* Logo Rules */
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .do-dont-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .do-dont-col {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .do-dont-col h4 {
+      margin-top: 0;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+    }
+
+    .do-dont-col.do h4 { color: #6ecf94; }
+    .do-dont-col.dont h4 { color: #e87272; }
+
+    .do-dont-list {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .do-dont-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Brand Voice */
+    .voice-quote {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--clr-pink-light);
+      border-left: 3px dashed var(--clr-pink-deep);
+      padding-left: 1.2rem;
+      margin: 1.5rem 0;
+      font-family: var(--font-display);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header">
+      <button class="print-btn no-print" onclick="window.print()">🖨️ Export as PDF / Print</button>
+      <h1>Hameem Bhai er Dokan.</h1>
+      <div class="subtitle">Official Brand Guidelines</div>
+    </div>
+
+    <!-- 1. Brand Voice -->
+    <div class="section-title">Brand Voice & Personality</div>
+    <div class="card">
+      <div class="voice-quote">"Street soul, not corporate."</div>
+      <p style="margin: 0; font-size: 1.05rem;">
+        Hameem Bhai er Dokan is born from raw Dhaka street culture, coding grinds, and custom hand-sculpted design.
+        Our communication style is friendly, direct, and slightly cheeky. We use local slang (<em>"dokan"</em>, <em>"bhai"</em>, <em>"slaps"</em>) 
+        without overdoing it, avoiding sterile or overly professional corporate buzzwords. We sound like a talented creator talking to a friend, not an agency board.
+      </p>
+    </div>
+
+    <!-- 2. Colors & Typography -->
+    <div class="section-title">Visual Identity Specs</div>
+    <div class="grid-2">
+      <!-- Colors Card -->
+      <div class="card">
+        <h3 style="margin-top: 0; font-family: var(--font-display); color: var(--clr-pink-light);">Brand Colors</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-box" style="background: #FF9EBE;"></div>
+            <div class="color-label">Primary Pink</div>
+            <div class="color-value">#FF9EBE</div>
+          </div>
+          <div class="color-card">
+            <div class="color-box" style="background: #FF4D8D;"></div>
+            <div class="color-label">Accent Pink</div>
+            <div class="color-value">#FF4D8D</div>
+          </div>
+          <div class="color-card">
+            <div class="color-box" style="background: #9B59B6;"></div>
+            <div class="color-label">Deep Purple</div>
+            <div class="color-value">#9B59B6</div>
+          </div>
+          <div class="color-card">
+            <div class="color-box" style="background: #1a1a1a;"></div>
+            <div class="color-label">Dark Neutral</div>
+            <div class="color-value">#1A1A1A</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fonts Card -->
+      <div class="card">
+        <h3 style="margin-top: 0; font-family: var(--font-display); color: var(--clr-pink-light);">Typography</h3>
+        <div style="margin-bottom: 1.2rem;">
+          <strong style="display: block; font-family: var(--font-display); font-size: 1.2rem;">Outfit (Sans-Serif)</strong>
+          <span style="font-size: 0.9rem; color: var(--clr-text-muted);">Use for Headings, Titles, Hero Copy & Badges</span>
+        </div>
+        <div>
+          <strong style="display: block; font-family: var(--font-body); font-size: 1.2rem;">Inter (Sans-Serif)</strong>
+          <span style="font-size: 0.9rem; color: var(--clr-text-muted);">Use for Body Text, Descriptions, and General UI Elements</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Logo Rules -->
+    <div class="section-title">Logo Usage Rules</div>
+    <div class="do-dont-grid">
+      <div class="do-dont-col do">
+        <h4>Do's ✅</h4>
+        <ul class="do-dont-list">
+          <li>Use the <strong>Circular Logo</strong> (transparent PNG) for website favicons, social headers, and circular crops.</li>
+          <li>Use the <strong>Horizontal Logo</strong> in headers or navigation bars.</li>
+          <li>Use the <strong>Monochrome Stamp</strong> logo for custom physical prints or receipts.</li>
+          <li>Ensure contrast: use the white monochrome variant on dark backgrounds.</li>
+        </ul>
+      </div>
+
+      <div class="do-dont-col dont">
+        <h4>Don'ts ❌</h4>
+        <ul class="do-dont-list">
+          <li>Never stretch, squash, or distort the proportions of the mascot face.</li>
+          <li>Do not overlay the dark circular logo directly on dark backgrounds.</li>
+          <li>Avoid adding extra dropshadows, glows, or changing colors of the mascot.</li>
+          <li>Do not change the signature pink accents in the primary circular logo.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

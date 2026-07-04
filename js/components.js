@@ -399,7 +399,7 @@
 
       // Bottom bar
       '<div class="hbd-footer__bottom">' +
-        '<p>&copy; 2026 Hameem Bhai er Dokan. All rights reserved. | Created by Hameem Bhai</p>' +
+        '<p>&copy; 2026 Hameem Bhai er Dokan. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a> | <a href="refund.html">Refund Policy</a></p>' +
         '<div class="hbd-footer__trust-badge" style="font-size: 0.8rem; color: var(--clr-text-muted); margin: 8px 0;">Hameem Bhai\'s Studio — Creative Design & Development, Made in Dhaka</div>' +
         '<button class="hbd-footer__back-to-top" aria-label="Back to top" title="Back to top">' +
           '↑ Top' +
