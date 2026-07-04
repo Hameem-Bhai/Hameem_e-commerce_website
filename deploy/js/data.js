@@ -378,7 +378,7 @@
     whatsapp:   '01785501873',
     bkash:      '01785501873',
     email:      'basithameem@gmail.com',
-    instagram:  'https://www.instagram.com/HameemBhai_er_Dokan',
+    instagram:  'https://www.instagram.com/hameembhaierdokan_bd',
     facebook:   null,
     location:   'Dhanmondi, Dhaka, Bangladesh',
     googleForm: 'https://forms.gle/REPLACE_WITH_YOUR_FORM_LINK'

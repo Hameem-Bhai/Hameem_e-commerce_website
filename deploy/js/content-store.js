@@ -46,14 +46,14 @@
       phone: '+880 1785-501873',
       whatsappLink: 'https://wa.me/8801785501873',
       location: 'Dhaka, Bangladesh',
-      instagramHandle: 'hameem_bhai',
+      instagramHandle: 'hameembhaierdokan_bd',
     },
     // ── FOOTER / HEADER ──
     global: {
       tagline: 'Hameem Bhai er Dokan — Bringing creative visions to life from Dhaka, Bangladesh. Created by Hameem Bhai.',
       footerEmail: 'basithameem@gmail.com',
       footerPhone: '+880 1785-501873',
-      footerInstagram: 'https://instagram.com/hameem_bhai',
+      footerInstagram: 'https://www.instagram.com/hameembhaierdokan_bd',
       footerWhatsapp: 'https://wa.me/8801785501873',
       availabilityStatus: 'available',
     }
