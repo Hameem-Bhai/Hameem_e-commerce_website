@@ -327,19 +327,39 @@
       "badge": "Custom editions"
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "r_17831484743050x62",
+      "serviceId": "dp-basic",
+      "userName": "Guest Customer",
+      "rating": 5,
+      "text": "Hi baby!!🫦",
+      "date": "2026-07-04",
+      "hidden": false
+    },
+    {
+      "id": "r_1783148636679mehl",
+      "serviceId": "lighter-cases-1782321088565",
+      "userName": "Guest Customer",
+      "rating": 5,
+      "text": "I will never regret spending thousands here.",
+      "date": "2026-07-04",
+      "hidden": false
+    },
+    {
+      "id": "r_1783148673514ee46",
+      "serviceId": "lighter-cases-1782321088565",
+      "userName": "Guest Customer",
+      "rating": 4,
+      "text": "It's kinda expensive but tho worth it",
+      "date": "2026-07-04",
+      "hidden": false
+    }
+  ],
   "referralCodes": {
     "HAMEEMBHAI10": {
-      "discount": 10,
-      "description": "10% off — HameemBhai special"
-    },
-    "HBLOVE5": {
-      "discount": 5,
-      "description": "5% off — Spread the love"
-    },
-    "HBSTUDENT12": {
-      "discount": 15,
-      "description": "15% off — Student discount"
+      "discount": 20,
+      "description": "20% off — HameemBhai Er Gift<3"
     }
   },
   "users": [
