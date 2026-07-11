@@ -104,6 +104,14 @@ app.post('/api/auth/register', async (req, res) => {
   db.users.push(newUser);
   await writeDB(db);
 
+  // Auto-publish new user registration to GitHub
+  try {
+    await publishToGitHub(`System: New User registered (${newUser.email})`);
+    console.log(`[Register Publish] User ${newUser.email} pushed to GitHub successfully!`);
+  } catch (e) {
+    console.error(`[Register Publish Error] Failed to auto-publish user registration:`, e.message);
+  }
+
   // Return user without password
   const { password: _, ...userSession } = newUser;
   res.status(201).json({ success: true, message: 'Registration successful!', user: userSession, token });
@@ -124,6 +132,14 @@ app.post('/api/auth/login', async (req, res) => {
   const token = 'tok_' + Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
   user.token = token;
   await writeDB(db);
+
+  // Auto-publish session token update to GitHub
+  try {
+    await publishToGitHub(`System: User Login (${user.email})`);
+    console.log(`[Login Publish] User ${user.email} session pushed to GitHub successfully!`);
+  } catch (e) {
+    console.error(`[Login Publish Error] Failed to auto-publish session token:`, e.message);
+  }
 
   const { password: _, ...userSession } = user;
   res.json({ success: true, message: 'Login successful!', user: userSession, token });
@@ -367,6 +383,15 @@ app.post('/api/orders', authenticate, async (req, res) => {
   }
 
   await writeDB(db);
+
+  // Auto-publish order to GitHub to avoid database loss on server restart
+  try {
+    await publishToGitHub(`System: New Order #${newOrder.orderId} placed`);
+    console.log(`[Order Publish] Order #${newOrder.orderId} pushed to GitHub successfully!`);
+  } catch (e) {
+    console.error(`[Order Publish Error] Failed to auto-publish order #${newOrder.orderId}:`, e.message);
+  }
+
   res.status(201).json({ success: true, message: 'Order placed successfully!', order: newOrder });
 });
 
@@ -486,56 +511,59 @@ app.post('/api/admin/blog', adminOnly, async (req, res) => {
   res.json({ success: true, message: 'Blog posts saved successfully!' });
 });
 
-app.post('/api/admin/publish', adminOnly, async (req, res) => {
-  try {
-    const token = process.env.GITHUB_TOKEN;
-    const repo = process.env.GITHUB_REPO; // e.g., "Hameem-Bhai/Hameem_e-commerce_website"
-    
-    if (!token || !repo) {
-      return res.status(400).json({ success: false, message: 'GitHub Auto-Publish is not configured. Missing GITHUB_TOKEN or GITHUB_REPO in server environment variables.' });
-    }
+async function publishToGitHub(commitMessage = 'Admin Dashboard: Auto-Publish db.json updates') {
+  const token = process.env.GITHUB_TOKEN;
+  const repo = process.env.GITHUB_REPO;
+  if (!token || !repo) {
+    throw new Error('GitHub Auto-Publish is not configured. Missing GITHUB_TOKEN or GITHUB_REPO.');
+  }
 
-    const dbContent = await fs.readFile(DB_FILE, 'utf8');
-    const contentBase64 = Buffer.from(dbContent).toString('base64');
-    const apiUrl = `https://api.github.com/repos/${repo}/contents/db.json`;
-    
-    let fileSha;
-    try {
-      const getRes = await fetch(apiUrl, {
-        headers: {
-          'Authorization': `token ${token}`,
-          'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'HameemBhai-Store'
-        }
-      });
-      if (getRes.ok) {
-        const getJson = await getRes.json();
-        fileSha = getJson.sha;
-      }
-    } catch (e) {
-      console.log('[Publish] Could not fetch existing db.json SHA:', e.message);
-    }
-    
-    const putRes = await fetch(apiUrl, {
-      method: 'PUT',
+  const dbContent = await fs.readFile(DB_FILE, 'utf8');
+  const contentBase64 = Buffer.from(dbContent).toString('base64');
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/db.json`;
+
+  let fileSha;
+  try {
+    const getRes = await fetch(apiUrl, {
       headers: {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'HameemBhai-Store',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: 'Admin Dashboard: Auto-Publish db.json updates',
-        content: contentBase64,
-        sha: fileSha
-      })
+        'User-Agent': 'HameemBhai-Store'
+      }
     });
-    
-    const putJson = await putRes.json();
-    if (!putRes.ok) {
-      return res.status(400).json({ success: false, message: putJson.message || 'GitHub API error.' });
+    if (getRes.ok) {
+      const getJson = await getRes.json();
+      fileSha = getJson.sha;
     }
-    
+  } catch (e) {
+    console.log('[Publish] Could not fetch SHA:', e.message);
+  }
+
+  const putRes = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${token}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'User-Agent': 'HameemBhai-Store',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: commitMessage,
+      content: contentBase64,
+      sha: fileSha
+    })
+  });
+
+  const putJson = await putRes.json();
+  if (!putRes.ok) {
+    throw new Error(putJson.message || 'GitHub API error.');
+  }
+  return putJson;
+}
+
+app.post('/api/admin/publish', adminOnly, async (req, res) => {
+  try {
+    await publishToGitHub();
     res.json({ success: true, message: 'Successfully published to GitHub!' });
   } catch (err) {
     console.error('[Publish Error]:', err);
