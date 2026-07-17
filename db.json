@@ -382,11 +382,60 @@
       "address": "Dhaka, Bangladesh",
       "password": "basiTbhalo12?",
       "joinedAt": "2026-06-06T17:21:09.689Z",
-      "orderCount": 0,
+      "orderCount": 1,
       "token": "tok_vdtuymw9e4gie0ma7w2iuh"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "name": "Hameem Bhai (Admin)",
+      "email": "basithameem@gmail.com",
+      "phone": "01785501873",
+      "address": "",
+      "orderId": "HB-71485",
+      "items": [
+        {
+          "itemId": "hb_mrp9h5fp1nivx",
+          "serviceId": "gd-standard",
+          "tier": "Standard",
+          "qty": 1,
+          "addedAt": "2026-07-17T18:18:24.325Z",
+          "service": {
+            "id": "gd-standard",
+            "categoryId": "graphics-design",
+            "name": "Custom Logo Design by Hameem Bhai",
+            "tier": "Standard",
+            "price": 1299,
+            "priceDisplay": "৳1,299",
+            "description": "Custom logo with multiple variations — perfect for a brand just getting started.",
+            "features": [
+              "Custom logo design",
+              "3 initial concepts to choose from",
+              "Light + dark version",
+              "PNG + SVG files",
+              "2 revision rounds"
+            ],
+            "popular": false,
+            "image": "img_gd_standard.png",
+            "originalPrice": 1700,
+            "stock": null,
+            "badge": null
+          },
+          "lineTotal": 1299
+        }
+      ],
+      "subtotal": 1299,
+      "discount": 130,
+      "deliveryFee": 0,
+      "total": 1169,
+      "paymentMethod": "bKash",
+      "txId": "Sender: 01785501873, TrxID: 1234567891",
+      "brief": "nn",
+      "userId": "usr_admin",
+      "createdAt": "2026-07-17T18:19:20.104Z",
+      "status": "Pending"
+    }
+  ],
   "content": {
     "home": {
       "heroBadge": "🇧🇩 Made in Bangladesh",
