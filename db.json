@@ -382,7 +382,7 @@
       "address": "Dhaka, Bangladesh",
       "password": "basiTbhalo12?",
       "joinedAt": "2026-06-06T17:21:09.689Z",
-      "orderCount": 1,
+      "orderCount": 2,
       "token": "tok_pnjmtlsqtbwe61l8vp1ca"
     }
   ],
@@ -433,6 +433,56 @@
       "brief": "nn",
       "userId": "usr_admin",
       "createdAt": "2026-07-17T18:19:20.104Z",
+      "status": "Pending"
+    },
+    {
+      "name": "Hameem Bhai (Admin)",
+      "email": "basithameem@gmail.com",
+      "phone": "01785501873",
+      "address": "Dhaka, Bangladesh",
+      "orderId": "HB-37341",
+      "items": [
+        {
+          "itemId": "hb_mscy6miw13nau",
+          "serviceId": "lc-custom-3d",
+          "tier": "",
+          "qty": 1,
+          "addedAt": "2026-08-03T08:08:45.704Z",
+          "service": {
+            "id": "lc-custom-3d",
+            "categoryId": "lighter-cases",
+            "name": "3D Lighter Case - Hello  Kitty version by Hameem Bhai",
+            "tier": "Collector edition",
+            "price": 1150,
+            "priceDisplay": "৳1,150",
+            "description": "Buy 2 for only ৳2000.\nOnly for true HK fans!",
+            "features": [
+              "Buy 2 for ৳2000 (save ৳700)",
+              "Delivered asap",
+              "Nice glossy finishing",
+              "CLICK IT!"
+            ],
+            "popular": true,
+            "image": "img_lc_custom_3d.jpg",
+            "images": [
+              "img_lc_custom_3d.jpg"
+            ],
+            "originalPrice": 1500,
+            "stock": 2,
+            "badge": "FAN FAV!"
+          },
+          "lineTotal": 1150
+        }
+      ],
+      "subtotal": 1150,
+      "discount": 115,
+      "deliveryFee": 150,
+      "total": 1185,
+      "paymentMethod": "Cash on Delivery",
+      "txId": "COD",
+      "brief": "nn",
+      "userId": "usr_admin",
+      "createdAt": "2026-08-03T08:12:22.592Z",
       "status": "Pending"
     }
   ],
