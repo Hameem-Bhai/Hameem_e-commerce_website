@@ -49,32 +49,6 @@ Website Building, and Digital Painting. Source text describes bKash and cash-on-
 delivery instructions; those should not be described as a verified payment gateway
 without a server-side payment integration and confirmation flow.
 
-## Important security status
-
-The current backend is suitable only for controlled development with synthetic
-data until the following issues are addressed:
-
-- Registration stores passwords as plaintext in `db.json`; login compares plaintext.
-- The publishing helper commits the entire `db.json` to GitHub, and registration,
-  login, and order creation call that helper when GitHub credentials are configured.
-- Express serves the repository root as static content. A non-dotfile such as
-  `db.json` can therefore be exposed directly, bypassing API authentication.
-- The admin users response excludes tokens but retains password fields.
-- Session tokens use `Math.random()`, and authentication does not enforce expiry.
-- Admin authorization relies on a hard-coded email; registration does not verify
-  ownership of that email before the account can receive a session.
-- Order creation accepts submitted items and totals without recomputing trusted
-  prices and discounts on the server.
-
-Do not use real passwords, customer addresses, phone numbers, or live orders in
-this build. Disable database auto-publishing before working with customer data.
-Do not add a GitHub token just to make the demo run.
-
-If real records were already published, treat them as potentially exposed: stop
-further publication, invalidate affected sessions and credentials, and assess
-repository history and any live static database exposure. A private repository or
-an ignore rule alone is not a complete fix.
-
 ## Local development
 
 Use a supported Node.js release compatible with the locked dependency versions.
