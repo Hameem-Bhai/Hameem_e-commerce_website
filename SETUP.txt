@@ -1,0 +1,16 @@
+DOKAN README PACK
+
+Copy README.md and docs/ into the existing repository root.
+Read CLEANUP_GUIDE.txt before changing the file structure.
+This pack does not modify server.js, data records, or deployment configuration.
+The critical security issues in README remain unresolved by documentation alone.
+
+The banner is original illustrative GIF artwork. No external service, GitHub
+Actions workflow, or secret is required. Preserve its full aspect ratio.
+
+Suggested commit message:
+docs: add animated studio README and development guide
+
+Validation: GIF decoding and loop metadata checked; archive integrity checked.
+No website browser execution, endpoint testing, or live deployment audit performed.
+Repository data values were not fetched; source server/data/store files were read.

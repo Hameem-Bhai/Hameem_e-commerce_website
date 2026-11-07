@@ -1,0 +1,56 @@
+CLEANER GITHUB FILE LIST - SAFE PLAN
+
+GitHub's Code page displays the repository tree above the README. README HTML
+cannot restyle or collapse that surrounding file browser. Organizing root files
+into folders reduces the root list; compressing image bytes does not reduce rows.
+
+IMMEDIATE ACCESS
+After adding README.md, share the repository URL with #readme appended, or a
+link to README.md's rendered file view. GitHub generates heading anchors too.
+
+SAFE FIRST CLEANUP (run from this repository's root)
+1. Save your work and inspect git status.
+2. The existing .gitignore already contains node_modules/ and upload_ready.zip.
+   They remain listed because they were tracked earlier.
+3. Stop tracking just those generated paths, keeping local copies:
+
+   git rm -r --cached --ignore-unmatch node_modules
+   git rm --cached --ignore-unmatch upload_ready.zip
+   git status
+
+4. Review staged changes. Stage README.md and docs/assets/dokan-studio.gif.
+5. Commit, then pull remote updates if needed and push.
+
+Keep package.json and package-lock.json tracked. npm ci reinstalls dependencies.
+These commands do NOT remove old Git history and do NOT remediate leaked secrets.
+Do not run git clean or delete source files merely to shorten the root listing.
+
+SUGGESTED FUTURE LAYOUT (not applied by this pack)
+  README.md
+  package.json
+  package-lock.json
+  server.js
+  .env.example
+  .gitignore
+  public/          HTML, css/, js/, public product images
+  scripts/         one-off Python maintenance utilities
+  tests/           JS test scripts
+  docs/            README assets, guides, architecture notes
+  branding/        posters, business cards, non-runtime brand exports
+  private-data/   runtime records; outside public/ and untracked
+
+MOVING FILES IS NOT A COSMETIC-ONLY OPERATION
+- Change Express static serving to the intended public/ folder.
+- Update sendFile fallback paths.
+- Update HTML/CSS/JS image references after moving assets.
+- Update deployment output/rewrite settings.
+- Update helper/test paths and avoid exposing private-data/.
+- Test in a separate branch before merging.
+
+Do NOT move all HTML into src/ blindly: it will break the current static server.
+Do NOT ZIP the whole source just to hide files; visitors should inspect real code.
+
+SECURITY FIRST
+server.js currently serves the root and can expose db.json. Moving only banner
+images will not fix that. Remove static database access and GitHub auto-publication
+before using real accounts. Never commit a fresh database containing credentials.
